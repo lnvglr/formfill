@@ -30,8 +30,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files — never commit secrets; example template is allowed
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.local.example
 
 # vercel
 .vercel
@@ -39,3 +44,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE / local tooling (may contain project-specific IDs)
+.cursor/
+.mcp.json
+
+# Cursor agent skills (local tooling, not app source)
+.agents/
+skills-lock.json
+
+# Supabase CLI cache
+supabase/.temp/

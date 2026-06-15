@@ -1,0 +1,7 @@
+-- PII is encrypted at the application layer (AES-256-GCM) before write.
+-- Ciphertext is stored in user_fields.value, application_fields.value,
+-- and user-documents storage objects. The key lives only in the Next.js
+-- deployment secret PII_ENCRYPTION_KEY — not in Supabase.
+--
+-- No schema changes required. Existing plaintext rows are read transparently
+-- until the user updates their profile (then values are re-saved encrypted).
