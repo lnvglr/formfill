@@ -55,3 +55,6 @@ skills-lock.json
 
 # Supabase CLI cache
 supabase/.temp/
+
+# Railway local link config
+.railway/
