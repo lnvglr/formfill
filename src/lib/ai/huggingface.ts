@@ -85,6 +85,15 @@ function resolveModelId(): string {
   const configured =
     process.env.HF_MODEL ?? "meta-llama/Llama-3.3-70B-Instruct";
   const policy = process.env.HF_POLICY; // fastest | cheapest | groq | together etc.
+  const baseUrl = (
+    process.env.HF_BASE_URL ?? "https://router.huggingface.co/v1"
+  ).replace(/\/$/, "");
+  const isHfRouter = baseUrl.includes("huggingface.co");
+
+  // Local OpenAI-compatible servers (Ollama, vLLM, llama.cpp) use plain model IDs.
+  if (!isHfRouter) {
+    return configured;
+  }
 
   if (configured.includes(":")) {
     return configured;

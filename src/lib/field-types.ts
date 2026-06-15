@@ -34,12 +34,21 @@ function isApplicantContext(key: string, question: string): boolean {
   return !/wohnungsgeber|beauftragt|vermieter|eigentu[eë]mer/.test(haystack);
 }
 
-function normalizeFieldQuestion(field: MissingField): string {
+/** Local/cloud models sometimes return `label` instead of `question`. */
+function coerceFieldQuestion(field: MissingField & { label?: string }): string {
+  const fromQuestion = field.question?.trim();
+  if (fromQuestion) return fromQuestion;
+  const fromLabel = field.label?.trim();
+  if (fromLabel) return fromLabel;
+  return getFieldDisplayLabel(field.key);
+}
+
+function normalizeFieldQuestion(field: MissingField & { label?: string }): string {
   const canonical = normalizeProfileKey(field.key);
-  const question = field.question.trim();
+  const question = coerceFieldQuestion(field);
   const haystack = `${field.key} ${question}`.toLowerCase();
 
-  if (canonical === "name" && isApplicantContext(field.key, field.question)) {
+  if (canonical === "name" && isApplicantContext(field.key, question)) {
     if (
       /^vor-?\s*und\s*nachname$/i.test(question) ||
       /^nachname,?\s*vorname(s)?$/i.test(question) ||
@@ -316,7 +325,9 @@ function generateInfo(field: MissingField): string {
   );
 }
 
-export function enrichMissingField(field: MissingField): MissingField {
+export function enrichMissingField(
+  field: MissingField & { label?: string }
+): MissingField {
   const question = normalizeFieldQuestion(field);
   const options = getFieldOptions(field.key, question, field.options);
   const type = normalizeFieldType(field.type, field.key, question, options);
