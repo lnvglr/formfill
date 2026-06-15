@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Заявления, которые заполняют себя сами",
+    "description": "Загрузите заявление. ИИ распознаёт недостающие данные и автоматически заполняет формы.",
+    "loginTitle": "Вход — Formfill",
+    "loginDescription": "Войдите в Formfill с помощью Passkey или кода по электронной почте.",
+    "adminTitle": "Админ — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "close": "Закрыть",
+    "back": "Назад",
+    "or": "или",
+    "admin": "Админ",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Язык"
+  },
+  "views": {
+    "upload": {
+      "title": "Новое заявление",
+      "subtitle": "Загрузите PDF и заполните его"
+    },
+    "profile": {
+      "title": "Мой профиль",
+      "subtitle": "Сохранённые данные для будущих заявлений"
+    },
+    "history": {
+      "title": "История",
+      "subtitle": "Текущие и завершённые заявления"
+    },
+    "settings": {
+      "title": "Настройки",
+      "subtitle": "Аккаунт, оформление и данные"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "Как это работает",
+      "features": "Функции",
+      "faq": "FAQ",
+      "signIn": "Войти",
+      "getStarted": "Начать"
+    },
+    "hero": {
+      "title": "Заявления, которые заполняют себя сами",
+      "subtitle": "Загрузите PDF-форму, ответьте только на недостающие вопросы — Formfill автоматически заполнит остальное.",
+      "ctaPrimary": "Заполнить заявление",
+      "ctaSecondary": "Узнать больше",
+      "footnote": "Начните бесплатно · Кредитная карта не нужна"
+    },
+    "demo": {
+      "hint": "Не хватает 1 поля — Formfill спрашивает только необходимое"
+    },
+    "steps": {
+      "upload": {
+        "title": "Загрузить PDF",
+        "description": "Загрузите любое заявление — Formfill автоматически распознаёт поля формы."
+      },
+      "questions": {
+        "title": "Ответить на вопросы",
+        "description": "Дополните только недостающие данные. Ваш профиль заполняет известные поля заранее."
+      },
+      "download": {
+        "title": "Скачать заполненный PDF",
+        "description": "Скачайте готовую форму — готова к печати или отправке."
+      }
+    },
+    "howItWorks": {
+      "title": "Как это работает",
+      "subtitle": "Три шага от пустой формы до заполненного заявления."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "Сопоставление полей с ИИ",
+        "description": "ИИ сопоставляет поля формы с данными вашего профиля — даже при необычных названиях."
+      },
+      "profile": {
+        "title": "Личный профиль",
+        "description": "Сохраните имя, адрес и другие данные один раз. Они будут использоваться в каждом заявлении."
+      },
+      "vault": {
+        "title": "Зашифрованное хранилище",
+        "description": "Конфиденциальные данные шифруются на стороне клиента. Только вы имеете доступ к своему профилю."
+      },
+      "preview": {
+        "title": "Предпросмотр в реальном времени",
+        "description": "Смотрите в реальном времени, какие поля заполняются — до скачивания PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "Меньше печатать, быстрее закончить",
+      "subtitle": "Formfill создан для повторяющихся государственных форм — с акцентом на конфиденциальность и точность."
+    },
+    "faq": {
+      "title": "Частые вопросы",
+      "subtitle": "Кратко — всё важное о Formfill.",
+      "pdfTypes": {
+        "question": "Какие PDF-формы поддерживаются?",
+        "answer": "Formfill работает с PDF, содержащими заполняемые поля формы (AcroForms). Отсканированные документы без интерактивных полей пока не поддерживаются."
+      },
+      "dataStorage": {
+        "question": "Сохраняются ли мои данные?",
+        "answer": "Ваш профиль хранится в зашифрованном виде на стороне клиента. Загруженные PDF используются только для обработки и не хранятся постоянно на наших серверах."
+      },
+      "pricing": {
+        "question": "Formfill платный?",
+        "answer": "Вы можете попробовать Formfill бесплатно — предпросмотр всегда бесплатен. С аккаунтом вы получаете 2 бесплатных скачивания в месяц. Дополнительные скачивания или Pro-подписка с безлимитными скачиваниями — по желанию."
+      },
+      "account": {
+        "question": "Нужен ли аккаунт?",
+        "answer": "Нет. Вы можете начать как гость и сразу заполнить форму. С аккаунтом вы сохраняете профиль и отслеживаете заявления."
+      },
+      "protection": {
+        "question": "Как защищены мои данные?",
+        "answer": "Конфиденциальные данные профиля шифруются на вашем устройстве до сохранения. Только вы имеете доступ к своему хранилищу."
+      },
+      "aiPrivacy": {
+        "question": "Видит ли ИИ мои личные данные?",
+        "answer": "Нет. ИИ анализирует только текст формы и названия полей для сопоставления — не ваши заполненные данные профиля."
+      }
+    },
+    "cta": {
+      "title": "Готовы к следующему заявлению?",
+      "subtitle": "Начните как гость или создайте аккаунт, чтобы сохранить профиль и управлять заявлениями.",
+      "button": "Попробовать сейчас"
+    },
+    "footer": {
+      "tagline": "Умное заполнение PDF-форм — made in Germany.",
+      "product": "Продукт",
+      "openApp": "Открыть приложение",
+      "privacy": "Конфиденциальность",
+      "privacyText": "Ваш профиль шифруется на стороне клиента. PDF только обрабатываются, не хранятся постоянно.",
+      "beta": "Бета — функции могут меняться"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Не удалось начать гостевую сессию. Включите анонимный вход в Supabase.",
+        "sessionLoad": "Не удалось загрузить сессию."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Гость",
+      "downloads": "{count} скачиваний"
+    },
+    "newApplication": {
+      "desktop": "+ Заполнить новое заявление",
+      "mobile": "+ Новое"
+    },
+    "createAccount": {
+      "desktop": "Создать аккаунт",
+      "mobile": "Войти"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Главная навигация",
+    "upload": "Заявление",
+    "profile": "Профиль",
+    "history": "История",
+    "settings": "Ещё"
+  },
+  "upload": {
+    "title": "Анализ PDF-заявления",
+    "subtitle": "Загрузите заявление, ответьте на несколько вопросов, подпишите — и скачайте заполненный PDF.",
+    "dropzone": {
+      "title": "Перетащите PDF сюда или нажмите",
+      "hint": "Договор аренды, заявление в страховую, регистрация, визовая форма…"
+    },
+    "status": {
+      "reading": "Чтение PDF…",
+      "analyzing": "ИИ анализирует заявление…",
+      "translating": "Перевод содержимого формы…",
+      "filling": "PDF заполняется…"
+    },
+    "error": {
+      "unknown": "Неизвестная ошибка",
+      "analysis": "Анализ не удался",
+      "translation": "Перевод не удался",
+      "save": "Сохранение не удалось",
+      "fill": "Ошибка заполнения",
+      "retry": "Повторить",
+      "downloadUnavailable": "Скачивание невозможно",
+      "downloadFailed": "Скачивание не удалось"
+    },
+    "toast": {
+      "invalidFile": "Пожалуйста, загрузите PDF-файл.",
+      "formRecognized": "Форма распознана: {title} ({jurisdiction})",
+      "missingFields": "Не хватает {count} данных — пожалуйста, дополните.",
+      "createAccount": "Создайте аккаунт, чтобы сохранять заявления и управлять скачиваниями.",
+      "saveFailed": "Не удалось сохранить заявление.",
+      "downloadUnlocked": "Скачивание разблокировано"
+    },
+    "followUp": {
+      "title": "Дополнить недостающие данные"
+    },
+    "preview": {
+      "emptyForm": "Пустая форма",
+      "filled": "Заполненный предпросмотр",
+      "filledPdf": "Заполненный PDF",
+      "pdf": "Предпросмотр PDF",
+      "show": "Показать предпросмотр формы",
+      "hide": "Скрыть предпросмотр",
+      "redownload": "Скачать снова",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Заполненное заявление",
+      "download": "Скачать PDF",
+      "copy": "Копировать текст",
+      "copied": "Скопировано",
+      "newApplication": "Новое заявление",
+      "noFormFields": "В этом PDF не было заполняемых полей — данные добавлены как сводка, подпись размещена.",
+      "missingPrefix": "Не заполнено:",
+      "addMissing": "Дополнить недостающие данные"
+    },
+    "copyResult": {
+      "missingHeader": "Не заполнено (данные отсутствуют):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Поля",
+      "groups": "Группы",
+      "review": "Проверить"
+    },
+    "addField": "Добавить поле",
+    "empty": "Пока нет данных профиля. Загрузите заявление или добавьте поля вручную.",
+    "badge": {
+      "review": "проверить"
+    },
+    "updated": "Обновлено",
+    "signature": {
+      "title": "Подпись",
+      "hint": "Нарисуйте или загрузите изображение — будет использоваться в заявлениях.",
+      "add": "Добавить подпись",
+      "alt": "Сохранённая подпись"
+    },
+    "toast": {
+      "saved": "Сохранено",
+      "saveFailed": "Сохранение не удалось",
+      "deleted": "Поле удалено",
+      "deleteFailed": "Удаление не удалось"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    }
+  },
+  "starterForm": {
+    "title": "Добавить поля",
+    "subtitle": "Имя, дата рождения, контакты и адрес — можно несколько email и адресов.",
+    "label": {
+      "name": "Имя",
+      "birthDate": "Дата рождения",
+      "birthPlace": "Место рождения",
+      "email": "Электронная почта",
+      "phone": "Телефон"
+    },
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Оформление",
+      "subtitle": "Выберите цветовую схему интерфейса."
+    },
+    "theme": {
+      "light": "Светлая",
+      "dark": "Тёмная",
+      "system": "Системная"
+    },
+    "account": {
+      "title": "Аккаунт",
+      "guestHint": "Вы используете Formfill как гость. Создайте аккаунт, чтобы сохранять заявления, использовать историю и управлять скачиваниями.",
+      "create": "Создать аккаунт"
+    },
+    "security": {
+      "title": "Безопасность",
+      "encryption": "Ваш профиль и PDF шифруются на этом устройстве до сохранения. Даже мы не можем прочитать ваши данные.",
+      "passkeys": "Passkey защищают аккаунт от фишинга. Зашифрованный профиль привязан к этому устройству — на новом устройстве создаёте его заново.",
+      "passkeysTitle": "Passkey"
+    },
+    "data": {
+      "title": "Данные",
+      "deleteHint": "Безвозвратно удалить все данные профиля, заявления и загруженные PDF.",
+      "deleteButton": "Удалить все данные",
+      "deleteDialog": {
+        "title": "Удалить все данные?",
+        "description": "Профиль, история и сохранённые PDF будут удалены. Это действие нельзя отменить.",
+        "confirm": "Удалить"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "ОШИБКА",
+      "incomplete": "НЕПОЛНОЕ",
+      "complete": "ЗАВЕРШЕНО"
+    },
+    "incompleteBannerOne": "1 заявление ещё не завершено — недостающие поля можно дополнить при следующей загрузке.",
+    "incompleteBannerOther": "{count} заявлений ещё не завершены — недостающие поля можно дополнить при следующей загрузке.",
+    "empty": "Пока нет обработанных заявлений.",
+    "fieldsFilled": "{count} полей заполнено",
+    "requiredMissing": "· {count} обязательных полей не хватает"
+  },
+  "login": {
+    "backToApp": "К приложению",
+    "error": {
+      "auth": "Вход не удался. Пожалуйста, попробуйте снова."
+    },
+    "footer": {
+      "guestUpgrade": "Профиль и предыдущие данные останутся на этом устройстве.",
+      "signUpHint": "Нет аккаунта? Код по email автоматически создаст его.",
+      "continueAsGuest": "Продолжить без аккаунта"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Войти в Formfill",
+      "createAccount": "Создать аккаунт"
+    },
+    "subtitle": {
+      "signIn": "Безопасно и без пароля — данные профиля остаются зашифрованными на этом устройстве.",
+      "guestUpgrade": "Профиль и предыдущие данные останутся на этом устройстве."
+    },
+    "passkey": {
+      "signIn": "Войти с Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello или ключ безопасности",
+      "unsupported": "Ваш браузер не поддерживает Passkey — войдите по email."
+    },
+    "email": {
+      "signIn": "Войти с кодом по email",
+      "label": "Электронная почта",
+      "placeholder": "vy@primer.ru",
+      "sendCode": "Отправить код",
+      "back": "Назад"
+    },
+    "otp": {
+      "message": "Мы отправили вам код по email.",
+      "label": "Код подтверждения",
+      "submitSignIn": "Войти",
+      "submitCreateAccount": "Создать аккаунт",
+      "changeEmail": "Использовать другой email"
+    },
+    "setupPasskey": {
+      "title": "Настроить Passkey?",
+      "description": "В следующий раз вы войдёте с Face ID, Touch ID или Windows Hello — без кода по email.",
+      "add": "Добавить Passkey",
+      "later": "Настроить позже"
+    }
+  },
+  "billing": {
+    "loading": "Загрузка данных аккаунта…",
+    "account": {
+      "title": "Аккаунт",
+      "signInHint": "Passkey или код по email для входа",
+      "noEmail": "Email не указан"
+    },
+    "signOut": "Выйти",
+    "downloads": {
+      "title": "Скачивания и подписка"
+    },
+    "pro": {
+      "active": "Formfill Pro активен",
+      "unlimited": "Безлимитные скачивания PDF",
+      "validUntil": "· действует до {date}",
+      "manage": "Управлять подпиской",
+      "upgrade": "Стать Pro"
+    },
+    "credits": {
+      "balance": "Баланс скачиваний",
+      "freePlan": "Бесплатный план: {count} скачиваний в месяц. Предпросмотр всегда бесплатен.",
+      "buy": "Купить {count} скачиваний"
+    },
+    "error": {
+      "checkout": "Оплата не удалась",
+      "portal": "Портал недоступен"
+    }
+  },
+  "upgrade": {
+    "title": "Скачать PDF",
+    "description": "Предпросмотр и заполнение бесплатны. Для скачивания нужен баланс.",
+    "balance": {
+      "pro": "Pro — безлимит",
+      "credits": "{count} скачивание(й)"
+    },
+    "credits": {
+      "title": "{count} скачиваний",
+      "subtitle": "Разовая покупка — идеально для редких заявлений"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Безлимитные скачивания, отмена ежемесячно"
+    },
+    "refresh": "Обновить статус",
+    "error": {
+      "checkout": "Оплата не удалась"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Обязательное",
+      "optional": "Необязательное",
+      "stale": "Устарело?"
+    },
+    "hint": {
+      "required": "Обязательное поле для этого заявления",
+      "optional": "Необязательно — оставьте пустым, чтобы пропустить",
+      "shiftEnter": "Shift+Enter для продолжения · {suffix}",
+      "cityEnter": "Enter в поле города для продолжения · {suffix}",
+      "enter": "Enter для продолжения · {suffix}"
+    },
+    "picker": {
+      "address": "Использовать сохранённый адрес",
+      "email": "Использовать сохранённый email",
+      "phone": "Использовать сохранённый телефон"
+    },
+    "signature": {
+      "title": "Добавить подпись",
+      "subtitle": "Нарисуйте подпись или загрузите изображение — она будет вставлена в PDF.",
+      "infoTitle": "Подпись",
+      "info": "Ваша подпись вставляется прямо в PDF и сохраняется в профиле. Вы можете нарисовать или загрузить изображение. В следующем заявлении можно использовать снова.",
+      "drawOrUpload": "Подпишите здесь или загрузите изображение",
+      "profileHint": "Сохраняется в профиле и используется повторно",
+      "uploadImage": "Загрузить изображение",
+      "clear": "Очистить",
+      "uploadFailed": "Загрузка не удалась"
+    },
+    "selfFill": "Это я",
+    "skipAll": "Пропустить все",
+    "next": "Далее",
+    "submit": {
+      "createPdf": "Создать PDF",
+      "createAndDownload": "Создать и скачать PDF",
+      "updatePdf": "Обновить PDF"
+    },
+    "progress": {
+      "step": "Шаг {current} из {total}",
+      "required": "{count} обяз.",
+      "optional": "необяз.",
+      "answered": "{count} отвечено",
+      "formLabel": "Форма:"
+    },
+    "repeatable": {
+      "empty": "Дополнительные лица ещё не добавлены.",
+      "person": "Лицо {index}",
+      "remove": "Удалить",
+      "addPerson": "Добавить лицо"
+    },
+    "steps": {
+      "birth": {
+        "question": "Данные о рождении",
+        "subquestion": "Дата и место рождения как в удостоверении."
+      },
+      "contact": {
+        "question": "Контактные данные",
+        "subquestion": "Телефон и e-mail для вопросов по заявлению."
+      },
+      "signature_meta": {
+        "question": "Место и дата подписи",
+        "subquestion": "Где и когда вы подписываете форму?"
+      },
+      "address": {
+        "own": {
+          "question": "Какой у вас адрес?",
+          "subquestion": "Улица с номером дома, индекс и город — как в форме."
+        },
+        "landlord": {
+          "question": "Где живёт или находится ваш арендодатель?",
+          "subquestion": "Улица, номер дома, индекс и город."
+        },
+        "representative": {
+          "question": "Адрес уполномоченного лица",
+          "subquestion": "Улица, номер дома, индекс и город."
+        }
+      },
+      "name": "Как вас зовут?",
+      "einzugsdatum": "Когда вы переехали в новое жильё?",
+      "elterngeld_schedule": "Выберите месяцы с базовым пособием или Elterngeld Plus для каждого родителя — или стандартный вариант для месяцев 1–12."
+    },
+    "info": {
+      "moreInfo": "Подробнее",
+      "gotIt": "Понятно"
+    },
+    "elterngeld": {
+      "parent": "Родитель {parent}",
+      "standardMonths": "Я подаю заявку на (базовое) родительское пособие за месяцы 1–12",
+      "customHint": "Или выберите базовое пособие или Elterngeld Plus за каждый месяц (не оба).",
+      "basisLabel": "(Базовое) родительское пособие",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Родитель {parent}, месяц {month}, {benefit}",
+      "basisBenefit": "базовое родительское пособие",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Месяцы 15–18 только при преждевременных родах. С 19-го месяца только Elterngeld Plus (без пробелов). Один базовый месяц равен двум месяцам Plus.",
+      "reset": "Сбросить выбор",
+      "errors": {
+        "minMonths": "Родитель {parent}: требуется минимум два месяца (или один месяц базового пособия).",
+        "required": "Укажите хотя бы один период получения пособия."
+      }
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Имя",
+      "strasse": "Улица и номер дома",
+      "postleitzahl": "Индекс",
+      "ort": "Город",
+      "einzugsdatum": "Дата переезда",
+      "geburtsdatum": "Дата рождения",
+      "geburtsort": "Место рождения",
+      "telefon": "Телефон",
+      "email": "E-mail",
+      "unterschrift_ort": "Место (подпись)",
+      "unterschrift_datum": "Дата (подпись)",
+      "wohnungsanschrift": "Адрес проживания",
+      "familienstand": "Семейное положение",
+      "geschlecht": "Пол",
+      "religion": "Религия / конфессия",
+      "staatsangehoerigkeit": "Гражданство",
+      "wohnanschrift": "Адрес проживания",
+      "elterngeld_bezugszeitraum": "Период родительского пособия"
+    },
+    "placeholders": {
+      "strasse": "Примерная ул. 12а",
+      "postleitzahl": "10115",
+      "ort": "Берлин",
+      "date": "ДД.ММ.ГГГГ",
+      "phone": "+49 123 456789",
+      "email": "name@example.com",
+      "address": "Улица, индекс город",
+      "name": "Имя и фамилия",
+      "number": "Введите число",
+      "combobox": "Выберите или введите…",
+      "textarea": "Введите ответ…",
+      "default": "Введите ответ…"
+    },
+    "hints": {
+      "date": "Формат: ДД.ММ.ГГГГ",
+      "phone": "С кодом страны, напр. +49 …",
+      "combobox": "Выберите из списка или введите своё значение",
+      "elterngeld_schedule": "Сетка месяцев для базового пособия и Elterngeld Plus",
+      "textarea": "Enter для новой строки · Shift+Enter для продолжения"
+    },
+    "validation": {
+      "incomplete": "Пожалуйста, заполните поле правильно."
+    },
+    "combobox": {
+      "showSuggestions": "Показать предложения"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  }
+}

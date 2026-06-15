@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Sol·licituds que s'omplen soles",
+    "description": "Puja una sol·licitud. La IA detecta les dades que falten i omple els formularis automàticament.",
+    "loginTitle": "Iniciar sessió — Formfill",
+    "loginDescription": "Inicia sessió a Formfill amb Passkey o codi per correu electrònic.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Cancel·lar",
+    "save": "Desar",
+    "close": "Tancar",
+    "back": "Enrere",
+    "or": "o",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Idioma"
+  },
+  "views": {
+    "upload": {
+      "title": "Nova sol·licitud",
+      "subtitle": "Puja un PDF i fes que s'ompli"
+    },
+    "profile": {
+      "title": "El meu perfil",
+      "subtitle": "Dades guardades per a futures sol·licituds"
+    },
+    "history": {
+      "title": "Historial",
+      "subtitle": "Sol·licituds actuals i completades"
+    },
+    "settings": {
+      "title": "Configuració",
+      "subtitle": "Compte, aparença i dades"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "Com funciona",
+      "features": "Funcions",
+      "faq": "FAQ",
+      "signIn": "Iniciar sessió",
+      "getStarted": "Començar"
+    },
+    "hero": {
+      "title": "Sol·licituds que s'omplen soles",
+      "subtitle": "Puja un formulari PDF, respon només les preguntes que falten — Formfill omple la resta automàticament.",
+      "ctaPrimary": "Omplir sol·licitud",
+      "ctaSecondary": "Saber-ne més",
+      "footnote": "Comença gratis · No cal targeta de crèdit"
+    },
+    "demo": {
+      "hint": "Falta 1 camp — Formfill només demana el necessari"
+    },
+    "steps": {
+      "upload": {
+        "title": "Puja el PDF",
+        "description": "Puja qualsevol sol·licitud — Formfill detecta els camps del formulari automàticament."
+      },
+      "questions": {
+        "title": "Respon les preguntes",
+        "description": "Afegeix només les dades que falten. El teu perfil omple els camps que ja coneix."
+      },
+      "download": {
+        "title": "Baixa el PDF omplert",
+        "description": "Descarrega el formulari ja omplert — llest per imprimir o enviar."
+      }
+    },
+    "howItWorks": {
+      "title": "Com funciona",
+      "subtitle": "En tres passos, d'un formulari buit a una sol·licitud completada."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "Assignació de camps amb IA",
+        "description": "La IA assigna els camps del formulari a les dades del teu perfil — fins i tot amb noms poc habituals."
+      },
+      "profile": {
+        "title": "Perfil personal",
+        "description": "Desa el nom, l'adreça i altres dades una vegada. Es reutilitzaran a cada sol·licitud."
+      },
+      "vault": {
+        "title": "Caixa forta xifrada",
+        "description": "Les dades sensibles es xifren al client. Només tu tens accés al teu perfil."
+      },
+      "preview": {
+        "title": "Vista prèvia en directe",
+        "description": "Veu en temps real quins camps s'omplen — abans de baixar el PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "Menys teclat, acabat més ràpid",
+      "subtitle": "Formfill està pensat per a formularis administratius recurrents — amb prioritat en privadesa i precisió."
+    },
+    "faq": {
+      "title": "Preguntes freqüents",
+      "subtitle": "Curt i clar — tot el que cal saber sobre Formfill.",
+      "pdfTypes": {
+        "question": "Quins formularis PDF funcionen?",
+        "answer": "Formfill funciona amb PDFs que continguin camps de formulari omplibles (AcroForms). Els documents escanejats sense camps interactius no s'admeten actualment."
+      },
+      "dataStorage": {
+        "question": "Es guarden les meves dades?",
+        "answer": "El teu perfil es guarda xifrat al client a la teva caixa forta. Els PDF pujats només s'utilitzen per al processament i no s'emmagatzemen permanentment als nostres servidors."
+      },
+      "pricing": {
+        "question": "Formfill té cost?",
+        "answer": "Pots provar Formfill gratis — la vista prèvia és sempre gratuïta. Amb un compte tens 2 baixades gratuïtes al mes. Baixades addicionals o un abonament Pro amb baixades il·limitades són opcionals."
+      },
+      "account": {
+        "question": "Necessito un compte?",
+        "answer": "No. Pots començar com a convidat i omplir un formulari immediatament. Amb un compte deses el teu perfil i mantens el control de les teves sol·licituds."
+      },
+      "protection": {
+        "question": "Com es protegeixen les meves dades?",
+        "answer": "Les dades sensibles del perfil es xifren al teu dispositiu abans de desar-les. Només tu tens accés a la teva caixa forta."
+      },
+      "aiPrivacy": {
+        "question": "La IA veu les meves dades personals?",
+        "answer": "No. La IA només analitza el text del formulari i els noms dels camps per assignar-los — no les dades del teu perfil omplert."
+      }
+    },
+    "cta": {
+      "title": "Preparat per a la propera sol·licitud?",
+      "subtitle": "Comença com a convidat o crea un compte per desar el teu perfil i gestionar les sol·licituds.",
+      "button": "Prova ara"
+    },
+    "footer": {
+      "tagline": "Ompliment intel·ligent de formularis PDF — made in Germany.",
+      "product": "Producte",
+      "openApp": "Obrir l'app",
+      "privacy": "Privadesa",
+      "privacyText": "El teu perfil es xifra al client. Els PDF només es processen, no es desen permanentment.",
+      "beta": "Beta — les funcions poden canviar"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "No s'ha pogut iniciar la sessió de convidat. Activa l'inici de sessió anònim a Supabase.",
+        "sessionLoad": "No s'ha pogut carregar la sessió."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Convidat",
+      "downloads": "{count} baixades"
+    },
+    "newApplication": {
+      "desktop": "+ Omplir nova sol·licitud",
+      "mobile": "+ Nou"
+    },
+    "createAccount": {
+      "desktop": "Crear compte",
+      "mobile": "Iniciar sessió"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Navegació principal",
+    "upload": "Sol·licitud",
+    "profile": "Perfil",
+    "history": "Historial",
+    "settings": "Més"
+  },
+  "upload": {
+    "title": "Analitzar sol·licitud PDF",
+    "subtitle": "Puja una sol·licitud, respon breument algunes preguntes, signa — i baixa el PDF omplert.",
+    "dropzone": {
+      "title": "Arrossega un PDF aquí o fes clic",
+      "hint": "Contracte de lloguer, sol·licitud d'assegurança de salut, canvi de domicili, formulari de visat…"
+    },
+    "status": {
+      "reading": "Llegint PDF…",
+      "analyzing": "La IA analitza la sol·licitud…",
+      "translating": "Traduint el contingut del formulari…",
+      "filling": "Omplint el PDF…"
+    },
+    "error": {
+      "unknown": "Error desconegut",
+      "analysis": "L'anàlisi ha fallat",
+      "translation": "La traducció ha fallat",
+      "save": "No s'ha pogut desar",
+      "fill": "Error en omplir",
+      "retry": "Torna-ho a provar",
+      "downloadUnavailable": "Baixada no disponible",
+      "downloadFailed": "La baixada ha fallat"
+    },
+    "toast": {
+      "invalidFile": "Puja un fitxer PDF.",
+      "formRecognized": "Formulari reconegut: {title} ({jurisdiction})",
+      "missingFields": "Encara falten {count} dada(es) — completa-les.",
+      "createAccount": "Crea un compte per desar sol·licituds i gestionar baixades.",
+      "saveFailed": "No s'ha pogut desar la sol·licitud.",
+      "downloadUnlocked": "Baixada desbloquejada"
+    },
+    "followUp": {
+      "title": "Completar dades que falten"
+    },
+    "preview": {
+      "emptyForm": "Formulari buit",
+      "filled": "Vista prèvia omplerta",
+      "filledPdf": "PDF omplert",
+      "pdf": "Vista prèvia PDF",
+      "show": "Mostrar vista prèvia del formulari",
+      "hide": "Amagar vista prèvia",
+      "redownload": "Tornar a baixar",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Sol·licitud omplerta",
+      "download": "Baixar PDF",
+      "copy": "Copiar text",
+      "copied": "Copiat",
+      "newApplication": "Nova sol·licitud",
+      "noFormFields": "Aquest PDF no tenia camps de formulari omplibles — les dades s'han adjuntat com a resum i s'ha col·locat la signatura.",
+      "missingPrefix": "Sense omplir:",
+      "addMissing": "Completar dades que falten"
+    },
+    "copyResult": {
+      "missingHeader": "Sense omplir (falten dades):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Camps",
+      "groups": "Grups",
+      "review": "Per revisar"
+    },
+    "addField": "Afegir camp",
+    "empty": "Encara no hi ha dades de perfil. Puja una sol·licitud o afegeix camps manualment.",
+    "badge": {
+      "review": "revisar"
+    },
+    "updated": "Actualitzat",
+    "signature": {
+      "title": "Signatura",
+      "hint": "Dibuixa o puja una imatge — es reutilitzarà a les sol·licituds.",
+      "add": "Afegir signatura",
+      "alt": "Signatura guardada"
+    },
+    "toast": {
+      "saved": "Desat",
+      "saveFailed": "No s'ha pogut desar",
+      "deleted": "Camp eliminat",
+      "deleteFailed": "No s'ha pogut eliminar"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    }
+  },
+  "starterForm": {
+    "title": "Afegir camps",
+    "subtitle": "Nom, data de naixement, contacte i adreça — es poden afegir diversos correus i adreces.",
+    "label": {
+      "name": "Nom",
+      "birthDate": "Data de naixement",
+      "birthPlace": "Lloc de naixement",
+      "email": "Correu electrònic",
+      "phone": "Telèfon"
+    },
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Aparença",
+      "subtitle": "Tria un tema de color per a la interfície."
+    },
+    "theme": {
+      "light": "Clar",
+      "dark": "Fosc",
+      "system": "Sistema"
+    },
+    "account": {
+      "title": "Compte",
+      "guestHint": "Estàs utilitzant Formfill com a convidat. Crea un compte per desar sol·licituds, utilitzar l'historial i gestionar baixades.",
+      "create": "Crear compte"
+    },
+    "security": {
+      "title": "Seguretat",
+      "encryption": "El teu perfil i els teus PDF es xifren en aquest dispositiu abans de desar-los. Ni tan sols nosaltres podem llegir les teves dades.",
+      "passkeys": "Els Passkeys protegeixen el teu compte contra el phishing. El teu perfil xifrat queda vinculat a aquest dispositiu — en un dispositiu nou el tornes a crear una vegada.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "Dades",
+      "deleteHint": "Eliminar permanentment totes les dades del perfil, sol·licituds i PDF pujats.",
+      "deleteButton": "Eliminar totes les dades",
+      "deleteDialog": {
+        "title": "Eliminar totes les dades?",
+        "description": "S'eliminaran el perfil, l'historial i els PDF guardats. Aquesta acció no es pot desfer.",
+        "confirm": "Eliminar"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "ERROR",
+      "incomplete": "INCOMPLET",
+      "complete": "COMPLET"
+    },
+    "incompleteBannerOne": "1 sol·licitud encara està incompleta — els camps que falten es poden completar en la propera pujada.",
+    "incompleteBannerOther": "{count} sol·licituds encara estan incompletes — els camps que falten es poden completar en la propera pujada.",
+    "empty": "Encara no s'ha processat cap sol·licitud.",
+    "fieldsFilled": "{count} camps omplerts",
+    "requiredMissing": "· {count} camps obligatoris que falten"
+  },
+  "login": {
+    "backToApp": "Tornar a l'app",
+    "error": {
+      "auth": "L'inici de sessió ha fallat. Torna-ho a provar."
+    },
+    "footer": {
+      "guestUpgrade": "El perfil i les dades anteriors es mantenen en aquest dispositiu.",
+      "signUpHint": "Encara no tens compte? El codi per correu en crea un automàticament.",
+      "continueAsGuest": "Continuar sense compte"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Iniciar sessió a Formfill",
+      "createAccount": "Crear compte"
+    },
+    "subtitle": {
+      "signIn": "Segur i sense contrasenya — les dades del teu perfil queden xifrades en aquest dispositiu.",
+      "guestUpgrade": "El perfil i les dades anteriors es mantenen en aquest dispositiu."
+    },
+    "passkey": {
+      "signIn": "Iniciar sessió amb Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello o clau de seguretat",
+      "unsupported": "El teu navegador no admet Passkeys — inicia sessió per correu electrònic."
+    },
+    "email": {
+      "signIn": "Iniciar sessió amb codi per correu",
+      "label": "Correu electrònic",
+      "placeholder": "tu@exemple.cat",
+      "sendCode": "Enviar codi",
+      "back": "Enrere"
+    },
+    "otp": {
+      "message": "T'hem enviat un codi per correu electrònic.",
+      "label": "Codi de confirmació",
+      "submitSignIn": "Iniciar sessió",
+      "submitCreateAccount": "Crear compte",
+      "changeEmail": "Utilitzar un altre correu"
+    },
+    "setupPasskey": {
+      "title": "Configurar un Passkey?",
+      "description": "La propera vegada iniciaràs sessió amb Face ID, Touch ID o Windows Hello — sense codi per correu.",
+      "add": "Afegir Passkey",
+      "later": "Configurar més tard"
+    }
+  },
+  "billing": {
+    "loading": "Carregant informació del compte…",
+    "account": {
+      "title": "Compte",
+      "signInHint": "Passkey o codi per correu per iniciar sessió",
+      "noEmail": "Cap correu registrat"
+    },
+    "signOut": "Tancar sessió",
+    "downloads": {
+      "title": "Baixades i abonament"
+    },
+    "pro": {
+      "active": "Formfill Pro actiu",
+      "unlimited": "Baixades PDF il·limitades",
+      "validUntil": "· vàlid fins al {date}",
+      "manage": "Gestionar abonament",
+      "upgrade": "Passar a Pro"
+    },
+    "credits": {
+      "balance": "Saldo de baixades",
+      "freePlan": "Pla gratuït: {count} baixades al mes. La vista prèvia és sempre gratuïta.",
+      "buy": "Comprar {count} baixades"
+    },
+    "error": {
+      "checkout": "El pagament ha fallat",
+      "portal": "Portal no disponible"
+    }
+  },
+  "upgrade": {
+    "title": "Baixar PDF",
+    "description": "La vista prèvia i l'ompliment són gratuïts. Per baixar cal tenir saldo.",
+    "balance": {
+      "pro": "Pro — il·limitat",
+      "credits": "{count} baixada(es)"
+    },
+    "credits": {
+      "title": "{count} baixades",
+      "subtitle": "Pagament únic — ideal per a sol·licituds ocasionals"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Baixades il·limitades, cancel·lable mensualment"
+    },
+    "refresh": "Actualitzar estat",
+    "error": {
+      "checkout": "El pagament ha fallat"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Obligatori",
+      "optional": "Opcional",
+      "stale": "Desactualitzat?"
+    },
+    "hint": {
+      "required": "Camp obligatori per a aquesta sol·licitud",
+      "optional": "Opcional — deixa en blanc per ometre",
+      "shiftEnter": "Maj+Enter per continuar · {suffix}",
+      "cityEnter": "Enter al camp de localitat per continuar · {suffix}",
+      "enter": "Enter per continuar · {suffix}"
+    },
+    "picker": {
+      "address": "Utilitzar adreça guardada",
+      "email": "Utilitzar correu guardat",
+      "phone": "Utilitzar telèfon guardat"
+    },
+    "info": {
+      "moreInfo": "Més informació",
+      "gotIt": "Entesos"
+    },
+    "signature": {
+      "title": "Afegir signatura",
+      "subtitle": "Dibuixa la teva signatura o puja una imatge — s'inserirà al PDF.",
+      "infoTitle": "Signatura",
+      "info": "La teva signatura s'insereix directament al PDF i es desa al teu perfil. Pots dibuixar-la o pujar-la com a imatge. A la propera sol·licitud la podràs reutilitzar.",
+      "drawOrUpload": "Signa aquí o puja una imatge",
+      "profileHint": "Es desa al teu perfil i es reutilitza",
+      "uploadImage": "Pujar imatge",
+      "clear": "Esborrar",
+      "uploadFailed": "La pujada ha fallat"
+    },
+    "elterngeld": {
+      "parent": "Progenitor {parent}",
+      "standardMonths": "Sol·licito (l'auxili parental bàsic) per als mesos 1–12",
+      "customHint": "O alternativament: tria l'auxili parental bàsic o Elterngeld Plus per mes (no ambdós).",
+      "basisLabel": "Auxili parental (bàsic)",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Progenitor {parent}, mes {month}, {benefit}",
+      "basisBenefit": "auxili parental bàsic",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Mesos 15–18 només en naixements prematurs. A partir del mes 19 només Elterngeld Plus (sense buits). Un mes bàsic equival a dos mesos Plus.",
+      "reset": "Restablir selecció",
+      "errors": {
+        "minMonths": "Progenitor {parent}: calen almenys dos mesos (o un mes d'auxili parental bàsic).",
+        "required": "Si us plau, indica almenys un període de percepció."
+      }
+    },
+    "selfFill": "Soc jo",
+    "skipAll": "Ometre tot",
+    "next": "Següent",
+    "submit": {
+      "createPdf": "Crear PDF",
+      "createAndDownload": "Crear PDF i baixar",
+      "updatePdf": "Actualitzar PDF"
+    },
+    "progress": {
+      "step": "Pas {current} de {total}",
+      "required": "{count} obligatoris",
+      "optional": "opcional",
+      "answered": "{count} respostes",
+      "formLabel": "Formulari:"
+    },
+    "repeatable": {
+      "empty": "Encara no s'han afegit més persones.",
+      "person": "Persona {index}",
+      "remove": "Eliminar",
+      "addPerson": "Afegir persona"
+    },
+    "steps": {
+      "birth": {
+        "question": "Dades de naixement",
+        "subquestion": "Data i lloc de naixement com al document d'identitat."
+      },
+      "contact": {
+        "question": "Dades de contacte",
+        "subquestion": "Telèfon i correu per a consultes sobre aquesta sol·licitud."
+      },
+      "signature_meta": {
+        "question": "Lloc i data de la signatura",
+        "subquestion": "On i quan signes el formulari?"
+      },
+      "address": {
+        "own": {
+          "question": "Quina és la teva adreça?",
+          "subquestion": "Carrer amb número, codi postal i ciutat — com al formulari."
+        },
+        "landlord": {
+          "question": "On viu o té la seu el teu propietari?",
+          "subquestion": "Carrer, número, codi postal i ciutat."
+        },
+        "representative": {
+          "question": "Adreça de la persona autoritzada",
+          "subquestion": "Carrer, número, codi postal i ciutat."
+        }
+      },
+      "name": "Com et dius?",
+      "einzugsdatum": "Quan et vas mudar al teu nou habitatge?",
+      "elterngeld_schedule": "Tria els mesos amb prestació parental bàsica o Elterngeld Plus per a cada progenitor — o l'opció predeterminada per als mesos 1–12."
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Nom",
+      "strasse": "Carrer i número",
+      "postleitzahl": "Codi postal",
+      "ort": "Ciutat",
+      "einzugsdatum": "Data de mudança",
+      "geburtsdatum": "Data de naixement",
+      "geburtsort": "Lloc de naixement",
+      "telefon": "Telèfon",
+      "email": "Correu electrònic",
+      "unterschrift_ort": "Lloc (signatura)",
+      "unterschrift_datum": "Data (signatura)",
+      "wohnungsanschrift": "Adreça de residència",
+      "familienstand": "Estat civil",
+      "geschlecht": "Gènere",
+      "religion": "Religió / confessió",
+      "staatsangehoerigkeit": "Nacionalitat",
+      "wohnanschrift": "Adreça de residència",
+      "elterngeld_bezugszeitraum": "Període de prestació parental"
+    },
+    "placeholders": {
+      "strasse": "Carrer Exemple 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlín",
+      "date": "DD.MM.AAAA",
+      "phone": "+49 123 456789",
+      "email": "nom@exemple.cat",
+      "address": "Carrer, CP ciutat",
+      "name": "Nom i cognoms",
+      "number": "Introdueix un número",
+      "combobox": "Seleccionar o escriure…",
+      "textarea": "Introdueix la resposta…",
+      "default": "Introdueix la resposta…"
+    },
+    "hints": {
+      "date": "Format: DD.MM.AAAA",
+      "phone": "Amb prefix internacional, p. ex. +49 …",
+      "combobox": "Tria de la llista o introdueix el teu propi valor",
+      "elterngeld_schedule": "Graella de mesos per a prestació parental bàsica i Elterngeld Plus",
+      "textarea": "Enter per a nova línia · Maj+Enter per continuar"
+    },
+    "validation": {
+      "incomplete": "Si us plau, omple aquest camp correctament."
+    },
+    "combobox": {
+      "showSuggestions": "Mostrar suggeriments"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  }
+}

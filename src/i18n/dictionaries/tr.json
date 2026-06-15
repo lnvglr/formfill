@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Kendi kendini dolduran başvurular",
+    "description": "Bir başvuru yükleyin. Yapay zeka eksik verileri tanır ve formları otomatik doldurur.",
+    "loginTitle": "Giriş — Formfill",
+    "loginDescription": "Formfill'e Passkey veya e-posta kodu ile giriş yapın.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "close": "Kapat",
+    "back": "Geri",
+    "or": "veya",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "SSS"
+  },
+  "localeSwitcher": {
+    "label": "Dil"
+  },
+  "views": {
+    "upload": {
+      "title": "Yeni başvuru",
+      "subtitle": "PDF yükleyin ve doldurulmasını sağlayın"
+    },
+    "profile": {
+      "title": "Profilim",
+      "subtitle": "Gelecekteki başvurular için kayıtlı bilgiler"
+    },
+    "history": {
+      "title": "Geçmiş",
+      "subtitle": "Güncel ve tamamlanan başvurular"
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "subtitle": "Hesap, görünüm ve veriler"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "Nasıl çalışır",
+      "features": "Özellikler",
+      "faq": "SSS",
+      "signIn": "Giriş",
+      "getStarted": "Başla"
+    },
+    "hero": {
+      "title": "Kendi kendini dolduran başvurular",
+      "subtitle": "Bir PDF formu yükleyin, yalnızca eksik soruları yanıtlayın — Formfill geri kalanını otomatik doldurur.",
+      "ctaPrimary": "Başvuruyu doldur",
+      "ctaSecondary": "Daha fazla bilgi",
+      "footnote": "Ücretsiz başlayın · Kredi kartı gerekmez"
+    },
+    "demo": {
+      "hint": "1 alan eksik — Formfill yalnızca gerekli olanı sorar"
+    },
+    "steps": {
+      "upload": {
+        "title": "PDF yükle",
+        "description": "Herhangi bir başvuru yükleyin — Formfill form alanlarını otomatik tanır."
+      },
+      "questions": {
+        "title": "Soruları yanıtla",
+        "description": "Yalnızca eksik bilgileri tamamlayın. Profiliniz bilinen alanları önceden doldurur."
+      },
+      "download": {
+        "title": "Doldurulmuş PDF indir",
+        "description": "Tamamlanmış formu indirin — yazdırmaya veya göndermeye hazır."
+      }
+    },
+    "howItWorks": {
+      "title": "Nasıl çalışır",
+      "subtitle": "Üç adımda boş formdan doldurulmuş başvuruya."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "Yapay zeka destekli alan eşleme",
+        "description": "Yapay zeka form alanlarını profil verilerinizle eşleştirir — olağandışı adlandırmalarda bile."
+      },
+      "profile": {
+        "title": "Kişisel profil",
+        "description": "Ad, adres ve diğer bilgileri bir kez kaydedin. Her başvuruda yeniden kullanılır."
+      },
+      "vault": {
+        "title": "Şifreli kasa",
+        "description": "Hassas veriler istemci tarafında şifrelenir. Profilinize yalnızca siz erişebilirsiniz."
+      },
+      "preview": {
+        "title": "Canlı önizleme",
+        "description": "PDF indirmeden önce hangi alanların doldurulduğunu gerçek zamanlı görün."
+      }
+    },
+    "featuresSection": {
+      "title": "Daha az yazın, daha hızlı bitirin",
+      "subtitle": "Formfill tekrarlayan resmi formlar için tasarlandı — gizlilik ve doğruluk odaklı."
+    },
+    "faq": {
+      "title": "Sık sorulan sorular",
+      "subtitle": "Kısa ve öz — Formfill hakkında bilmeniz gereken her şey.",
+      "pdfTypes": {
+        "question": "Hangi PDF formları çalışır?",
+        "answer": "Formfill doldurulabilir form alanları içeren PDF'lerle (AcroForms) çalışır. Etkileşimli alanı olmayan taranmış belgeler şu anda desteklenmiyor."
+      },
+      "dataStorage": {
+        "question": "Verilerim kaydediliyor mu?",
+        "answer": "Profiliniz istemci tarafında şifrelenmiş kasanızda saklanır. Yüklenen PDF'ler yalnızca işlem için kullanılır ve sunucularımızda kalıcı olarak saklanmaz."
+      },
+      "pricing": {
+        "question": "Formfill ücretli mi?",
+        "answer": "Formfill'i ücretsiz deneyebilirsiniz — önizleme her zaman ücretsizdir. Bir hesapla ayda 2 ücretsiz indirme alırsınız. Ek indirmeler veya sınırsız indirmeli Pro aboneliği isteğe bağlıdır."
+      },
+      "account": {
+        "question": "Hesaba ihtiyacım var mı?",
+        "answer": "Hayır. Misafir olarak başlayıp hemen bir form doldurabilirsiniz. Bir hesapla profilinizi kaydeder ve başvurularınızı takip edersiniz."
+      },
+      "protection": {
+        "question": "Verilerim nasıl korunuyor?",
+        "answer": "Hassas profil verileri kaydedilmeden önce cihazınızda şifrelenir. Kasanıza yalnızca siz erişebilirsiniz."
+      },
+      "aiPrivacy": {
+        "question": "Yapay zeka kişisel bilgilerimi görüyor mu?",
+        "answer": "Hayır. Yapay zeka yalnızca form metnini ve alan adlarını analiz ederek alanları eşleştirir — doldurulmuş profil verilerinizi değil."
+      }
+    },
+    "cta": {
+      "title": "Bir sonraki başvurunuza hazır mısınız?",
+      "subtitle": "Misafir olarak başlayın veya profilinizi kaydetmek ve başvuruları yönetmek için hesap oluşturun.",
+      "button": "Şimdi dene"
+    },
+    "footer": {
+      "tagline": "Akıllı PDF form doldurma — Almanya'da yapıldı.",
+      "product": "Ürün",
+      "openApp": "Uygulamayı aç",
+      "privacy": "Gizlilik",
+      "privacyText": "Profiliniz istemci tarafında şifrelenir. PDF'ler yalnızca işlenir, kalıcı olarak saklanmaz.",
+      "beta": "Beta — özellikler değişebilir"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Misafir oturumu başlatılamadı. Lütfen Supabase'de anonim girişi etkinleştirin.",
+        "sessionLoad": "Oturum yüklenemedi."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Misafir",
+      "downloads": "{count} indirme"
+    },
+    "newApplication": {
+      "desktop": "+ Yeni başvuru doldur",
+      "mobile": "+ Yeni"
+    },
+    "createAccount": {
+      "desktop": "Hesap oluştur",
+      "mobile": "Giriş"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Ana gezinme",
+    "upload": "Başvuru",
+    "profile": "Profil",
+    "history": "Geçmiş",
+    "settings": "Daha fazla"
+  },
+  "upload": {
+    "title": "PDF başvurusunu analiz et",
+    "subtitle": "Bir başvuru yükleyin, kısa soruları yanıtlayın, imzalayın — ve doldurulmuş PDF'i indirin.",
+    "dropzone": {
+      "title": "PDF'i buraya sürükleyin veya tıklayın",
+      "hint": "Kira sözleşmesi, sağlık sigortası başvurusu, adres kaydı, vize formu…"
+    },
+    "status": {
+      "reading": "PDF okunuyor…",
+      "analyzing": "Yapay zeka başvuruyu analiz ediyor…",
+      "translating": "Form içeriği çevriliyor…",
+      "filling": "PDF dolduruluyor…"
+    },
+    "error": {
+      "unknown": "Bilinmeyen hata",
+      "analysis": "Analiz başarısız",
+      "translation": "Çeviri başarısız",
+      "save": "Kaydetme başarısız",
+      "fill": "Doldurma hatası",
+      "retry": "Tekrar dene",
+      "downloadUnavailable": "İndirme mümkün değil",
+      "downloadFailed": "İndirme başarısız"
+    },
+    "toast": {
+      "invalidFile": "Lütfen bir PDF dosyası yükleyin.",
+      "formRecognized": "Form tanındı: {title} ({jurisdiction})",
+      "missingFields": "{count} bilgi eksik — lütfen tamamlayın.",
+      "createAccount": "Başvuruları kaydetmek ve indirmeleri yönetmek için hesap oluşturun.",
+      "saveFailed": "Başvuru kaydedilemedi.",
+      "downloadUnlocked": "İndirme etkinleştirildi"
+    },
+    "followUp": {
+      "title": "Eksik bilgileri tamamla"
+    },
+    "preview": {
+      "emptyForm": "Boş form",
+      "filled": "Doldurulmuş önizleme",
+      "filledPdf": "Doldurulmuş PDF",
+      "pdf": "PDF önizleme",
+      "show": "Form önizlemesini göster",
+      "hide": "Önizlemeyi gizle",
+      "redownload": "Tekrar indir",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Doldurulmuş başvuru",
+      "download": "PDF indir",
+      "copy": "Metni kopyala",
+      "copied": "Kopyalandı",
+      "newApplication": "Yeni başvuru",
+      "noFormFields": "Bu PDF'de doldurulabilir form alanı yoktu — bilgiler özet olarak eklendi ve imza yerleştirildi.",
+      "missingPrefix": "Doldurulmadı:",
+      "addMissing": "Eksik bilgileri tamamla"
+    },
+    "copyResult": {
+      "missingHeader": "Doldurulmadı (veri eksik):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Alanlar",
+      "groups": "Gruplar",
+      "review": "İncelenecek"
+    },
+    "addField": "Alan ekle",
+    "empty": "Henüz profil verisi yok. Bir başvuru yükleyin veya alanları manuel ekleyin.",
+    "badge": {
+      "review": "incele"
+    },
+    "updated": "Güncellendi",
+    "signature": {
+      "title": "İmza",
+      "hint": "Çizin veya resim yükleyin — başvurularda yeniden kullanılır.",
+      "add": "İmza ekle",
+      "alt": "Kayıtlı imza"
+    },
+    "toast": {
+      "saved": "Kaydedildi",
+      "saveFailed": "Kaydetme başarısız",
+      "deleted": "Alan silindi",
+      "deleteFailed": "Silme başarısız"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    }
+  },
+  "starterForm": {
+    "title": "Alan ekle",
+    "subtitle": "Ad, doğum tarihi, iletişim ve adres — birden fazla e-posta ve adres mümkün.",
+    "label": {
+      "name": "Ad",
+      "birthDate": "Doğum tarihi",
+      "birthPlace": "Doğum yeri",
+      "email": "E-posta",
+      "phone": "Telefon"
+    },
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Görünüm",
+      "subtitle": "Arayüz için bir renk şeması seçin."
+    },
+    "theme": {
+      "light": "Açık",
+      "dark": "Koyu",
+      "system": "Sistem"
+    },
+    "account": {
+      "title": "Hesap",
+      "guestHint": "Formfill'i misafir olarak kullanıyorsunuz. Başvuruları kaydetmek, geçmişi kullanmak ve indirmeleri yönetmek için hesap oluşturun.",
+      "create": "Hesap oluştur"
+    },
+    "security": {
+      "title": "Güvenlik",
+      "encryption": "Profiliniz ve PDF'leriniz bu cihazda kaydedilmeden önce şifrelenir. Verilerinizi biz bile okuyamayız.",
+      "passkeys": "Passkey'ler hesabınızı kimlik avından korur. Şifreli profiliniz bu cihaza bağlı kalır — yeni bir cihazda bir kez yeniden oluşturursunuz.",
+      "passkeysTitle": "Passkey'ler"
+    },
+    "data": {
+      "title": "Veriler",
+      "deleteHint": "Tüm profil verilerini, başvuruları ve yüklenen PDF'leri kalıcı olarak sil.",
+      "deleteButton": "Tüm verileri sil",
+      "deleteDialog": {
+        "title": "Tüm veriler silinsin mi?",
+        "description": "Profil, geçmiş ve kayıtlı PDF'ler silinecek. Bu işlem geri alınamaz.",
+        "confirm": "Sil"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "HATA",
+      "incomplete": "EKSİK",
+      "complete": "TAMAMLANDI"
+    },
+    "incompleteBannerOne": "1 başvuru henüz eksik — eksik alanlar bir sonraki yüklemede tamamlanabilir.",
+    "incompleteBannerOther": "{count} başvuru henüz eksik — eksik alanlar bir sonraki yüklemede tamamlanabilir.",
+    "empty": "Henüz işlenmiş başvuru yok.",
+    "fieldsFilled": "{count} alan dolduruldu",
+    "requiredMissing": "· {count} zorunlu alan eksik"
+  },
+  "login": {
+    "backToApp": "Uygulamaya dön",
+    "error": {
+      "auth": "Giriş başarısız. Lütfen tekrar deneyin."
+    },
+    "footer": {
+      "guestUpgrade": "Profil ve önceki bilgiler bu cihazda kalır.",
+      "signUpHint": "Henüz hesabınız yok mu? E-posta kodu otomatik olarak bir hesap oluşturur.",
+      "continueAsGuest": "Hesap olmadan devam et"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Formfill'e giriş yap",
+      "createAccount": "Hesap oluştur"
+    },
+    "subtitle": {
+      "signIn": "Güvenli ve şifresiz — profil verileriniz bu cihazda şifreli kalır.",
+      "guestUpgrade": "Profil ve önceki bilgiler bu cihazda kalır."
+    },
+    "passkey": {
+      "signIn": "Passkey ile giriş",
+      "hint": "Face ID, Touch ID, Windows Hello veya güvenlik anahtarı",
+      "unsupported": "Tarayıcınız Passkey desteklemiyor — e-posta ile giriş yapın."
+    },
+    "email": {
+      "signIn": "E-posta kodu ile giriş",
+      "label": "E-posta",
+      "placeholder": "siz@ornek.com",
+      "sendCode": "Kod gönder",
+      "back": "Geri"
+    },
+    "otp": {
+      "message": "Size e-posta ile bir kod gönderdik.",
+      "label": "Doğrulama kodu",
+      "submitSignIn": "Giriş yap",
+      "submitCreateAccount": "Hesap oluştur",
+      "changeEmail": "Farklı e-posta kullan"
+    },
+    "setupPasskey": {
+      "title": "Passkey kurulsun mu?",
+      "description": "Bir dahaki sefere Face ID, Touch ID veya Windows Hello ile e-posta kodu olmadan giriş yaparsınız.",
+      "add": "Passkey ekle",
+      "later": "Sonra kur"
+    }
+  },
+  "billing": {
+    "loading": "Hesap bilgileri yükleniyor…",
+    "account": {
+      "title": "Hesap",
+      "signInHint": "Giriş için Passkey veya e-posta kodu",
+      "noEmail": "E-posta kayıtlı değil"
+    },
+    "signOut": "Çıkış yap",
+    "downloads": {
+      "title": "İndirmeler ve abonelik"
+    },
+    "pro": {
+      "active": "Formfill Pro aktif",
+      "unlimited": "Sınırsız PDF indirme",
+      "validUntil": "· {date} tarihine kadar geçerli",
+      "manage": "Aboneliği yönet",
+      "upgrade": "Pro ol"
+    },
+    "credits": {
+      "balance": "İndirme bakiyesi",
+      "freePlan": "Ücretsiz plan: ayda {count} indirme. Önizleme her zaman ücretsiz.",
+      "buy": "{count} indirme satın al"
+    },
+    "error": {
+      "checkout": "Ödeme başarısız",
+      "portal": "Portal kullanılamıyor"
+    }
+  },
+  "upgrade": {
+    "title": "PDF indir",
+    "description": "Önizleme ve doldurma ücretsizdir. İndirme için bakiye gerekir.",
+    "balance": {
+      "pro": "Pro — sınırsız",
+      "credits": "{count} indirme"
+    },
+    "credits": {
+      "title": "{count} indirme",
+      "subtitle": "Tek seferlik — ara sıra başvurular için ideal"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Sınırsız indirme, aylık iptal edilebilir"
+    },
+    "refresh": "Durumu güncelle",
+    "error": {
+      "checkout": "Ödeme başarısız"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Zorunlu",
+      "optional": "İsteğe bağlı",
+      "stale": "Güncel değil mi?"
+    },
+    "hint": {
+      "required": "Bu başvuru için zorunlu alan",
+      "optional": "İsteğe bağlı — atlamak için boş bırakın",
+      "shiftEnter": "Devam için Shift+Enter · {suffix}",
+      "cityEnter": "Devam için şehir alanında Enter · {suffix}",
+      "enter": "Devam için Enter · {suffix}"
+    },
+    "picker": {
+      "address": "Kayıtlı adresi kullan",
+      "email": "Kayıtlı e-postayı kullan",
+      "phone": "Kayıtlı telefon numarasını kullan"
+    },
+    "signature": {
+      "title": "İmza ekle",
+      "subtitle": "İmzanızı çizin veya resim yükleyin — PDF'e eklenir.",
+      "infoTitle": "İmza",
+      "info": "İmzanız doğrudan PDF'e eklenir ve profilinizde saklanır. Çizebilir veya resim olarak yükleyebilirsiniz. Bir sonraki başvuruda yeniden kullanabilirsiniz.",
+      "drawOrUpload": "Buraya imzalayın veya görsel yükleyin",
+      "profileHint": "Profilinize kaydedilir ve yeniden kullanılır",
+      "uploadImage": "Görsel yükle",
+      "clear": "Sil",
+      "uploadFailed": "Yükleme başarısız"
+    },
+    "selfFill": "Bu benim",
+    "skipAll": "Tümünü atla",
+    "next": "İleri",
+    "submit": {
+      "createPdf": "PDF oluştur",
+      "createAndDownload": "PDF oluştur ve indir",
+      "updatePdf": "PDF güncelle"
+    },
+    "progress": {
+      "step": "Adım {current} / {total}",
+      "required": "{count} zorunlu",
+      "optional": "isteğe bağlı",
+      "answered": "{count} yanıtlandı",
+      "formLabel": "Form:"
+    },
+    "repeatable": {
+      "empty": "Henüz ek kişi eklenmedi.",
+      "person": "Kişi {index}",
+      "remove": "Kaldır",
+      "addPerson": "Kişi ekle"
+    },
+    "steps": {
+      "birth": {
+        "question": "Doğum bilgileri",
+        "subquestion": "Kimlikteki doğum tarihi ve yeri."
+      },
+      "contact": {
+        "question": "İletişim bilgileri",
+        "subquestion": "Bu başvuru hakkında sorular için telefon ve e-posta."
+      },
+      "signature_meta": {
+        "question": "İmza yeri ve tarihi",
+        "subquestion": "Formu nerede ve ne zaman imzalıyorsunuz?"
+      },
+      "address": {
+        "own": {
+          "question": "Adresiniz nedir?",
+          "subquestion": "Sokak, ev numarası, posta kodu ve şehir — formdaki gibi."
+        },
+        "landlord": {
+          "question": "Ev sahibiniz nerede yaşıyor veya faaliyet gösteriyor?",
+          "subquestion": "Sokak, ev numarası, posta kodu ve şehir."
+        },
+        "representative": {
+          "question": "Yetkili kişinin adresi",
+          "subquestion": "Sokak, ev numarası, posta kodu ve şehir."
+        }
+      },
+      "name": "Adınız nedir?",
+      "einzugsdatum": "Yeni evinize ne zaman taşındınız?",
+      "elterngeld_schedule": "Her ebeveyn için temel ebeveyn parası veya Elterngeld Plus aylarını seçin — veya 1–12. aylar için varsayılan seçeneği."
+    },
+    "info": {
+      "moreInfo": "Daha fazla bilgi",
+      "gotIt": "Anladım"
+    },
+    "elterngeld": {
+      "parent": "Ebeveyn {parent}",
+      "standardMonths": "1–12. aylar için (temel) ebeveyn parası talep ediyorum",
+      "customHint": "Veya alternatif olarak: her ay temel ebeveyn parası veya Elterngeld Plus seçin (ikisi birden değil).",
+      "basisLabel": "(Temel) ebeveyn parası",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Ebeveyn {parent}, ay {month}, {benefit}",
+      "basisBenefit": "temel ebeveyn parası",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "15–18. aylar yalnızca prematüre doğumlarda. 19. aydan itibaren yalnızca Elterngeld Plus (boşluk olmadan). Bir temel ay iki Plus ayına eşittir.",
+      "reset": "Seçimi sıfırla",
+      "errors": {
+        "minMonths": "Ebeveyn {parent}: En az iki ay (veya bir ay temel ebeveyn parası) gerekli.",
+        "required": "Lütfen en az bir hak dönemi belirtin."
+      }
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Ad",
+      "strasse": "Sokak ve ev numarası",
+      "postleitzahl": "Posta kodu",
+      "ort": "Şehir",
+      "einzugsdatum": "Taşınma tarihi",
+      "geburtsdatum": "Doğum tarihi",
+      "geburtsort": "Doğum yeri",
+      "telefon": "Telefon",
+      "email": "E-posta",
+      "unterschrift_ort": "Yer (imza)",
+      "unterschrift_datum": "Tarih (imza)",
+      "wohnungsanschrift": "İkamet adresi",
+      "familienstand": "Medeni hal",
+      "geschlecht": "Cinsiyet",
+      "religion": "Din / mezhep",
+      "staatsangehoerigkeit": "Uyruk",
+      "wohnanschrift": "İkamet adresi",
+      "elterngeld_bezugszeitraum": "Ebeveyn parası dönemi"
+    },
+    "placeholders": {
+      "strasse": "Örnek Sokak 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "GG.AA.YYYY",
+      "phone": "+49 123 456789",
+      "email": "ad@ornek.com",
+      "address": "Sokak no., posta kodu şehir",
+      "name": "Ad ve soyad",
+      "number": "Sayı girin",
+      "combobox": "Seçin veya yazın…",
+      "textarea": "Yanıt girin…",
+      "default": "Yanıt girin…"
+    },
+    "hints": {
+      "date": "Biçim: GG.AA.YYYY",
+      "phone": "Ülke koduyla, örn. +49 …",
+      "combobox": "Listeden seçin veya kendi değerinizi girin",
+      "elterngeld_schedule": "Temel ebeveyn parası ve Elterngeld Plus için ay ızgarası",
+      "textarea": "Yeni satır için Enter · Devam için Shift+Enter"
+    },
+    "validation": {
+      "incomplete": "Lütfen bu alanı doğru şekilde doldurun."
+    },
+    "combobox": {
+      "showSuggestions": "Önerileri göster"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  }
+}

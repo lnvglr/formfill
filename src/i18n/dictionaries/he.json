@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — בקשות שמתמלאות בעצמן",
+    "description": "העלה בקשה. הבינה המלאכותית מזהה נתונים חסרים וממלאה טפסים אוטומטית.",
+    "loginTitle": "כניסה — Formfill",
+    "loginDescription": "היכנס ל-Formfill עם Passkey או קוד אימייל.",
+    "adminTitle": "ניהול — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "ביטול",
+    "save": "שמירה",
+    "close": "סגירה",
+    "back": "חזרה",
+    "or": "או",
+    "admin": "ניהול",
+    "pro": "Pro",
+    "faq": "שאלות נפוצות"
+  },
+  "localeSwitcher": {
+    "label": "שפה"
+  },
+  "views": {
+    "upload": {
+      "title": "בקשה חדשה",
+      "subtitle": "העלה PDF ותן לו להתמלא"
+    },
+    "profile": {
+      "title": "הפרופיל שלי",
+      "subtitle": "פרטים שמורים לבקשות עתידיות"
+    },
+    "history": {
+      "title": "היסטוריה",
+      "subtitle": "בקשות פעילות והושלמו"
+    },
+    "settings": {
+      "title": "הגדרות",
+      "subtitle": "חשבון, מראה ונתונים"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "איך זה עובד",
+      "features": "תכונות",
+      "faq": "שאלות נפוצות",
+      "signIn": "כניסה",
+      "getStarted": "התחלה"
+    },
+    "hero": {
+      "title": "בקשות שמתמלאות בעצמן",
+      "subtitle": "העלה טופס PDF, ענה רק על השאלות החסרות — Formfill ממלא את השאר אוטומטית.",
+      "ctaPrimary": "מילוי בקשה",
+      "ctaSecondary": "למידע נוסף",
+      "footnote": "התחלה בחינם · ללא כרטיס אשראי"
+    },
+    "demo": {
+      "hint": "חסר שדה אחד — Formfill שואל רק את מה שצריך"
+    },
+    "steps": {
+      "upload": {
+        "title": "העלאת PDF",
+        "description": "העלה כל בקשה — Formfill מזהה שדות טופס אוטומטית."
+      },
+      "questions": {
+        "title": "מענה על שאלות",
+        "description": "מלא רק את מה שעדיין חסר. הפרופיל שלך ממלא מראש שדות ידועים."
+      },
+      "download": {
+        "title": "הורדת PDF מלא",
+        "description": "הורד את הטופס המלא — מוכן להדפסה או לשליחה."
+      }
+    },
+    "howItWorks": {
+      "title": "איך זה עובד",
+      "subtitle": "משלושה שלבים מטופס ריק לבקשה מלאה."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "מיפוי שדות מבוסס בינה מלאכותית",
+        "description": "הבינה המלאכותית ממפה שדות טופס לנתוני הפרופיל שלך — גם עם תוויות לא רגילות."
+      },
+      "profile": {
+        "title": "פרופיל אישי",
+        "description": "שמור את השם, הכתובת ופרטים נוספים פעם אחת. הם ישמשו בכל בקשה."
+      },
+      "vault": {
+        "title": "כספת מוצפנת",
+        "description": "נתונים רגישים מוצפנים במכשיר שלך. רק לך יש גישה לפרופיל שלך."
+      },
+      "preview": {
+        "title": "תצוגה מקדימה חיה",
+        "description": "ראה אילו שדות מתמלאים בזמן אמת — לפני הורדת ה-PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "פחות הקלדה, סיום מהיר יותר",
+      "subtitle": "Formfill בנוי לטפסים ממשלתיים חוזרים — עם דגש על פרטיות ודיוק."
+    },
+    "faq": {
+      "title": "שאלות נפוצות",
+      "subtitle": "בקצרה — כל מה שצריך לדעת על Formfill.",
+      "pdfTypes": {
+        "question": "אילו טפסי PDF נתמכים?",
+        "answer": "Formfill עובד עם קבצי PDF שמכילים שדות טופס למילוי (AcroForms). מסמכים סרוקים ללא שדות אינטראקטיביים עדיין לא נתמכים."
+      },
+      "dataStorage": {
+        "question": "האם הנתונים שלי נשמרים?",
+        "answer": "הפרופיל שלך מוצפן במכשיר שלך ונשמר בכספת שלך. קבצי PDF שהועלו משמשים רק לעיבוד ואינם נשמרים לצמיתות בשרתים שלנו."
+      },
+      "pricing": {
+        "question": "האם Formfill עולה כסף?",
+        "answer": "ניתן לנסות את Formfill בחינם — התצוגה המקדימה תמיד בחינם. עם חשבון מקבלים 2 הורדות בחינם בחודש. הורדות נוספות או מנוי Pro עם הורדות ללא הגבלה הם אופציונליים."
+      },
+      "account": {
+        "question": "האם נדרש חשבון?",
+        "answer": "לא. ניתן להתחיל כאורח ולמלא טופס מיד. עם חשבון שומרים את הפרופיל ועוקבים אחר הבקשות."
+      },
+      "protection": {
+        "question": "איך הנתונים שלי מוגנים?",
+        "answer": "נתוני פרופיל רגישים מוצפנים במכשיר שלך לפני האחסון. רק לך יש גישה לכספת שלך."
+      },
+      "aiPrivacy": {
+        "question": "האם הבינה המלאכותית רואה את הפרטים האישיים שלי?",
+        "answer": "לא. הבינה המלאכותית מנתחת רק את טקסט הטופס ושמות השדות כדי למפות שדות — לא את נתוני הפרופיל שמילאת."
+      }
+    },
+    "cta": {
+      "title": "מוכנים לבקשה הבאה?",
+      "subtitle": "התחילו כאורח או צרו חשבון כדי לשמור את הפרופיל ולנהל בקשות.",
+      "button": "נסו עכשיו"
+    },
+    "footer": {
+      "tagline": "מילוי טפסי PDF חכם — נוצר בגרמניה.",
+      "product": "מוצר",
+      "openApp": "פתיחת האפליקציה",
+      "privacy": "פרטיות",
+      "privacyText": "הפרופיל שלך מוצפן במכשיר שלך. קבצי PDF מעובדים בלבד ואינם נשמרים לצמיתות.",
+      "beta": "BETA — התכונות עשויות להשתנות"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "לא ניתן להתחיל הפעלת אורח. אנא אפשר כניסת אנונימית ב-Supabase.",
+        "sessionLoad": "לא ניתן לטעון את ההפעלה."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "אורח",
+      "downloads": "{count} הורדות"
+    },
+    "newApplication": {
+      "desktop": "+ מילוי בקשה חדשה",
+      "mobile": "+ חדש"
+    },
+    "createAccount": {
+      "desktop": "יצירת חשבון",
+      "mobile": "כניסה"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "ניווט ראשי",
+    "upload": "בקשה",
+    "profile": "פרופיל",
+    "history": "היסטוריה",
+    "settings": "עוד"
+  },
+  "upload": {
+    "title": "ניתוח בקשת PDF",
+    "subtitle": "העלה בקשה, ענה על כמה שאלות קצרות, חתום — והורד את ה-PDF המלא.",
+    "dropzone": {
+      "title": "גרור PDF לכאן או לחץ",
+      "hint": "חוזה שכירות, בקשת ביטוח בריאות, רישום כתובת, טופס ויזה…"
+    },
+    "status": {
+      "reading": "קורא PDF…",
+      "analyzing": "הבינה המלאכותית מנתחת את הבקשה…",
+      "translating": "מתרגם את תוכן הטופס…",
+      "filling": "ממלא PDF…"
+    },
+    "error": {
+      "unknown": "שגיאה לא ידועה",
+      "analysis": "הניתוח נכשל",
+      "translation": "התרגום נכשל",
+      "save": "השמירה נכשלה",
+      "fill": "שגיאה במילוי הטופס",
+      "retry": "נסה שוב",
+      "downloadUnavailable": "הורדה לא זמינה",
+      "downloadFailed": "ההורדה נכשלה"
+    },
+    "toast": {
+      "invalidFile": "אנא העלה קובץ PDF.",
+      "formRecognized": "טופס זוהה: {title} ({jurisdiction})",
+      "missingFields": "עדיין חסרים {count} פרט(ים) — אנא מלא.",
+      "createAccount": "צור חשבון כדי לשמור בקשות ולנהל הורדות.",
+      "saveFailed": "לא ניתן לשמור את הבקשה.",
+      "downloadUnlocked": "ההורדה זמינה"
+    },
+    "followUp": {
+      "title": "מילוי פרטים חסרים"
+    },
+    "preview": {
+      "emptyForm": "טופס ריק",
+      "filled": "תצוגה מקדימה מלאה",
+      "filledPdf": "PDF מלא",
+      "pdf": "תצוגה מקדימה של PDF",
+      "show": "הצג תצוגה מקדימה של הטופס",
+      "hide": "הסתר תצוגה מקדימה",
+      "redownload": "הורד שוב",
+      "highlightHint": "סימון כחול: השדה הנוכחי בטופס"
+    },
+    "result": {
+      "title": "בקשה שהושלמה",
+      "download": "הורדת PDF",
+      "copy": "העתקת טקסט",
+      "copied": "הועתק",
+      "newApplication": "בקשה חדשה",
+      "noFormFields": "ב-PDF זה לא היו שדות טופס למילוי — הפרטים נוספו כסיכום והחתימה הוצבה.",
+      "missingPrefix": "לא מולא:",
+      "addMissing": "מילוי פרטים חסרים"
+    },
+    "copyResult": {
+      "missingHeader": "לא מולא (חסרים נתונים):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "שדות",
+      "groups": "קבוצות",
+      "review": "לבדיקה"
+    },
+    "addField": "הוספת שדה",
+    "empty": "עדיין אין נתוני פרופיל. העלה בקשה או הוסף שדות ידנית.",
+    "badge": {
+      "review": "בדיקה"
+    },
+    "updated": "עודכן",
+    "signature": {
+      "title": "חתימה",
+      "hint": "צייר או העלה תמונה — תישמש שוב בבקשות.",
+      "add": "הוספת חתימה",
+      "alt": "חתימה שמורה"
+    },
+    "toast": {
+      "saved": "נשמר",
+      "saveFailed": "השמירה נכשלה",
+      "deleted": "השדה נמחק",
+      "deleteFailed": "המחיקה נכשלה"
+    },
+    "groups": {
+      "personal": "פרטים אישיים",
+      "address": "כתובת ודיור",
+      "moving": "מעבר ורישום",
+      "contact": "יצירת קשר",
+      "landlord": "בעל הדירה",
+      "landlord_not_owner": "בעל הדירה (לא הבעלים)",
+      "authorized_person": "אדם מורשה",
+      "employment": "עבודה ומקצוע",
+      "signature": "חתימה",
+      "other": "אחר"
+    },
+    "freshness": {
+      "fresh": "עדכני",
+      "aging": "לבדיקה בקרוב",
+      "stale": "אולי לא מעודכן"
+    }
+  },
+  "starterForm": {
+    "title": "הוספת שדות",
+    "subtitle": "שם, תאריך לידה, פרטי קשר וכתובת — נתמכים מספר אימיילים וכתובות.",
+    "label": {
+      "name": "שם",
+      "birthDate": "תאריך לידה",
+      "birthPlace": "מקום לידה",
+      "email": "אימייל",
+      "phone": "טלפון"
+    },
+    "multi": {
+      "addresses": "כתובות",
+      "addAnother": "הוסף עוד",
+      "primaryLabel": "ראשי",
+      "secondaryAddressLabel": "למשל דירה שנייה",
+      "primaryContactLabel": "ראשי",
+      "secondaryContactLabel": "למשל עבודה",
+      "setDefault": "הגדר כברירת מחדל"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "מראה",
+      "subtitle": "בחר ערכת צבעים לממשק."
+    },
+    "theme": {
+      "light": "בהיר",
+      "dark": "כהה",
+      "system": "מערכת"
+    },
+    "account": {
+      "title": "חשבון",
+      "guestHint": "אתה משתמש ב-Formfill כאורח. צור חשבון כדי לשמור בקשות, להשתמש בהיסטוריה ולנהל הורדות.",
+      "create": "יצירת חשבון"
+    },
+    "security": {
+      "title": "אבטחה",
+      "encryption": "הפרופיל וקבצי ה-PDF שלך מוצפנים במכשיר זה לפני האחסון. אפילו אנחנו לא יכולים לקרוא את הנתונים שלך.",
+      "passkeys": "Passkeys מגנים על החשבון שלך מפני דיוג. הפרופיל המוצפן שלך נשאר קשור למכשיר זה — במכשיר חדש תגדיר אותו פעם אחת.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "נתונים",
+      "deleteHint": "מחק לצמיתות את כל נתוני הפרופיל, הבקשות וקבצי ה-PDF שהועלו.",
+      "deleteButton": "מחיקת כל הנתונים",
+      "deleteDialog": {
+        "title": "למחוק את כל הנתונים?",
+        "description": "הפרופיל, ההיסטוריה וקבצי ה-PDF השמורים יימחקו. פעולה זו אינה ניתנת לביטול.",
+        "confirm": "מחיקה"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "שגיאה",
+      "incomplete": "לא הושלם",
+      "complete": "הושלם"
+    },
+    "incompleteBannerOne": "בקשה אחת עדיין לא הושלמה — ניתן למלא שדות חסרים בהעלאה הבאה.",
+    "incompleteBannerOther": "עדיין לא הושלמו {count} בקשות — ניתן למלא שדות חסרים בהעלאה הבאה.",
+    "empty": "עדיין לא עובדו בקשות.",
+    "fieldsFilled": "מולאו {count} שדות",
+    "requiredMissing": "· חסרים {count} שדות חובה"
+  },
+  "login": {
+    "backToApp": "חזרה לאפליקציה",
+    "error": {
+      "auth": "הכניסה נכשלה. אנא נסה שוב."
+    },
+    "footer": {
+      "guestUpgrade": "הפרופיל והפרטים הקודמים שלך נשארים במכשיר זה.",
+      "signUpHint": "אין עדיין חשבון? קוד האימייל יוצר אחד אוטומטית.",
+      "continueAsGuest": "המשך ללא חשבון"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "כניסה ל-Formfill",
+      "createAccount": "יצירת חשבון"
+    },
+    "subtitle": {
+      "signIn": "מאובטח וללא סיסמה — נתוני הפרופיל שלך מוצפנים במכשיר זה.",
+      "guestUpgrade": "הפרופיל והפרטים הקודמים שלך נשארים במכשיר זה."
+    },
+    "passkey": {
+      "signIn": "כניסה עם Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello או מפתח אבטחה",
+      "unsupported": "הדפדפן שלך לא תומך ב-Passkeys — התחבר באימייל במקום."
+    },
+    "email": {
+      "signIn": "כניסה עם קוד אימייל",
+      "label": "אימייל",
+      "placeholder": "you@example.com",
+      "sendCode": "שליחת קוד",
+      "back": "חזרה"
+    },
+    "otp": {
+      "message": "שלחנו לך קוד באימייל.",
+      "label": "קוד אימות",
+      "submitSignIn": "כניסה",
+      "submitCreateAccount": "יצירת חשבון",
+      "changeEmail": "שימוש באימייל אחר"
+    },
+    "setupPasskey": {
+      "title": "להגדיר Passkey?",
+      "description": "בפעם הבאה, התחבר עם Face ID, Touch ID או Windows Hello — ללא קוד אימייל.",
+      "add": "הוספת Passkey",
+      "later": "הגדרה מאוחר יותר"
+    }
+  },
+  "billing": {
+    "loading": "טוען מידע חשבון…",
+    "account": {
+      "title": "חשבון",
+      "signInHint": "Passkey או קוד אימייל לכניסה",
+      "noEmail": "לא רשום אימייל"
+    },
+    "signOut": "יציאה",
+    "downloads": {
+      "title": "הורדות ומנוי"
+    },
+    "pro": {
+      "active": "Formfill Pro פעיל",
+      "unlimited": "הורדות PDF ללא הגבלה",
+      "validUntil": "· תקף עד {date}",
+      "manage": "ניהול מנוי",
+      "upgrade": "מעבר ל-Pro"
+    },
+    "credits": {
+      "balance": "קרדיטי הורדה",
+      "freePlan": "תוכנית חינמית: {count} הורדות בחודש. התצוגה המקדימה תמיד בחינם.",
+      "buy": "קניית {count} הורדות"
+    },
+    "error": {
+      "checkout": "התשלום נכשל",
+      "portal": "הפורטל לא זמין"
+    }
+  },
+  "upgrade": {
+    "title": "הורדת PDF",
+    "description": "תצוגה מקדימה ומילוי בחינם. נדרש קרדיט להורדה.",
+    "balance": {
+      "pro": "Pro — ללא הגבלה",
+      "credits": "{count} הורדה(ות)"
+    },
+    "credits": {
+      "title": "{count} הורדות",
+      "subtitle": "חד-פעמי — אידיאלי לבקשות מזדמנות"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "הורדות ללא הגבלה, ביטול חודשי"
+    },
+    "refresh": "רענון סטטוס",
+    "error": {
+      "checkout": "התשלום נכשל"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "חובה",
+      "optional": "אופציונלי",
+      "stale": "לא עדכני?"
+    },
+    "hint": {
+      "required": "שדה חובה לבקשה זו",
+      "optional": "אופציונלי — השאר ריק לדילוג",
+      "shiftEnter": "Shift+Enter להמשך · {suffix}",
+      "cityEnter": "Enter בשדה העיר להמשך · {suffix}",
+      "enter": "Enter להמשך · {suffix}"
+    },
+    "picker": {
+      "address": "שימוש בכתובת שמורה",
+      "email": "שימוש באימייל שמור",
+      "phone": "שימוש במספר טלפון שמור"
+    },
+    "info": {
+      "moreInfo": "מידע נוסף",
+      "gotIt": "הבנתי"
+    },
+    "signature": {
+      "title": "הוספת חתימה",
+      "subtitle": "צייר את החתימה או העלה תמונה — היא תוכנס ל-PDF.",
+      "infoTitle": "חתימה",
+      "info": "החתימה שלך מוכנסת ישירות ל-PDF ונשמרת בפרופיל שלך. ניתן לצייר או להעלות תמונה. ניתן לעשות שימוש חוזר בבקשה הבאה.",
+      "drawOrUpload": "חתום כאן או העלה תמונה",
+      "profileHint": "נשמר בפרופיל ומשמש שוב",
+      "uploadImage": "העלאת תמונה",
+      "clear": "ניקוי",
+      "uploadFailed": "ההעלאה נכשלה"
+    },
+    "elterngeld": {
+      "parent": "הורה {parent}",
+      "standardMonths": "אני מבקש/ת דמי הורות (בסיסיים) לחודשים 1–12",
+      "customHint": "או לחלופין: בחר דמי הורות בסיסיים או Elterngeld Plus לכל חודש (לא שניהם).",
+      "basisLabel": "דמי הורות (בסיסיים)",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "הורה {parent}, חודש {month}, {benefit}",
+      "basisBenefit": "דמי הורות בסיסיים",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "חודשים 15–18 רק ללידות פגות. מחודש 19 רק Elterngeld Plus (ללא פערים). חודש בסיסי אחד שווה לשני חודשי Plus.",
+      "reset": "איפוס בחירה",
+      "errors": {
+        "minMonths": "הורה {parent}: נדרשים לפחות שני חודשים (או חודש אחד של דמי הורות בסיסיים).",
+        "required": "אנא ציין לפחות תקופת זכאות אחת."
+      }
+    },
+    "selfFill": "זה אני",
+    "skipAll": "דילוג על הכל",
+    "next": "הבא",
+    "submit": {
+      "createPdf": "יצירת PDF",
+      "createAndDownload": "יצירה והורדת PDF",
+      "updatePdf": "עדכון PDF"
+    },
+    "progress": {
+      "step": "שלב {current} מתוך {total}",
+      "required": "{count} חובה",
+      "optional": "אופציונלי",
+      "answered": "{count} נענו",
+      "formLabel": "טופס:"
+    },
+    "repeatable": {
+      "empty": "עדיין לא נוספו אנשים נוספים.",
+      "person": "אדם {index}",
+      "remove": "הסרה",
+      "addPerson": "הוספת אדם"
+    },
+    "steps": {
+      "birth": {
+        "question": "פרטי לידה",
+        "subquestion": "תאריך ומקום לידה כמופיע בתעודת הזהות."
+      },
+      "contact": {
+        "question": "פרטי קשר",
+        "subquestion": "טלפון ואימייל לשאלות בנוגע לבקשה זו."
+      },
+      "signature_meta": {
+        "question": "מקום ותאריך החתימה",
+        "subquestion": "איפה ומתי אתה חותם על הטופס?"
+      },
+      "address": {
+        "own": {
+          "question": "מה הכתובת שלך?",
+          "subquestion": "רחוב עם מספר בית, מיקוד ועיר — כמו בטופס."
+        },
+        "landlord": {
+          "question": "איפה בעל הדירה גר או פועל?",
+          "subquestion": "רחוב ומספר בית, מיקוד ועיר."
+        },
+        "representative": {
+          "question": "כתובת האדם המורשה",
+          "subquestion": "רחוב ומספר בית, מיקוד ועיר."
+        }
+      },
+      "name": "מה השם שלך?",
+      "einzugsdatum": "מתי עברת לבית החדש?",
+      "elterngeld_schedule": "בחר את החודשים עם דמי הורות בסיסיים או Elterngeld Plus לכל הורה — או את האפשרות ברירת המחדל לחודשים 1–12."
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "שם",
+      "strasse": "רחוב ומספר בית",
+      "postleitzahl": "מיקוד",
+      "ort": "עיר",
+      "einzugsdatum": "תאריך מעבר",
+      "geburtsdatum": "תאריך לידה",
+      "geburtsort": "מקום לידה",
+      "telefon": "טלפון",
+      "email": "אימייל",
+      "unterschrift_ort": "מקום (חתימה)",
+      "unterschrift_datum": "תאריך (חתימה)",
+      "wohnungsanschrift": "כתובת מגורים",
+      "familienstand": "מצב משפחתי",
+      "geschlecht": "מין",
+      "religion": "דת / עדה",
+      "staatsangehoerigkeit": "אזרחות",
+      "wohnanschrift": "כתובת מגורים",
+      "elterngeld_bezugszeitraum": "תקופת דמי הורות"
+    },
+    "placeholders": {
+      "strasse": "רחוב לדוגמה 12א",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "DD.MM.YYYY",
+      "phone": "+49 123 456789",
+      "email": "name@example.com",
+      "address": "רחוב מס' בית, מיקוד עיר",
+      "name": "שם פרטי ומשפחה",
+      "number": "הזן מספר",
+      "combobox": "בחר או הקלד…",
+      "textarea": "הזן תשובה…",
+      "default": "הזן תשובה…"
+    },
+    "hints": {
+      "date": "פורמט: DD.MM.YYYY",
+      "phone": "כלול קידומת מדינה, למשל +49 …",
+      "combobox": "בחר מהרשימה או הזן ערך משלך",
+      "elterngeld_schedule": "טבלת חודשים לדמי הורות בסיסיים ו-Elterngeld Plus",
+      "textarea": "Enter לשורה חדשה · Shift+Enter להמשך"
+    },
+    "validation": {
+      "incomplete": "אנא מלא שדה זה כראוי."
+    },
+    "combobox": {
+      "showSuggestions": "הצג הצעות"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "נסה בחינם",
+      "description": "העלה PDF, מלא וצפה בתצוגה מקדימה — ללא התחברות. צור חשבון להיסטוריה והורדות."
+    },
+    "profile": {
+      "setup": "הגדר פרופיל",
+      "savedFields": "שדות שמורים",
+      "coverageEmpty": "אין נתונים עדיין — שדות מתווספים אוטומטית בבקשה הראשונה.",
+      "coverage": "{percent}% כיסוי בקשות קודמות · גדל עם כל טופס חדש.",
+      "staleOne": "יש לבדוק שדה {count}",
+      "staleOther": "יש לבדוק {count} שדות"
+    },
+    "applications": {
+      "title": "בקשות",
+      "toHistory": "להיסטוריה",
+      "empty": "אין בקשות עדיין.",
+      "emptyHint": "העלה PDF כדי להתחיל.",
+      "incomplete": "{count} לא שלמות",
+      "moreInHistory": "+{count} נוספות בהיסטוריה"
+    },
+    "settings": "הגדרות",
+    "status": {
+      "error": "שגיאה",
+      "missing": "{count} חסרים",
+      "complete": "שלם"
+    }
+  },
+  "vault": {
+    "preparing": "מכין פרופיל…",
+    "prepareFailed": "לא ניתן להכין את הפרופיל.",
+    "notReady": "הכספת אינה מוכנה"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys אינם נתמכים בדפדפן זה.",
+    "loading": "טוען Passkeys…",
+    "empty": "עדיין לא הוגדר Passkey. הוסף אחד להתחברות מהירה יותר.",
+    "defaultName": "Passkey",
+    "created": "נוצר {date}",
+    "lastUsed": "· שימוש אחרון {date}",
+    "removeAria": "הסר Passkey",
+    "add": "הוסף Passkey",
+    "added": "Passkey נוסף",
+    "removed": "Passkey הוסר"
+  }
+}

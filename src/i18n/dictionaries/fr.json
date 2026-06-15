@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Des formulaires qui se remplissent tout seuls",
+    "description": "Téléchargez un formulaire. L'IA détecte les données manquantes et remplit automatiquement les formulaires.",
+    "loginTitle": "Connexion — Formfill",
+    "loginDescription": "Connectez-vous à Formfill avec Passkey ou par code e-mail.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "back": "Retour",
+    "or": "ou",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Langue"
+  },
+  "views": {
+    "upload": {
+      "title": "Nouveau formulaire",
+      "subtitle": "Télécharger un PDF et le faire remplir"
+    },
+    "profile": {
+      "title": "Mon profil",
+      "subtitle": "Informations enregistrées pour les futurs formulaires"
+    },
+    "history": {
+      "title": "Historique",
+      "subtitle": "Formulaires en cours et terminés"
+    },
+    "settings": {
+      "title": "Paramètres",
+      "subtitle": "Compte, affichage et données"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "Comment ça marche",
+      "features": "Fonctionnalités",
+      "faq": "FAQ",
+      "signIn": "Se connecter",
+      "getStarted": "Commencer"
+    },
+    "hero": {
+      "title": "Des formulaires qui se remplissent tout seuls",
+      "subtitle": "Téléchargez un formulaire PDF, répondez uniquement aux questions manquantes — Formfill remplit le reste automatiquement.",
+      "ctaPrimary": "Remplir un formulaire",
+      "ctaSecondary": "En savoir plus",
+      "footnote": "Gratuit pour commencer · Aucune carte bancaire requise"
+    },
+    "demo": {
+      "hint": "1 champ manquant — Formfill ne demande que le nécessaire"
+    },
+    "steps": {
+      "upload": {
+        "title": "Télécharger un PDF",
+        "description": "Téléchargez n'importe quel formulaire — Formfill détecte automatiquement les champs du formulaire."
+      },
+      "questions": {
+        "title": "Répondre aux questions",
+        "description": "Complétez uniquement les informations manquantes. Votre profil remplit les champs déjà connus."
+      },
+      "download": {
+        "title": "Télécharger le PDF rempli",
+        "description": "Téléchargez le formulaire complété — prêt à imprimer ou à envoyer."
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "Trois étapes pour passer d'un formulaire vide à un document complété."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "Correspondance des champs par IA",
+        "description": "L'IA associe les champs du formulaire à vos données de profil — même avec des libellés inhabituels."
+      },
+      "profile": {
+        "title": "Profil personnel",
+        "description": "Enregistrez une fois votre nom, adresse et autres informations. Elles seront réutilisées pour chaque formulaire."
+      },
+      "vault": {
+        "title": "Coffre-fort chiffré",
+        "description": "Les données sensibles sont chiffrées côté client. Vous seul avez accès à votre profil."
+      },
+      "preview": {
+        "title": "Aperçu en direct",
+        "description": "Voyez en temps réel quels champs sont remplis — avant de télécharger le PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "Moins de saisie, plus de rapidité",
+      "subtitle": "Formfill est conçu pour les formulaires administratifs récurrents — avec un accent sur la confidentialité et la précision."
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Court et clair — tout l'essentiel sur Formfill.",
+      "pdfTypes": {
+        "question": "Quels formulaires PDF sont pris en charge ?",
+        "answer": "Formfill fonctionne avec les PDF contenant des champs de formulaire remplissables (AcroForms). Les documents scannés sans champs interactifs ne sont pas pris en charge pour le moment."
+      },
+      "dataStorage": {
+        "question": "Mes données sont-elles enregistrées ?",
+        "answer": "Votre profil est stocké de manière chiffrée côté client dans votre coffre-fort. Les PDF téléchargés sont utilisés uniquement pour le traitement et ne sont pas conservés de façon permanente sur nos serveurs."
+      },
+      "pricing": {
+        "question": "Formfill est-il payant ?",
+        "answer": "Vous pouvez essayer Formfill gratuitement — l'aperçu est toujours gratuit. Avec un compte, vous obtenez 2 téléchargements gratuits par mois. Des téléchargements supplémentaires ou un abonnement Pro avec téléchargements illimités sont optionnels."
+      },
+      "account": {
+        "question": "Ai-je besoin d'un compte ?",
+        "answer": "Non. Vous pouvez commencer en tant qu'invité et remplir un formulaire immédiatement. Avec un compte, vous enregistrez votre profil et gardez une vue d'ensemble de vos formulaires."
+      },
+      "protection": {
+        "question": "Comment mes données sont-elles protégées ?",
+        "answer": "Les données sensibles de votre profil sont chiffrées sur votre appareil avant d'être stockées. Vous seul avez accès à votre coffre-fort."
+      },
+      "aiPrivacy": {
+        "question": "L'IA voit-elle mes informations personnelles ?",
+        "answer": "Non. L'IA analyse uniquement le texte du formulaire et les noms des champs pour les associer — pas vos données de profil remplies."
+      }
+    },
+    "cta": {
+      "title": "Prêt pour votre prochain formulaire ?",
+      "subtitle": "Commencez en tant qu'invité ou créez un compte pour enregistrer votre profil et gérer vos formulaires.",
+      "button": "Essayer maintenant"
+    },
+    "footer": {
+      "tagline": "Remplissage intelligent de formulaires PDF — made in Germany.",
+      "product": "Produit",
+      "openApp": "Ouvrir l'app",
+      "privacy": "Confidentialité",
+      "privacyText": "Votre profil est chiffré côté client. Les PDF sont traités uniquement, pas stockés de façon permanente.",
+      "beta": "Beta — les fonctionnalités peuvent évoluer"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Impossible de démarrer la session invité. Veuillez activer la connexion anonyme dans Supabase.",
+        "sessionLoad": "Impossible de charger la session."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Invité",
+      "downloads": "{count} téléchargements"
+    },
+    "newApplication": {
+      "desktop": "+ Remplir un nouveau formulaire",
+      "mobile": "+ Nouveau"
+    },
+    "createAccount": {
+      "desktop": "Créer un compte",
+      "mobile": "Se connecter"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Navigation principale",
+    "upload": "Formulaire",
+    "profile": "Profil",
+    "history": "Historique",
+    "settings": "Plus"
+  },
+  "upload": {
+    "title": "Analyser un formulaire PDF",
+    "subtitle": "Téléchargez un formulaire, répondez brièvement à quelques questions, signez — et téléchargez le PDF rempli.",
+    "dropzone": {
+      "title": "Glissez un PDF ici ou cliquez",
+      "hint": "Bail, assurance maladie, changement d'adresse, formulaire de visa…"
+    },
+    "status": {
+      "reading": "Lecture du PDF…",
+      "analyzing": "L'IA analyse le formulaire…",
+      "translating": "Traduction du contenu du formulaire…",
+      "filling": "Remplissage du PDF…"
+    },
+    "error": {
+      "unknown": "Erreur inconnue",
+      "analysis": "Analyse échouée",
+      "translation": "Traduction échouée",
+      "save": "Enregistrement échoué",
+      "fill": "Erreur lors du remplissage",
+      "retry": "Réessayer",
+      "downloadUnavailable": "Téléchargement impossible",
+      "downloadFailed": "Échec du téléchargement"
+    },
+    "toast": {
+      "invalidFile": "Veuillez télécharger un fichier PDF.",
+      "formRecognized": "Formulaire reconnu : {title} ({jurisdiction})",
+      "missingFields": "Il manque encore {count} information(s) — veuillez les compléter.",
+      "createAccount": "Créez un compte pour enregistrer vos formulaires et gérer vos téléchargements.",
+      "saveFailed": "Impossible d'enregistrer le formulaire.",
+      "downloadUnlocked": "Téléchargement débloqué"
+    },
+    "followUp": {
+      "title": "Compléter les informations manquantes"
+    },
+    "preview": {
+      "emptyForm": "Formulaire vide",
+      "filled": "Aperçu rempli",
+      "filledPdf": "PDF rempli",
+      "pdf": "Aperçu PDF",
+      "show": "Afficher l'aperçu du formulaire",
+      "hide": "Masquer l'aperçu",
+      "redownload": "Télécharger à nouveau",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Formulaire rempli",
+      "download": "Télécharger le PDF",
+      "copy": "Copier le texte",
+      "copied": "Copié",
+      "newApplication": "Nouveau formulaire",
+      "noFormFields": "Ce PDF ne contenait pas de champs de formulaire remplissables — les informations ont été ajoutées en résumé et la signature a été placée.",
+      "missingPrefix": "Non rempli :",
+      "addMissing": "Compléter les informations manquantes"
+    },
+    "copyResult": {
+      "missingHeader": "Non rempli (données manquantes) :"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Champs",
+      "groups": "Groupes",
+      "review": "À vérifier"
+    },
+    "addField": "Ajouter un champ",
+    "empty": "Aucune donnée de profil pour le moment. Téléchargez un formulaire ou ajoutez des champs manuellement.",
+    "badge": {
+      "review": "à vérifier"
+    },
+    "updated": "Mis à jour",
+    "signature": {
+      "title": "Signature",
+      "hint": "Dessinez ou téléchargez une image — elle sera réutilisée pour vos formulaires.",
+      "add": "Ajouter une signature",
+      "alt": "Signature enregistrée"
+    },
+    "toast": {
+      "saved": "Enregistré",
+      "saveFailed": "Enregistrement échoué",
+      "deleted": "Champ supprimé",
+      "deleteFailed": "Suppression échouée"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    }
+  },
+  "starterForm": {
+    "title": "Ajouter des champs",
+    "subtitle": "Nom, date de naissance, contact et adresse — plusieurs e-mails et adresses sont possibles.",
+    "label": {
+      "name": "Nom",
+      "birthDate": "Date de naissance",
+      "birthPlace": "Lieu de naissance",
+      "email": "E-mail",
+      "phone": "Téléphone"
+    },
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Affichage",
+      "subtitle": "Choisissez un thème de couleurs pour l'interface."
+    },
+    "theme": {
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    },
+    "account": {
+      "title": "Compte",
+      "guestHint": "Vous utilisez Formfill en tant qu'invité. Créez un compte pour enregistrer vos formulaires, utiliser l'historique et gérer vos téléchargements.",
+      "create": "Créer un compte"
+    },
+    "security": {
+      "title": "Sécurité",
+      "encryption": "Votre profil et vos PDF sont chiffrés sur cet appareil avant d'être stockés. Même nous ne pouvons pas lire vos données.",
+      "passkeys": "Les Passkeys protègent votre compte contre le phishing. Votre profil chiffré reste lié à cet appareil — sur un nouvel appareil, vous le recréez une fois.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "Données",
+      "deleteHint": "Supprimer définitivement toutes les données de profil, formulaires et PDF téléchargés.",
+      "deleteButton": "Supprimer toutes les données",
+      "deleteDialog": {
+        "title": "Supprimer toutes les données ?",
+        "description": "Profil, historique et PDF enregistrés seront supprimés. Cette action est irréversible.",
+        "confirm": "Supprimer"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "ERREUR",
+      "incomplete": "INCOMPLET",
+      "complete": "COMPLET"
+    },
+    "incompleteBannerOne": "1 formulaire est encore incomplet — les champs manquants peuvent être complétés lors du prochain téléchargement.",
+    "incompleteBannerOther": "{count} formulaires sont encore incomplets — les champs manquants peuvent être complétés lors du prochain téléchargement.",
+    "empty": "Aucun formulaire traité pour le moment.",
+    "fieldsFilled": "{count} champs remplis",
+    "requiredMissing": "· {count} champs obligatoires manquants"
+  },
+  "login": {
+    "backToApp": "Vers l'app",
+    "error": {
+      "auth": "Échec de la connexion. Veuillez réessayer."
+    },
+    "footer": {
+      "guestUpgrade": "Le profil et les informations précédentes restent enregistrés sur cet appareil.",
+      "signUpHint": "Pas encore de compte ? Le code e-mail en crée un automatiquement.",
+      "continueAsGuest": "Continuer sans compte"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Se connecter à Formfill",
+      "createAccount": "Créer un compte"
+    },
+    "subtitle": {
+      "signIn": "Sécurisé et sans mot de passe — vos données de profil restent chiffrées sur cet appareil.",
+      "guestUpgrade": "Le profil et les informations précédentes restent enregistrés sur cet appareil."
+    },
+    "passkey": {
+      "signIn": "Se connecter avec Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello ou clé de sécurité",
+      "unsupported": "Votre navigateur ne prend pas en charge les Passkeys — connectez-vous par e-mail."
+    },
+    "email": {
+      "signIn": "Se connecter avec un code e-mail",
+      "label": "E-mail",
+      "placeholder": "vous@exemple.fr",
+      "sendCode": "Envoyer le code",
+      "back": "Retour"
+    },
+    "otp": {
+      "message": "Nous vous avons envoyé un code par e-mail.",
+      "label": "Code de confirmation",
+      "submitSignIn": "Se connecter",
+      "submitCreateAccount": "Créer un compte",
+      "changeEmail": "Utiliser une autre adresse e-mail"
+    },
+    "setupPasskey": {
+      "title": "Configurer un Passkey ?",
+      "description": "La prochaine fois, connectez-vous avec Face ID, Touch ID ou Windows Hello — sans code e-mail.",
+      "add": "Ajouter un Passkey",
+      "later": "Configurer plus tard"
+    }
+  },
+  "billing": {
+    "loading": "Chargement des informations du compte…",
+    "account": {
+      "title": "Compte",
+      "signInHint": "Passkey ou code e-mail pour se connecter",
+      "noEmail": "Aucune adresse e-mail enregistrée"
+    },
+    "signOut": "Se déconnecter",
+    "downloads": {
+      "title": "Téléchargements et abonnement"
+    },
+    "pro": {
+      "active": "Formfill Pro actif",
+      "unlimited": "Téléchargements PDF illimités",
+      "validUntil": "· valide jusqu'au {date}",
+      "manage": "Gérer l'abonnement",
+      "upgrade": "Passer à Pro"
+    },
+    "credits": {
+      "balance": "Solde de téléchargements",
+      "freePlan": "Forfait gratuit : {count} téléchargements par mois. L'aperçu est toujours gratuit.",
+      "buy": "Acheter {count} téléchargements"
+    },
+    "error": {
+      "checkout": "Échec du paiement",
+      "portal": "Portail indisponible"
+    }
+  },
+  "upgrade": {
+    "title": "Télécharger le PDF",
+    "description": "L'aperçu et le remplissage sont gratuits. Un crédit est nécessaire pour le téléchargement.",
+    "balance": {
+      "pro": "Pro — illimité",
+      "credits": "{count} téléchargement(s)"
+    },
+    "credits": {
+      "title": "{count} téléchargements",
+      "subtitle": "Ponctuel — idéal pour des formulaires occasionnels"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Téléchargements illimités, résiliable mensuellement"
+    },
+    "refresh": "Actualiser le statut",
+    "error": {
+      "checkout": "Échec du paiement"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Champ obligatoire",
+      "optional": "Optionnel",
+      "stale": "Obsolète ?"
+    },
+    "hint": {
+      "required": "Champ obligatoire pour ce formulaire",
+      "optional": "Optionnel — laisser vide pour passer",
+      "shiftEnter": "Maj+Entrée pour continuer · {suffix}",
+      "cityEnter": "Entrée dans le champ ville pour continuer · {suffix}",
+      "enter": "Entrée pour continuer · {suffix}"
+    },
+    "picker": {
+      "address": "Utiliser l'adresse enregistrée",
+      "email": "Utiliser l'e-mail enregistré",
+      "phone": "Utiliser le numéro enregistré"
+    },
+    "signature": {
+      "title": "Ajouter une signature",
+      "subtitle": "Dessinez votre signature ou téléchargez une image — elle sera insérée dans le PDF.",
+      "infoTitle": "Signature",
+      "info": "Votre signature est insérée directement dans le PDF et enregistrée dans votre profil. Vous pouvez la dessiner ou la télécharger en image. Vous pourrez la réutiliser pour le prochain formulaire.",
+      "drawOrUpload": "Signez ici ou téléversez une image",
+      "profileHint": "Enregistré dans votre profil et réutilisé",
+      "uploadImage": "Téléverser une image",
+      "clear": "Effacer",
+      "uploadFailed": "Échec du téléversement"
+    },
+    "selfFill": "C'est moi",
+    "skipAll": "Tout passer",
+    "next": "Suivant",
+    "submit": {
+      "createPdf": "Créer le PDF",
+      "createAndDownload": "Créer et télécharger le PDF",
+      "updatePdf": "Mettre à jour le PDF"
+    },
+    "progress": {
+      "step": "Étape {current} sur {total}",
+      "required": "{count} obligatoires",
+      "optional": "facultatif",
+      "answered": "{count} répondues",
+      "formLabel": "Formulaire :"
+    },
+    "repeatable": {
+      "empty": "Aucune personne supplémentaire ajoutée.",
+      "person": "Personne {index}",
+      "remove": "Supprimer",
+      "addPerson": "Ajouter une personne"
+    },
+    "steps": {
+      "birth": {
+        "question": "Informations de naissance",
+        "subquestion": "Date et lieu de naissance comme sur la pièce d'identité."
+      },
+      "contact": {
+        "question": "Coordonnées",
+        "subquestion": "Téléphone et e-mail pour les questions sur cette demande."
+      },
+      "signature_meta": {
+        "question": "Lieu et date de la signature",
+        "subquestion": "Où et quand signez-vous le formulaire ?"
+      },
+      "address": {
+        "own": {
+          "question": "Quelle est votre adresse ?",
+          "subquestion": "Rue avec numéro, code postal et ville — comme sur le formulaire."
+        },
+        "landlord": {
+          "question": "Où habite ou est situé votre bailleur ?",
+          "subquestion": "Rue, numéro, code postal et ville."
+        },
+        "representative": {
+          "question": "Adresse de la personne mandatée",
+          "subquestion": "Rue, numéro, code postal et ville."
+        }
+      },
+      "name": "Comment vous appelez-vous ?",
+      "einzugsdatum": "Quand avez-vous emménagé dans votre nouveau logement ?",
+      "elterngeld_schedule": "Choisissez les mois avec allocation parentale de base ou Elterngeld Plus pour chaque parent — ou l'option par défaut pour les mois 1 à 12."
+    },
+    "info": {
+      "moreInfo": "Plus d'informations",
+      "gotIt": "Compris"
+    },
+    "elterngeld": {
+      "parent": "Parent {parent}",
+      "standardMonths": "Je demande l'allocation parentale (de base) pour les mois 1 à 12",
+      "customHint": "Ou choisissez l'allocation de base ou Elterngeld Plus par mois (pas les deux).",
+      "basisLabel": "Allocation parentale (de base)",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Parent {parent}, mois {month}, {benefit}",
+      "basisBenefit": "allocation parentale de base",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Mois 15–18 uniquement pour les naissances prématurées. À partir du mois 19, seulement Elterngeld Plus (sans trous). Un mois de base équivaut à deux mois Plus.",
+      "reset": "Réinitialiser la sélection",
+      "errors": {
+        "minMonths": "Parent {parent} : au moins deux mois requis (ou un mois de base).",
+        "required": "Veuillez indiquer au moins une période de perception."
+      }
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Nom",
+      "strasse": "Rue et numéro",
+      "postleitzahl": "Code postal",
+      "ort": "Ville",
+      "einzugsdatum": "Date d'emménagement",
+      "geburtsdatum": "Date de naissance",
+      "geburtsort": "Lieu de naissance",
+      "telefon": "Téléphone",
+      "email": "E-mail",
+      "unterschrift_ort": "Lieu (signature)",
+      "unterschrift_datum": "Date (signature)",
+      "wohnungsanschrift": "Adresse de résidence",
+      "familienstand": "État civil",
+      "geschlecht": "Genre",
+      "religion": "Religion / confession",
+      "staatsangehoerigkeit": "Nationalité",
+      "wohnanschrift": "Adresse de résidence",
+      "elterngeld_bezugszeitraum": "Période d'allocation parentale"
+    },
+    "placeholders": {
+      "strasse": "Rue Exemple 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "JJ.MM.AAAA",
+      "phone": "+49 123 456789",
+      "email": "nom@exemple.fr",
+      "address": "Rue, CP ville",
+      "name": "Prénom et nom",
+      "number": "Saisir un nombre",
+      "combobox": "Sélectionner ou saisir…",
+      "textarea": "Saisir la réponse…",
+      "default": "Saisir la réponse…"
+    },
+    "hints": {
+      "date": "Format : JJ.MM.AAAA",
+      "phone": "Avec indicatif pays, p. ex. +49 …",
+      "combobox": "Choisir dans la liste ou saisir votre propre valeur",
+      "elterngeld_schedule": "Grille mensuelle pour allocation parentale de base et Elterngeld Plus",
+      "textarea": "Entrée pour nouvelle ligne · Maj+Entrée pour continuer"
+    },
+    "validation": {
+      "incomplete": "Veuillez remplir ce champ correctement."
+    },
+    "combobox": {
+      "showSuggestions": "Afficher les suggestions"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  }
+}

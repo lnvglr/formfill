@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Anträge, die sich selbst ausfüllen",
+    "description": "Lade einen Antrag hoch. Die KI erkennt fehlende Daten und füllt Formulare automatisch aus.",
+    "loginTitle": "Anmelden — Formfill",
+    "loginDescription": "Melde dich mit Passkey oder E-Mail-Code bei Formfill an.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "back": "Zurück",
+    "or": "oder",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Sprache"
+  },
+  "views": {
+    "upload": {
+      "title": "Neuer Antrag",
+      "subtitle": "PDF hochladen und ausfüllen lassen"
+    },
+    "profile": {
+      "title": "Mein Profil",
+      "subtitle": "Gespeicherte Angaben für zukünftige Anträge"
+    },
+    "history": {
+      "title": "Verlauf",
+      "subtitle": "Aktuelle und abgeschlossene Anträge"
+    },
+    "settings": {
+      "title": "Einstellungen",
+      "subtitle": "Konto, Darstellung und Daten"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "So funktioniert's",
+      "features": "Funktionen",
+      "faq": "FAQ",
+      "signIn": "Anmelden",
+      "getStarted": "Loslegen"
+    },
+    "hero": {
+      "title": "Anträge, die sich selbst ausfüllen",
+      "subtitle": "Lade ein PDF-Formular hoch, beantworte nur die fehlenden Fragen — Formfill füllt den Rest automatisch aus.",
+      "ctaPrimary": "Antrag ausfüllen",
+      "ctaSecondary": "Mehr erfahren",
+      "footnote": "Kostenlos starten · Keine Kreditkarte nötig"
+    },
+    "demo": {
+      "hint": "1 Feld fehlt — Formfill fragt nur das Nötigste"
+    },
+    "steps": {
+      "upload": {
+        "title": "PDF hochladen",
+        "description": "Lade einen beliebigen Antrag hoch — Formfill erkennt die Formularfelder automatisch."
+      },
+      "questions": {
+        "title": "Fragen beantworten",
+        "description": "Ergänze nur die Angaben, die noch fehlen. Dein Profil füllt bekannte Felder vor."
+      },
+      "download": {
+        "title": "Ausgefülltes PDF laden",
+        "description": "Lade das fertig ausgefüllte Formular herunter — bereit zum Ausdrucken oder Versenden."
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert's",
+      "subtitle": "In drei Schritten vom leeren Formular zum ausgefüllten Antrag."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "KI-gestützte Feldzuordnung",
+        "description": "Die KI ordnet Formularfelder deinen Profildaten zu — auch bei unüblichen Bezeichnungen."
+      },
+      "profile": {
+        "title": "Persönliches Profil",
+        "description": "Speichere Name, Adresse und weitere Angaben einmalig. Sie werden bei jedem Antrag wiederverwendet."
+      },
+      "vault": {
+        "title": "Verschlüsselter Tresor",
+        "description": "Sensible Daten werden clientseitig verschlüsselt. Nur du hast Zugriff auf dein Profil."
+      },
+      "preview": {
+        "title": "Live-Vorschau",
+        "description": "Sieh in Echtzeit, welche Felder ausgefüllt werden — bevor du das PDF herunterlädst."
+      }
+    },
+    "featuresSection": {
+      "title": "Weniger tippen, schneller fertig",
+      "subtitle": "Formfill ist für wiederkehrende Behördenformulare gebaut — mit Fokus auf Datenschutz und Genauigkeit."
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "subtitle": "Kurz und knapp — alles Wichtige zu Formfill.",
+      "pdfTypes": {
+        "question": "Welche PDF-Formulare funktionieren?",
+        "answer": "Formfill funktioniert mit PDFs, die ausfüllbare Formularfelder enthalten (AcroForms). Gescannte Dokumente ohne interaktive Felder werden derzeit nicht unterstützt."
+      },
+      "dataStorage": {
+        "question": "Werden meine Daten gespeichert?",
+        "answer": "Dein Profil wird clientseitig verschlüsselt in deinem Tresor gespeichert. Hochgeladene PDFs werden nur zur Verarbeitung genutzt und nicht dauerhaft auf unseren Servern abgelegt."
+      },
+      "pricing": {
+        "question": "Kostet Formfill etwas?",
+        "answer": "Du kannst Formfill kostenlos testen — die Vorschau ist immer gratis. Mit einem Konto erhältst du 2 kostenlose Downloads pro Monat. Zusätzliche Downloads oder ein Pro-Abo mit unbegrenzten Downloads sind optional."
+      },
+      "account": {
+        "question": "Brauche ich ein Konto?",
+        "answer": "Nein. Du kannst als Gast starten und sofort ein Formular ausfüllen. Mit einem Konto speicherst du dein Profil und behältst den Überblick über deine Anträge."
+      },
+      "protection": {
+        "question": "Wie werden meine Daten geschützt?",
+        "answer": "Sensible Profildaten werden bereits auf deinem Gerät verschlüsselt, bevor sie gespeichert werden. Nur du hast Zugriff auf deinen Tresor."
+      },
+      "aiPrivacy": {
+        "question": "Sieht die KI meine persönlichen Angaben?",
+        "answer": "Nein. Die KI analysiert nur den Formulartext und die Feldnamen, um Felder zuzuordnen — nicht deine ausgefüllten Profildaten."
+      }
+    },
+    "cta": {
+      "title": "Bereit für deinen nächsten Antrag?",
+      "subtitle": "Starte als Gast oder erstelle ein Konto, um dein Profil zu speichern und Anträge zu verwalten.",
+      "button": "Jetzt ausprobieren"
+    },
+    "footer": {
+      "tagline": "Intelligentes Ausfüllen von PDF-Formularen — made in Germany.",
+      "product": "Produkt",
+      "openApp": "App öffnen",
+      "privacy": "Datenschutz",
+      "privacyText": "Dein Profil wird clientseitig verschlüsselt. PDFs werden nur verarbeitet, nicht dauerhaft gespeichert.",
+      "beta": "Beta — Funktionen können sich ändern"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Gastsitzung konnte nicht gestartet werden. Bitte anonyme Anmeldung in Supabase aktivieren.",
+        "sessionLoad": "Sitzung konnte nicht geladen werden."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Gast",
+      "downloads": "{count} Downloads"
+    },
+    "newApplication": {
+      "desktop": "+ Neuen Antrag ausfüllen",
+      "mobile": "+ Neu"
+    },
+    "createAccount": {
+      "desktop": "Konto erstellen",
+      "mobile": "Anmelden"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Hauptnavigation",
+    "upload": "Antrag",
+    "profile": "Profil",
+    "history": "Verlauf",
+    "settings": "Mehr"
+  },
+  "upload": {
+    "title": "PDF-Antrag analysieren",
+    "subtitle": "Lade einen Antrag hoch, beantworte kurz ein paar Fragen, unterschreibe — und lade das ausgefüllte PDF herunter.",
+    "dropzone": {
+      "title": "PDF hierher ziehen oder klicken",
+      "hint": "Mietvertrag, Krankenkassenantrag, Ummeldung, Visa-Formular…"
+    },
+    "status": {
+      "reading": "Lese PDF…",
+      "analyzing": "KI analysiert Antrag…",
+      "translating": "Formularinhalt wird übersetzt…",
+      "filling": "PDF wird ausgefüllt…"
+    },
+    "error": {
+      "unknown": "Unbekannter Fehler",
+      "analysis": "Analyse fehlgeschlagen",
+      "translation": "Übersetzung fehlgeschlagen",
+      "save": "Speichern fehlgeschlagen",
+      "fill": "Fehler beim Ausfüllen",
+      "retry": "Erneut versuchen",
+      "downloadUnavailable": "Download nicht möglich",
+      "downloadFailed": "Download fehlgeschlagen"
+    },
+    "toast": {
+      "invalidFile": "Bitte eine PDF-Datei hochladen.",
+      "formRecognized": "Formular erkannt: {title} ({jurisdiction})",
+      "missingFields": "Noch {count} Angabe(n) fehlen — bitte ergänzen.",
+      "createAccount": "Konto erstellen, um Anträge zu speichern und Downloads zu verwalten.",
+      "saveFailed": "Antrag konnte nicht gespeichert werden.",
+      "downloadUnlocked": "Download freigeschaltet"
+    },
+    "followUp": {
+      "title": "Fehlende Angaben ergänzen"
+    },
+    "preview": {
+      "emptyForm": "Leeres Formular",
+      "filled": "Ausgefüllte Vorschau",
+      "filledPdf": "Ausgefülltes PDF",
+      "pdf": "PDF Vorschau",
+      "show": "Formular-Vorschau anzeigen",
+      "hide": "Vorschau ausblenden",
+      "redownload": "Erneut herunterladen",
+      "highlightHint": "Blau markiert: aktuelles Feld im Formular"
+    },
+    "result": {
+      "title": "Ausgefüllter Antrag",
+      "download": "PDF herunterladen",
+      "copy": "Text kopieren",
+      "copied": "Kopiert",
+      "newApplication": "Neuer Antrag",
+      "noFormFields": "Dieses PDF hatte keine ausfüllbaren Formularfelder — die Angaben wurden als Zusammenfassung angehängt und die Unterschrift platziert.",
+      "missingPrefix": "Nicht ausgefüllt:",
+      "addMissing": "Fehlende Angaben ergänzen"
+    },
+    "copyResult": {
+      "missingHeader": "Nicht ausgefüllt (Daten fehlen):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Felder",
+      "groups": "Gruppen",
+      "review": "Zu prüfen"
+    },
+    "addField": "Feld hinzufügen",
+    "empty": "Noch keine Profildaten. Lade einen Antrag hoch oder füge Felder manuell hinzu.",
+    "badge": {
+      "review": "prüfen"
+    },
+    "updated": "Aktualisiert",
+    "signature": {
+      "title": "Unterschrift",
+      "hint": "Zeichne oder lade ein Bild hoch — wird bei Anträgen wiederverwendet.",
+      "add": "Unterschrift hinzufügen",
+      "alt": "Gespeicherte Unterschrift"
+    },
+    "toast": {
+      "saved": "Gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "deleted": "Feld gelöscht",
+      "deleteFailed": "Löschen fehlgeschlagen"
+    },
+    "groups": {
+      "personal": "Persönliche Daten",
+      "address": "Adresse & Wohnung",
+      "moving": "Einzug & Anmeldung",
+      "contact": "Kontakt",
+      "landlord": "Wohnungsgeber",
+      "landlord_not_owner": "Wohnungsgeber (nicht Eigentümer)",
+      "authorized_person": "Beauftragte Person",
+      "employment": "Arbeit & Beruf",
+      "signature": "Unterschrift",
+      "other": "Sonstiges"
+    },
+    "freshness": {
+      "fresh": "Aktuell",
+      "aging": "Bald prüfen",
+      "stale": "Möglicherweise veraltet"
+    }
+  },
+  "starterForm": {
+    "title": "Felder hinzufügen",
+    "subtitle": "Name, Geburtsdatum, Kontakt und Adresse — mehrere E-Mails und Adressen sind möglich.",
+    "label": {
+      "name": "Name",
+      "birthDate": "Geburtsdatum",
+      "birthPlace": "Geburtsort",
+      "email": "E-Mail",
+      "phone": "Telefon"
+    },
+    "multi": {
+      "addresses": "Adressen",
+      "addAnother": "Weitere",
+      "primaryLabel": "Haupt",
+      "secondaryAddressLabel": "z. B. Zweitwohnsitz",
+      "primaryContactLabel": "Haupt",
+      "secondaryContactLabel": "z. B. Arbeit",
+      "setDefault": "Als Standard setzen"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Darstellung",
+      "subtitle": "Wähle ein Farbschema für die Oberfläche."
+    },
+    "theme": {
+      "light": "Hell",
+      "dark": "Dunkel",
+      "system": "System"
+    },
+    "account": {
+      "title": "Konto",
+      "guestHint": "Du nutzt Formfill als Gast. Erstelle ein Konto, um Anträge zu speichern, den Verlauf zu nutzen und Downloads zu verwalten.",
+      "create": "Konto erstellen"
+    },
+    "security": {
+      "title": "Sicherheit",
+      "encryption": "Dein Profil und deine PDFs werden auf diesem Gerät verschlüsselt, bevor sie gespeichert werden. Nicht einmal wir können deine Daten lesen.",
+      "passkeys": "Passkeys schützen dein Konto vor Phishing. Dein verschlüsseltes Profil bleibt an dieses Gerät gebunden — auf einem neuen Gerät legst du es einmalig neu an.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "Daten",
+      "deleteHint": "Alle Profildaten, Anträge und hochgeladenen PDFs unwiderruflich löschen.",
+      "deleteButton": "Alle Daten löschen",
+      "deleteDialog": {
+        "title": "Alle Daten löschen?",
+        "description": "Profil, Verlauf und gespeicherte PDFs werden gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+        "confirm": "Löschen"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "FEHLER",
+      "incomplete": "UNVOLLSTÄNDIG",
+      "complete": "VOLLSTÄNDIG"
+    },
+    "incompleteBannerOne": "1 Antrag ist noch unvollständig — fehlende Felder können beim nächsten Upload ergänzt werden.",
+    "incompleteBannerOther": "{count} Anträge sind noch unvollständig — fehlende Felder können beim nächsten Upload ergänzt werden.",
+    "empty": "Noch keine Anträge bearbeitet.",
+    "fieldsFilled": "{count} Felder ausgefüllt",
+    "requiredMissing": "· {count} Pflichtfelder fehlen"
+  },
+  "login": {
+    "backToApp": "Zur App",
+    "error": {
+      "auth": "Anmeldung fehlgeschlagen. Bitte versuche es erneut."
+    },
+    "footer": {
+      "guestUpgrade": "Profil und bisherige Angaben bleiben auf diesem Gerät erhalten.",
+      "signUpHint": "Noch kein Konto? Der E-Mail-Code legt automatisch eines an.",
+      "continueAsGuest": "Ohne Konto fortfahren"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Bei Formfill anmelden",
+      "createAccount": "Konto erstellen"
+    },
+    "subtitle": {
+      "signIn": "Sicher und ohne Passwort — deine Profildaten bleiben verschlüsselt auf diesem Gerät.",
+      "guestUpgrade": "Profil und bisherige Angaben bleiben auf diesem Gerät erhalten."
+    },
+    "passkey": {
+      "signIn": "Mit Passkey anmelden",
+      "hint": "Face ID, Touch ID, Windows Hello oder Sicherheitsschlüssel",
+      "unsupported": "Dein Browser unterstützt keine Passkeys — melde dich per E-Mail an."
+    },
+    "email": {
+      "signIn": "Mit E-Mail-Code anmelden",
+      "label": "E-Mail",
+      "placeholder": "du@beispiel.de",
+      "sendCode": "Code senden",
+      "back": "Zurück"
+    },
+    "otp": {
+      "message": "Wir haben dir einen Code per E-Mail geschickt.",
+      "label": "Bestätigungscode",
+      "submitSignIn": "Anmelden",
+      "submitCreateAccount": "Konto erstellen",
+      "changeEmail": "Andere E-Mail verwenden"
+    },
+    "setupPasskey": {
+      "title": "Passkey einrichten?",
+      "description": "Beim nächsten Mal meldest du dich mit Face ID, Touch ID oder Windows Hello an — ohne E-Mail-Code.",
+      "add": "Passkey hinzufügen",
+      "later": "Später einrichten"
+    }
+  },
+  "billing": {
+    "loading": "Lade Kontoinformationen…",
+    "account": {
+      "title": "Konto",
+      "signInHint": "Passkey oder E-Mail-Code zum Anmelden",
+      "noEmail": "Keine E-Mail hinterlegt"
+    },
+    "signOut": "Abmelden",
+    "downloads": {
+      "title": "Downloads & Abo"
+    },
+    "pro": {
+      "active": "Formfill Pro aktiv",
+      "unlimited": "Unbegrenzte PDF-Downloads",
+      "validUntil": "· gültig bis {date}",
+      "manage": "Abo verwalten",
+      "upgrade": "Pro werden"
+    },
+    "credits": {
+      "balance": "Download-Guthaben",
+      "freePlan": "Kostenloser Plan: {count} Downloads pro Monat. Vorschau ist immer gratis.",
+      "buy": "{count} Downloads kaufen"
+    },
+    "error": {
+      "checkout": "Checkout fehlgeschlagen",
+      "portal": "Portal nicht verfügbar"
+    }
+  },
+  "upgrade": {
+    "title": "PDF herunterladen",
+    "description": "Vorschau und Ausfüllen sind kostenlos. Für den Download wird ein Guthaben benötigt.",
+    "balance": {
+      "pro": "Pro — unbegrenzt",
+      "credits": "{count} Download(s)"
+    },
+    "credits": {
+      "title": "{count} Downloads",
+      "subtitle": "Einmalig — ideal für gelegentliche Anträge"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Unbegrenzte Downloads, monatlich kündbar"
+    },
+    "refresh": "Status aktualisieren",
+    "error": {
+      "checkout": "Checkout fehlgeschlagen"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Pflichtfeld",
+      "optional": "Optional",
+      "stale": "Veraltet?"
+    },
+    "hint": {
+      "required": "Pflichtfeld für diesen Antrag",
+      "optional": "Optional — leer lassen zum Überspringen",
+      "shiftEnter": "Umschalt+Enter zum Weiter · {suffix}",
+      "cityEnter": "Enter im Ort-Feld zum Weiter · {suffix}",
+      "enter": "Enter zum Weiter · {suffix}"
+    },
+    "picker": {
+      "address": "Gespeicherte Adresse verwenden",
+      "email": "Gespeicherte E-Mail verwenden",
+      "phone": "Gespeicherte Telefonnummer verwenden"
+    },
+    "info": {
+      "moreInfo": "Mehr Informationen",
+      "gotIt": "Verstanden"
+    },
+    "signature": {
+      "title": "Unterschrift hinzufügen",
+      "subtitle": "Zeichne deine Unterschrift oder lade ein Bild hoch — sie wird ins PDF eingefügt.",
+      "infoTitle": "Unterschrift",
+      "info": "Deine Unterschrift wird direkt in das PDF eingefügt und in deinem Profil gespeichert. Du kannst sie zeichnen oder als Bild hochladen. Beim nächsten Antrag kannst du sie wiederverwenden.",
+      "drawOrUpload": "Hier unterschreiben oder Bild hochladen",
+      "profileHint": "Wird in deinem Profil gespeichert und wiederverwendet",
+      "uploadImage": "Bild hochladen",
+      "clear": "Löschen",
+      "uploadFailed": "Upload fehlgeschlagen"
+    },
+    "elterngeld": {
+      "parent": "Elternteil {parent}",
+      "standardMonths": "Ich beantrage (Basis-)Elterngeld für den 1.–12. Lebensmonat",
+      "customHint": "Oder abweichend: pro Monat entweder Basis-Elterngeld oder Elterngeld Plus wählen (nicht beides).",
+      "basisLabel": "(Basis-) Elterngeld",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Elternteil {parent}, Monat {month}, {benefit}",
+      "basisBenefit": "Basis-Elterngeld",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Monate 15–18 nur bei Frühgeburten. Ab Monat 19 nur Elterngeld Plus (ohne Lücken). Ein Monat Basis entspricht zwei Monaten Plus.",
+      "reset": "Auswahl zurücksetzen",
+      "errors": {
+        "minMonths": "Elternteil {parent}: Mindestens zwei Monate (oder ein Monat Basis-Elterngeld) erforderlich.",
+        "required": "Bitte mindestens einen Bezugszeitraum angeben."
+      }
+    },
+    "selfFill": "Das bin ich",
+    "skipAll": "Alle überspringen",
+    "next": "Weiter",
+    "submit": {
+      "createPdf": "PDF erstellen",
+      "createAndDownload": "PDF erstellen & herunterladen",
+      "updatePdf": "PDF aktualisieren"
+    },
+    "progress": {
+      "step": "Schritt {current} von {total}",
+      "required": "{count} Pflicht",
+      "optional": "optional",
+      "answered": "{count} beantwortet",
+      "formLabel": "Formular:"
+    },
+    "repeatable": {
+      "empty": "Noch keine weiteren Personen hinzugefügt.",
+      "person": "Person {index}",
+      "remove": "Entfernen",
+      "addPerson": "Person hinzufügen"
+    },
+    "steps": {
+      "birth": {
+        "question": "Geburtsangaben",
+        "subquestion": "Geburtsdatum und Geburtsort wie im Ausweis."
+      },
+      "contact": {
+        "question": "Kontaktdaten",
+        "subquestion": "Telefon und E-Mail für Rückfragen zu diesem Antrag."
+      },
+      "signature_meta": {
+        "question": "Ort und Datum der Unterschrift",
+        "subquestion": "Wo und wann unterschreibst du das Formular?"
+      },
+      "address": {
+        "own": {
+          "question": "Wie lautet deine Adresse?",
+          "subquestion": "Straße mit Hausnummer, Postleitzahl und Ort — wie im Formular."
+        },
+        "landlord": {
+          "question": "Wo wohnt oder sitzt dein Wohnungsgeber?",
+          "subquestion": "Straße und Hausnummer, Postleitzahl und Ort."
+        },
+        "representative": {
+          "question": "Adresse der beauftragten Person",
+          "subquestion": "Straße und Hausnummer, Postleitzahl und Ort."
+        }
+      },
+      "name": "Wie heißt du?",
+      "einzugsdatum": "Wann bist du in die neue Wohnung eingezogen?",
+      "elterngeld_schedule": "Wähle für jeden Elternteil die Monate mit Basis-Elterngeld oder Elterngeld Plus — oder die Standardoption für Monate 1–12."
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Name",
+      "strasse": "Straße und Hausnummer",
+      "postleitzahl": "PLZ",
+      "ort": "Ort",
+      "einzugsdatum": "Einzugsdatum",
+      "geburtsdatum": "Geburtsdatum",
+      "geburtsort": "Geburtsort",
+      "telefon": "Telefon",
+      "email": "E-Mail",
+      "unterschrift_ort": "Ort (Unterschrift)",
+      "unterschrift_datum": "Datum (Unterschrift)",
+      "wohnungsanschrift": "Wohnanschrift",
+      "familienstand": "Familienstand",
+      "geschlecht": "Geschlecht",
+      "religion": "Religion / Konfession",
+      "staatsangehoerigkeit": "Staatsangehörigkeit",
+      "wohnanschrift": "Wohnanschrift",
+      "elterngeld_bezugszeitraum": "Elterngeld Bezugszeitraum"
+    },
+    "placeholders": {
+      "strasse": "Musterstraße 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "TT.MM.JJJJ",
+      "phone": "+49 123 456789",
+      "email": "name@beispiel.de",
+      "address": "Straße Hausnr., PLZ Ort",
+      "name": "Vor- und Nachname",
+      "number": "Zahl eingeben",
+      "combobox": "Auswählen oder eingeben…",
+      "textarea": "Antwort eingeben…",
+      "default": "Antwort eingeben…"
+    },
+    "hints": {
+      "date": "Format: TT.MM.JJJJ",
+      "phone": "Mit Ländervorwahl, z. B. +49 …",
+      "combobox": "Aus Liste wählen oder eigenen Wert eingeben",
+      "elterngeld_schedule": "Monatsraster für Basis-Elterngeld und Elterngeld Plus",
+      "textarea": "Enter für neue Zeile · Umschalt+Enter zum Weiter"
+    },
+    "validation": {
+      "incomplete": "Bitte die Angabe vollständig und korrekt ausfüllen."
+    },
+    "combobox": {
+      "showSuggestions": "Vorschläge anzeigen"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Kostenlos testen",
+      "description": "PDF hochladen, ausfüllen und Vorschau — ohne Anmeldung. Für Verlauf und Downloads ein Konto erstellen."
+    },
+    "profile": {
+      "setup": "Profil einrichten",
+      "savedFields": "Gespeicherte Felder",
+      "coverageEmpty": "Noch keine Daten — beim ersten Antrag werden Felder automatisch ergänzt.",
+      "coverage": "{percent}% Abdeckung über bisherige Anträge · wächst mit jedem neuen Formular.",
+      "staleOne": "{count} Feld sollte geprüft werden",
+      "staleOther": "{count} Felder sollten geprüft werden"
+    },
+    "applications": {
+      "title": "Anträge",
+      "toHistory": "Zum Verlauf",
+      "empty": "Noch keine Anträge.",
+      "emptyHint": "Lade ein PDF hoch, um zu starten.",
+      "incomplete": "{count} unvollständig",
+      "moreInHistory": "+{count} weitere im Verlauf"
+    },
+    "settings": "Einstellungen",
+    "status": {
+      "error": "Fehler",
+      "missing": "{count} fehlend",
+      "complete": "Vollständig"
+    }
+  },
+  "vault": {
+    "preparing": "Profil wird vorbereitet…",
+    "prepareFailed": "Profil konnte nicht vorbereitet werden.",
+    "notReady": "Vault ist nicht bereit"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys werden in diesem Browser nicht unterstützt.",
+    "loading": "Passkeys werden geladen…",
+    "empty": "Noch kein Passkey eingerichtet. Füge einen hinzu, um dich schneller anzumelden.",
+    "defaultName": "Passkey",
+    "created": "Erstellt {date}",
+    "lastUsed": "· zuletzt {date}",
+    "removeAria": "Passkey entfernen",
+    "add": "Passkey hinzufügen",
+    "added": "Passkey hinzugefügt",
+    "removed": "Passkey entfernt"
+  }
+}

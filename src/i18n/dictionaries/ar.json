@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — طلبات تملأ نفسها بنفسها",
+    "description": "ارفع طلباً. يتعرف الذكاء الاصطناعي على البيانات الناقصة ويملأ النماذج تلقائياً.",
+    "loginTitle": "تسجيل الدخول — Formfill",
+    "loginDescription": "سجّل الدخول إلى Formfill باستخدام Passkey أو رمز البريد الإلكتروني.",
+    "adminTitle": "المشرف — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "or": "أو",
+    "admin": "المشرف",
+    "pro": "Pro",
+    "faq": "الأسئلة الشائعة"
+  },
+  "localeSwitcher": {
+    "label": "اللغة"
+  },
+  "views": {
+    "upload": {
+      "title": "طلب جديد",
+      "subtitle": "ارفع PDF ودعه يُملأ"
+    },
+    "profile": {
+      "title": "ملفي الشخصي",
+      "subtitle": "البيانات المحفوظة للطلبات المستقبلية"
+    },
+    "history": {
+      "title": "السجل",
+      "subtitle": "الطلبات الحالية والمكتملة"
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "subtitle": "الحساب والمظهر والبيانات"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "كيف يعمل",
+      "features": "الميزات",
+      "faq": "الأسئلة الشائعة",
+      "signIn": "تسجيل الدخول",
+      "getStarted": "ابدأ"
+    },
+    "hero": {
+      "title": "طلبات تملأ نفسها بنفسها",
+      "subtitle": "ارفع نموذج PDF، أجب فقط على الأسئلة الناقصة — Formfill يملأ الباقي تلقائياً.",
+      "ctaPrimary": "املأ الطلب",
+      "ctaSecondary": "اعرف المزيد",
+      "footnote": "ابدأ مجاناً · لا حاجة لبطاقة ائتمان"
+    },
+    "demo": {
+      "hint": "حقل واحد ناقص — Formfill يسأل فقط ما هو ضروري"
+    },
+    "steps": {
+      "upload": {
+        "title": "رفع PDF",
+        "description": "ارفع أي طلب — Formfill يتعرف على حقول النموذج تلقائياً."
+      },
+      "questions": {
+        "title": "الإجابة على الأسئلة",
+        "description": "أكمل فقط البيانات الناقصة. ملفك الشخصي يملأ الحقول المعروفة مسبقاً."
+      },
+      "download": {
+        "title": "تحميل PDF المكتمل",
+        "description": "حمّل النموذج المكتمل — جاهز للطباعة أو الإرسال."
+      }
+    },
+    "howItWorks": {
+      "title": "كيف يعمل",
+      "subtitle": "ثلاث خطوات من نموذج فارغ إلى طلب مكتمل."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "ربط الحقول بالذكاء الاصطناعي",
+        "description": "يربط الذكاء الاصطناعي حقول النموذج ببيانات ملفك الشخصي — حتى مع التسميات غير المعتادة."
+      },
+      "profile": {
+        "title": "ملف شخصي",
+        "description": "احفظ الاسم والعنوان والبيانات الأخرى مرة واحدة. تُستخدم في كل طلب."
+      },
+      "vault": {
+        "title": "خزنة مشفرة",
+        "description": "تُشفَّر البيانات الحساسة على جهازك. أنت وحدك من يصل إلى ملفك الشخصي."
+      },
+      "preview": {
+        "title": "معاينة مباشرة",
+        "description": "شاهد في الوقت الفعلي أي الحقول تُملأ — قبل تحميل PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "كتابة أقل، إنجاز أسرع",
+      "subtitle": "Formfill مصمم للنماذج الحكومية المتكررة — مع التركيز على الخصوصية والدقة."
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "subtitle": "باختصار — كل ما تحتاج معرفته عن Formfill.",
+      "pdfTypes": {
+        "question": "ما نماذج PDF المدعومة؟",
+        "answer": "يعمل Formfill مع ملفات PDF التي تحتوي على حقول نموذج قابلة للتعبئة (AcroForms). المستندات الممسوحة ضوئياً بدون حقول تفاعلية غير مدعومة حالياً."
+      },
+      "dataStorage": {
+        "question": "هل تُحفظ بياناتي؟",
+        "answer": "يُحفظ ملفك الشخصي مشفراً على جهازك. تُستخدم ملفات PDF المرفوعة للمعالجة فقط ولا تُخزَّن بشكل دائم على خوادمنا."
+      },
+      "pricing": {
+        "question": "هل Formfill مدفوع؟",
+        "answer": "يمكنك تجربة Formfill مجاناً — المعاينة دائماً مجانية. مع حساب تحصل على تنزيلين مجانيين شهرياً. التنزيلات الإضافية أو اشتراك Pro غير المحدود اختياري."
+      },
+      "account": {
+        "question": "هل أحتاج حساباً؟",
+        "answer": "لا. يمكنك البدء كضيف وملء نموذج فوراً. مع حساب تحفظ ملفك الشخصي وتتابع طلباتك."
+      },
+      "protection": {
+        "question": "كيف تُحمى بياناتي؟",
+        "answer": "تُشفَّر بيانات الملف الشخصي الحساسة على جهازك قبل الحفظ. أنت وحدك من يصل إلى خزنتك."
+      },
+      "aiPrivacy": {
+        "question": "هل يرى الذكاء الاصطناعي بياناتي الشخصية؟",
+        "answer": "لا. يحلل الذكاء الاصطناعي فقط نص النموذج وأسماء الحقول للربط — وليس بيانات ملفك الشخصي المكتملة."
+      }
+    },
+    "cta": {
+      "title": "مستعد لطلبك التالي؟",
+      "subtitle": "ابدأ كضيف أو أنشئ حساباً لحفظ ملفك الشخصي وإدارة الطلبات.",
+      "button": "جرّب الآن"
+    },
+    "footer": {
+      "tagline": "ملء ذكي لنماذج PDF — صُنع في ألمانيا.",
+      "product": "المنتج",
+      "openApp": "فتح التطبيق",
+      "privacy": "الخصوصية",
+      "privacyText": "يُشفَّر ملفك الشخصي على جهازك. تُعالَج ملفات PDF فقط ولا تُخزَّن بشكل دائم.",
+      "beta": "نسخة تجريبية — قد تتغير الميزات"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "تعذر بدء جلسة الضيف. يرجى تفعيل تسجيل الدخول المجهول في Supabase.",
+        "sessionLoad": "تعذر تحميل الجلسة."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "ضيف",
+      "downloads": "{count} تنزيل"
+    },
+    "newApplication": {
+      "desktop": "+ ملء طلب جديد",
+      "mobile": "+ جديد"
+    },
+    "createAccount": {
+      "desktop": "إنشاء حساب",
+      "mobile": "دخول"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "التنقل الرئيسي",
+    "upload": "طلب",
+    "profile": "الملف",
+    "history": "السجل",
+    "settings": "المزيد"
+  },
+  "upload": {
+    "title": "تحليل طلب PDF",
+    "subtitle": "ارفع طلباً، أجب على بعض الأسئلة، وقّع — وحمّل PDF المكتمل.",
+    "dropzone": {
+      "title": "اسحب PDF هنا أو انقر",
+      "hint": "عقد إيجار، طلب تأمين صحي، تسجيل عنوان، نموذج تأشيرة…"
+    },
+    "status": {
+      "reading": "قراءة PDF…",
+      "analyzing": "الذكاء الاصطناعي يحلل الطلب…",
+      "translating": "جارٍ ترجمة محتوى النموذج…",
+      "filling": "جاري ملء PDF…"
+    },
+    "error": {
+      "unknown": "خطأ غير معروف",
+      "analysis": "فشل التحليل",
+      "translation": "فشلت الترجمة",
+      "save": "فشل الحفظ",
+      "fill": "خطأ في الملء",
+      "retry": "إعادة المحاولة",
+      "downloadUnavailable": "التنزيل غير متاح",
+      "downloadFailed": "فشل التنزيل"
+    },
+    "toast": {
+      "invalidFile": "يرجى رفع ملف PDF.",
+      "formRecognized": "تم التعرف على النموذج: {title} ({jurisdiction})",
+      "missingFields": "{count} بيانات ناقصة — يرجى الإكمال.",
+      "createAccount": "أنشئ حساباً لحفظ الطلبات وإدارة التنزيلات.",
+      "saveFailed": "تعذر حفظ الطلب.",
+      "downloadUnlocked": "تم تفعيل التنزيل"
+    },
+    "followUp": {
+      "title": "إكمال البيانات الناقصة"
+    },
+    "preview": {
+      "emptyForm": "نموذج فارغ",
+      "filled": "معاينة مكتملة",
+      "filledPdf": "PDF مكتمل",
+      "pdf": "معاينة PDF",
+      "show": "عرض معاينة النموذج",
+      "hide": "إخفاء المعاينة",
+      "redownload": "تنزيل مرة أخرى",
+      "highlightHint": "التظليل الأزرق: الحقل الحالي في النموذج"
+    },
+    "result": {
+      "title": "طلب مكتمل",
+      "download": "تحميل PDF",
+      "copy": "نسخ النص",
+      "copied": "تم النسخ",
+      "newApplication": "طلب جديد",
+      "noFormFields": "لم يكن في هذا PDF حقول قابلة للتعبئة — أُضيفت البيانات كملخص ووُضعت التوقيع.",
+      "missingPrefix": "غير مكتمل:",
+      "addMissing": "إكمال البيانات الناقصة"
+    },
+    "copyResult": {
+      "missingHeader": "غير مكتمل (بيانات ناقصة):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "الحقول",
+      "groups": "المجموعات",
+      "review": "للمراجعة"
+    },
+    "addField": "إضافة حقل",
+    "empty": "لا توجد بيانات ملف شخصي بعد. ارفع طلباً أو أضف حقولاً يدوياً.",
+    "badge": {
+      "review": "مراجعة"
+    },
+    "updated": "محدّث",
+    "signature": {
+      "title": "التوقيع",
+      "hint": "ارسم أو ارفع صورة — يُعاد استخدامه في الطلبات.",
+      "add": "إضافة توقيع",
+      "alt": "توقيع محفوظ"
+    },
+    "toast": {
+      "saved": "تم الحفظ",
+      "saveFailed": "فشل الحفظ",
+      "deleted": "تم حذف الحقل",
+      "deleteFailed": "فشل الحذف"
+    },
+    "groups": {
+      "personal": "البيانات الشخصية",
+      "address": "العنوان والسكن",
+      "moving": "الانتقال والتسجيل",
+      "contact": "جهة الاتصال",
+      "landlord": "مؤجر السكن",
+      "landlord_not_owner": "مؤجر السكن (ليس المالك)",
+      "authorized_person": "الشخص المفوّض",
+      "employment": "العمل والمهنة",
+      "signature": "التوقيع",
+      "other": "أخرى"
+    },
+    "freshness": {
+      "fresh": "حديث",
+      "aging": "راجع قريباً",
+      "stale": "قد يكون قديماً"
+    }
+  },
+  "starterForm": {
+    "title": "إضافة حقول",
+    "subtitle": "الاسم وتاريخ الميلاد والاتصال والعنوان — يمكن إضافة عدة بريد إلكتروني وعناوين.",
+    "label": {
+      "name": "الاسم",
+      "birthDate": "تاريخ الميلاد",
+      "birthPlace": "مكان الميلاد",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف"
+    },
+    "multi": {
+      "addresses": "العناوين",
+      "addAnother": "إضافة أخرى",
+      "primaryLabel": "رئيسي",
+      "secondaryAddressLabel": "مثلاً مسكن ثانٍ",
+      "primaryContactLabel": "رئيسي",
+      "secondaryContactLabel": "مثلاً العمل",
+      "setDefault": "تعيين كافتراضي"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "المظهر",
+      "subtitle": "اختر نظام ألوان للواجهة."
+    },
+    "theme": {
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "النظام"
+    },
+    "account": {
+      "title": "الحساب",
+      "guestHint": "تستخدم Formfill كضيف. أنشئ حساباً لحفظ الطلبات واستخدام السجل وإدارة التنزيلات.",
+      "create": "إنشاء حساب"
+    },
+    "security": {
+      "title": "الأمان",
+      "encryption": "يُشفَّر ملفك الشخصي وملفات PDF على هذا الجهاز قبل الحفظ. حتى نحن لا نستطيع قراءة بياناتك.",
+      "passkeys": "تحمي Passkeys حسابك من التصيد. يبقى ملفك الشخصي المشفر مرتبطاً بهذا الجهاز — على جهاز جديد تنشئه من جديد.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "البيانات",
+      "deleteHint": "حذف جميع بيانات الملف الشخصي والطلبات وملفات PDF المرفوعة بشكل نهائي.",
+      "deleteButton": "حذف جميع البيانات",
+      "deleteDialog": {
+        "title": "حذف جميع البيانات؟",
+        "description": "سيُحذف الملف الشخصي والسجل وملفات PDF المحفوظة. لا يمكن التراجع عن هذا الإجراء.",
+        "confirm": "حذف"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "خطأ",
+      "incomplete": "غير مكتمل",
+      "complete": "مكتمل"
+    },
+    "incompleteBannerOne": "طلب واحد لا يزال غير مكتمل — يمكن إكمال الحقول الناقصة في الرفع التالي.",
+    "incompleteBannerOther": "{count} طلبات لا تزال غير مكتملة — يمكن إكمال الحقول الناقصة في الرفع التالي.",
+    "empty": "لا توجد طلبات معالجة بعد.",
+    "fieldsFilled": "{count} حقول مملوءة",
+    "requiredMissing": "· {count} حقول إلزامية ناقصة"
+  },
+  "login": {
+    "backToApp": "إلى التطبيق",
+    "error": {
+      "auth": "فشل تسجيل الدخول. يرجى المحاولة مرة أخرى."
+    },
+    "footer": {
+      "guestUpgrade": "يبقى الملف الشخصي والبيانات السابقة على هذا الجهاز.",
+      "signUpHint": "ليس لديك حساب؟ رمز البريد الإلكتروني ينشئ واحداً تلقائياً.",
+      "continueAsGuest": "المتابعة بدون حساب"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "تسجيل الدخول إلى Formfill",
+      "createAccount": "إنشاء حساب"
+    },
+    "subtitle": {
+      "signIn": "آمن وبدون كلمة مرور — تبقى بيانات ملفك الشخصي مشفرة على هذا الجهاز.",
+      "guestUpgrade": "يبقى الملف الشخصي والبيانات السابقة على هذا الجهاز."
+    },
+    "passkey": {
+      "signIn": "تسجيل الدخول بـ Passkey",
+      "hint": "Face ID أو Touch ID أو Windows Hello أو مفتاح أمان",
+      "unsupported": "متصفحك لا يدعم Passkeys — سجّل الدخول بالبريد الإلكتروني."
+    },
+    "email": {
+      "signIn": "تسجيل الدخول برمز البريد الإلكتروني",
+      "label": "البريد الإلكتروني",
+      "placeholder": "you@example.com",
+      "sendCode": "إرسال الرمز",
+      "back": "رجوع"
+    },
+    "otp": {
+      "message": "أرسلنا لك رمزاً عبر البريد الإلكتروني.",
+      "label": "رمز التأكيد",
+      "submitSignIn": "تسجيل الدخول",
+      "submitCreateAccount": "إنشاء حساب",
+      "changeEmail": "استخدام بريد إلكتروني آخر"
+    },
+    "setupPasskey": {
+      "title": "إعداد Passkey؟",
+      "description": "في المرة القادمة ستسجل الدخول بـ Face ID أو Touch ID أو Windows Hello — بدون رمز بريد إلكتروني.",
+      "add": "إضافة Passkey",
+      "later": "الإعداد لاحقاً"
+    }
+  },
+  "billing": {
+    "loading": "جاري تحميل معلومات الحساب…",
+    "account": {
+      "title": "الحساب",
+      "signInHint": "Passkey أو رمز البريد الإلكتروني لتسجيل الدخول",
+      "noEmail": "لا يوجد بريد إلكتروني"
+    },
+    "signOut": "تسجيل الخروج",
+    "downloads": {
+      "title": "التنزيلات والاشتراك"
+    },
+    "pro": {
+      "active": "Formfill Pro نشط",
+      "unlimited": "تنزيلات PDF غير محدودة",
+      "validUntil": "· صالح حتى {date}",
+      "manage": "إدارة الاشتراك",
+      "upgrade": "الترقية إلى Pro"
+    },
+    "credits": {
+      "balance": "رصيد التنزيل",
+      "freePlan": "الخطة المجانية: {count} تنزيل شهرياً. المعاينة دائماً مجانية.",
+      "buy": "شراء {count} تنزيل"
+    },
+    "error": {
+      "checkout": "فشل الدفع",
+      "portal": "البوابة غير متاحة"
+    }
+  },
+  "upgrade": {
+    "title": "تحميل PDF",
+    "description": "المعاينة والملء مجانيان. التنزيل يتطلب رصيداً.",
+    "balance": {
+      "pro": "Pro — غير محدود",
+      "credits": "{count} تنزيل"
+    },
+    "credits": {
+      "title": "{count} تنزيل",
+      "subtitle": "مرة واحدة — مثالي للطلبات العرضية"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "تنزيلات غير محدودة، إلغاء شهري"
+    },
+    "refresh": "تحديث الحالة",
+    "error": {
+      "checkout": "فشل الدفع"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "إلزامي",
+      "optional": "اختياري",
+      "stale": "قديم؟"
+    },
+    "hint": {
+      "required": "حقل إلزامي لهذا الطلب",
+      "optional": "اختياري — اتركه فارغاً للتخطي",
+      "shiftEnter": "Shift+Enter للمتابعة · {suffix}",
+      "cityEnter": "Enter في حقل المدينة للمتابعة · {suffix}",
+      "enter": "Enter للمتابعة · {suffix}"
+    },
+    "picker": {
+      "address": "استخدام العنوان المحفوظ",
+      "email": "استخدام البريد المحفوظ",
+      "phone": "استخدام رقم الهاتف المحفوظ"
+    },
+    "signature": {
+      "title": "إضافة توقيع",
+      "subtitle": "ارسم توقيعك أو ارفع صورة — سيُدرج في PDF.",
+      "infoTitle": "التوقيع",
+      "info": "يُدرج توقيعك مباشرة في PDF ويُحفظ في ملفك الشخصي. يمكنك الرسم أو الرفع كصورة. يمكن إعادة استخدامه في الطلب التالي.",
+      "drawOrUpload": "وقّع هنا أو ارفع صورة",
+      "profileHint": "يُحفظ في ملفك الشخصي ويُعاد استخدامه",
+      "uploadImage": "رفع صورة",
+      "clear": "مسح",
+      "uploadFailed": "فشل الرفع"
+    },
+    "selfFill": "هذا أنا",
+    "skipAll": "تخطي الكل",
+    "next": "التالي",
+    "submit": {
+      "createPdf": "إنشاء PDF",
+      "createAndDownload": "إنشاء وتحميل PDF",
+      "updatePdf": "تحديث PDF"
+    },
+    "progress": {
+      "step": "الخطوة {current} من {total}",
+      "required": "{count} إلزامي",
+      "optional": "اختياري",
+      "answered": "{count} تمت الإجابة",
+      "formLabel": "النموذج:"
+    },
+    "repeatable": {
+      "empty": "لم تُضف أشخاص إضافيون بعد.",
+      "person": "الشخص {index}",
+      "remove": "إزالة",
+      "addPerson": "إضافة شخص"
+    },
+    "steps": {
+      "birth": {
+        "question": "بيانات الميلاد",
+        "subquestion": "تاريخ ومكان الميلاد كما في بطاقة الهوية."
+      },
+      "contact": {
+        "question": "بيانات الاتصال",
+        "subquestion": "الهاتف والبريد الإلكتروني للاستفسارات حول هذا الطلب."
+      },
+      "signature_meta": {
+        "question": "مكان وتاريخ التوقيع",
+        "subquestion": "أين ومتى توقّع على النموذج؟"
+      },
+      "address": {
+        "own": {
+          "question": "ما هو عنوانك؟",
+          "subquestion": "الشارع مع رقم المنزل والرمز البريدي والمدينة — كما في النموذج."
+        },
+        "landlord": {
+          "question": "أين يعيش أو يقع مكتب مالك السكن؟",
+          "subquestion": "الشارع ورقم المنزل والرمز البريدي والمدينة."
+        },
+        "representative": {
+          "question": "عنوان الشخص المفوّض",
+          "subquestion": "الشارع ورقم المنزل والرمز البريدي والمدينة."
+        }
+      },
+      "name": "ما اسمك؟",
+      "einzugsdatum": "متى انتقلت إلى مسكنك الجديد؟",
+      "elterngeld_schedule": "اختر الأشهر مع إعانة الوالدين الأساسية أو Elterngeld Plus لكل والد — أو الخيار الافتراضي للأشهر 1–12."
+    },
+    "info": {
+      "moreInfo": "مزيد من المعلومات",
+      "gotIt": "فهمت"
+    },
+    "elterngeld": {
+      "parent": "الوالد {parent}",
+      "standardMonths": "أطلب إعانة الوالدين (الأساسية) للأشهر 1–12",
+      "customHint": "أو بدلاً من ذلك: اختر إعانة أساسية أو Elterngeld Plus لكل شهر (ليس كلاهما).",
+      "basisLabel": "إعانة الوالدين (الأساسية)",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "الوالد {parent}، الشهر {month}، {benefit}",
+      "basisBenefit": "إعانة الوالدين الأساسية",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "الأشهر 15–18 للولادات المبكرة فقط. من الشهر 19 فقط Elterngeld Plus (بدون فجوات). شهر أساسي يساوي شهرين Plus.",
+      "reset": "إعادة تعيين الاختيار",
+      "errors": {
+        "minMonths": "الوالد {parent}: مطلوب شهران على الأقل (أو شهر أساسي واحد).",
+        "required": "يرجى تحديد فترة استحقاق واحدة على الأقل."
+      }
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "الاسم",
+      "strasse": "الشارع ورقم المنزل",
+      "postleitzahl": "الرمز البريدي",
+      "ort": "المدينة",
+      "einzugsdatum": "تاريخ الانتقال",
+      "geburtsdatum": "تاريخ الميلاد",
+      "geburtsort": "مكان الميلاد",
+      "telefon": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "unterschrift_ort": "المكان (التوقيع)",
+      "unterschrift_datum": "التاريخ (التوقيع)",
+      "wohnungsanschrift": "عنوان السكن",
+      "familienstand": "الحالة الاجتماعية",
+      "geschlecht": "الجنس",
+      "religion": "الدين / الطائفة",
+      "staatsangehoerigkeit": "الجنسية",
+      "wohnanschrift": "عنوان السكن",
+      "elterngeld_bezugszeitraum": "فترة إعانة الوالدين"
+    },
+    "placeholders": {
+      "strasse": "شارع المثال 12أ",
+      "postleitzahl": "10115",
+      "ort": "برلين",
+      "date": "يوم.شهر.سنة",
+      "phone": "+49 123 456789",
+      "email": "name@example.com",
+      "address": "الشارع، الرمز البريدي المدينة",
+      "name": "الاسم الأول والأخير",
+      "number": "أدخل الرقم",
+      "combobox": "اختر أو اكتب…",
+      "textarea": "أدخل الإجابة…",
+      "default": "أدخل الإجابة…"
+    },
+    "hints": {
+      "date": "التنسيق: يوم.شهر.سنة",
+      "phone": "مع رمز الدولة، مثلاً +49 …",
+      "combobox": "اختر من القائمة أو أدخل قيمة خاصة",
+      "elterngeld_schedule": "شبكة الأشهر لإعانة الوالدين الأساسية و Elterngeld Plus",
+      "textarea": "Enter لسطر جديد · Shift+Enter للمتابعة"
+    },
+    "validation": {
+      "incomplete": "يرجى إكمال هذا الحقل بشكل صحيح."
+    },
+    "combobox": {
+      "showSuggestions": "عرض الاقتراحات"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "جرّب مجاناً",
+      "description": "ارفع PDF واملأه واعرضه — بدون تسجيل دخول. أنشئ حساباً للسجل والتنزيلات."
+    },
+    "profile": {
+      "setup": "إعداد الملف الشخصي",
+      "savedFields": "الحقول المحفوظة",
+      "coverageEmpty": "لا توجد بيانات بعد — تُضاف الحقول تلقائياً مع أول طلب.",
+      "coverage": "{percent}% تغطية للطلبات السابقة · ينمو مع كل نموذج جديد.",
+      "staleOne": "يجب مراجعة حقل {count}",
+      "staleOther": "يجب مراجعة {count} حقول"
+    },
+    "applications": {
+      "title": "الطلبات",
+      "toHistory": "إلى السجل",
+      "empty": "لا توجد طلبات بعد.",
+      "emptyHint": "ارفع PDF للبدء.",
+      "incomplete": "{count} غير مكتمل",
+      "moreInHistory": "+{count} أخرى في السجل"
+    },
+    "settings": "الإعدادات",
+    "status": {
+      "error": "خطأ",
+      "missing": "{count} ناقص",
+      "complete": "مكتمل"
+    }
+  },
+  "vault": {
+    "preparing": "جارٍ تجهيز الملف الشخصي…",
+    "prepareFailed": "تعذر تجهيز الملف الشخصي.",
+    "notReady": "الخزنة غير جاهزة"
+  },
+  "passkeys": {
+    "unsupported": "مفاتيح المرور غير مدعومة في هذا المتصفح.",
+    "loading": "جارٍ تحميل مفاتيح المرور…",
+    "empty": "لم يُعد مفتاح مرور بعد. أضف واحداً لتسجيل دخول أسرع.",
+    "defaultName": "Passkey",
+    "created": "أُنشئ {date}",
+    "lastUsed": "· آخر استخدام {date}",
+    "removeAria": "إزالة Passkey",
+    "add": "إضافة Passkey",
+    "added": "تمت إضافة Passkey",
+    "removed": "تمت إزالة Passkey"
+  }
+}

@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Wnioski, które wypełniają się same",
+    "description": "Prześlij wniosek. AI rozpoznaje brakujące dane i automatycznie wypełnia formularze.",
+    "loginTitle": "Logowanie — Formfill",
+    "loginDescription": "Zaloguj się do Formfill za pomocą Passkey lub kodu e-mail.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "close": "Zamknij",
+    "back": "Wstecz",
+    "or": "lub",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Język"
+  },
+  "views": {
+    "upload": {
+      "title": "Nowy wniosek",
+      "subtitle": "Prześlij PDF i pozwól go wypełnić"
+    },
+    "profile": {
+      "title": "Mój profil",
+      "subtitle": "Zapisane dane na przyszłe wnioski"
+    },
+    "history": {
+      "title": "Historia",
+      "subtitle": "Bieżące i zakończone wnioski"
+    },
+    "settings": {
+      "title": "Ustawienia",
+      "subtitle": "Konto, wygląd i dane"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "Jak to działa",
+      "features": "Funkcje",
+      "faq": "FAQ",
+      "signIn": "Zaloguj się",
+      "getStarted": "Zacznij"
+    },
+    "hero": {
+      "title": "Wnioski, które wypełniają się same",
+      "subtitle": "Prześlij formularz PDF, odpowiedz tylko na brakujące pytania — Formfill wypełni resztę automatycznie.",
+      "ctaPrimary": "Wypełnij wniosek",
+      "ctaSecondary": "Dowiedz się więcej",
+      "footnote": "Zacznij za darmo · Karta kredytowa nie jest wymagana"
+    },
+    "demo": {
+      "hint": "Brakuje 1 pola — Formfill pyta tylko o to, co konieczne"
+    },
+    "steps": {
+      "upload": {
+        "title": "Prześlij PDF",
+        "description": "Prześlij dowolny wniosek — Formfill automatycznie rozpoznaje pola formularza."
+      },
+      "questions": {
+        "title": "Odpowiedz na pytania",
+        "description": "Uzupełnij tylko brakujące dane. Twój profil wstępnie wypełnia znane pola."
+      },
+      "download": {
+        "title": "Pobierz wypełniony PDF",
+        "description": "Pobierz gotowy formularz — gotowy do druku lub wysłania."
+      }
+    },
+    "howItWorks": {
+      "title": "Jak to działa",
+      "subtitle": "Trzy kroki od pustego formularza do wypełnionego wniosku."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "Mapowanie pól z AI",
+        "description": "AI dopasowuje pola formularza do danych profilu — nawet przy nietypowych nazwach."
+      },
+      "profile": {
+        "title": "Profil osobisty",
+        "description": "Zapisz imię, adres i inne dane raz. Będą używane przy każdym wniosku."
+      },
+      "vault": {
+        "title": "Zaszyfrowany sejf",
+        "description": "Wrażliwe dane są szyfrowane po stronie klienta. Tylko Ty masz dostęp do profilu."
+      },
+      "preview": {
+        "title": "Podgląd na żywo",
+        "description": "Zobacz w czasie rzeczywistym, które pola są wypełniane — przed pobraniem PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "Mniej pisania, szybsze ukończenie",
+      "subtitle": "Formfill jest stworzony dla powtarzających się formularzy urzędowych — z naciskiem na prywatność i dokładność."
+    },
+    "faq": {
+      "title": "Często zadawane pytania",
+      "subtitle": "Krótko — wszystko ważne o Formfill.",
+      "pdfTypes": {
+        "question": "Jakie formularze PDF działają?",
+        "answer": "Formfill działa z PDF zawierającymi wypełnialne pola formularza (AcroForms). Zeskanowane dokumenty bez pól interaktywnych nie są obecnie obsługiwane."
+      },
+      "dataStorage": {
+        "question": "Czy moje dane są zapisywane?",
+        "answer": "Twój profil jest przechowywany zaszyfrowany po stronie klienta. Przesłane PDF są używane tylko do przetwarzania i nie są trwale przechowywane na naszych serwerach."
+      },
+      "pricing": {
+        "question": "Czy Formfill jest płatny?",
+        "answer": "Możesz wypróbować Formfill za darmo — podgląd jest zawsze bezpłatny. Z kontem otrzymujesz 2 darmowe pobrania miesięcznie. Dodatkowe pobrania lub subskrypcja Pro z nieograniczonymi pobraniami są opcjonalne."
+      },
+      "account": {
+        "question": "Czy potrzebuję konta?",
+        "answer": "Nie. Możesz zacząć jako gość i od razu wypełnić formularz. Z kontem zapisujesz profil i śledzisz wnioski."
+      },
+      "protection": {
+        "question": "Jak chronione są moje dane?",
+        "answer": "Wrażliwe dane profilu są szyfrowane na Twoim urządzeniu przed zapisaniem. Tylko Ty masz dostęp do sejfu."
+      },
+      "aiPrivacy": {
+        "question": "Czy AI widzi moje dane osobowe?",
+        "answer": "Nie. AI analizuje tylko tekst formularza i nazwy pól w celu dopasowania — nie wypełnione dane profilu."
+      }
+    },
+    "cta": {
+      "title": "Gotowy na następny wniosek?",
+      "subtitle": "Zacznij jako gość lub utwórz konto, aby zapisać profil i zarządzać wnioskami.",
+      "button": "Wypróbuj teraz"
+    },
+    "footer": {
+      "tagline": "Inteligentne wypełnianie formularzy PDF — made in Germany.",
+      "product": "Produkt",
+      "openApp": "Otwórz aplikację",
+      "privacy": "Prywatność",
+      "privacyText": "Twój profil jest szyfrowany po stronie klienta. PDF są tylko przetwarzane, nie przechowywane trwale.",
+      "beta": "Beta — funkcje mogą się zmieniać"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Nie udało się rozpocząć sesji gościa. Włącz anonimowe logowanie w Supabase.",
+        "sessionLoad": "Nie udało się załadować sesji."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Gość",
+      "downloads": "{count} pobrań"
+    },
+    "newApplication": {
+      "desktop": "+ Wypełnij nowy wniosek",
+      "mobile": "+ Nowy"
+    },
+    "createAccount": {
+      "desktop": "Utwórz konto",
+      "mobile": "Zaloguj"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Główna nawigacja",
+    "upload": "Wniosek",
+    "profile": "Profil",
+    "history": "Historia",
+    "settings": "Więcej"
+  },
+  "upload": {
+    "title": "Analizuj wniosek PDF",
+    "subtitle": "Prześlij wniosek, odpowiedz na kilka pytań, podpisz — i pobierz wypełniony PDF.",
+    "dropzone": {
+      "title": "Przeciągnij PDF tutaj lub kliknij",
+      "hint": "Umowa najmu, wniosek ubezpieczeniowy, zameldowanie, formularz wizowy…"
+    },
+    "status": {
+      "reading": "Odczytywanie PDF…",
+      "analyzing": "AI analizuje wniosek…",
+      "translating": "Tłumaczenie treści formularza…",
+      "filling": "Wypełnianie PDF…"
+    },
+    "error": {
+      "unknown": "Nieznany błąd",
+      "analysis": "Analiza nie powiodła się",
+      "translation": "Tłumaczenie nie powiodło się",
+      "save": "Zapisywanie nie powiodło się",
+      "fill": "Błąd wypełniania",
+      "retry": "Spróbuj ponownie",
+      "downloadUnavailable": "Pobieranie niedostępne",
+      "downloadFailed": "Pobieranie nie powiodło się"
+    },
+    "toast": {
+      "invalidFile": "Prześlij plik PDF.",
+      "formRecognized": "Rozpoznano formularz: {title} ({jurisdiction})",
+      "missingFields": "Brakuje {count} danych — proszę uzupełnić.",
+      "createAccount": "Utwórz konto, aby zapisywać wnioski i zarządzać pobraniami.",
+      "saveFailed": "Nie udało się zapisać wniosku.",
+      "downloadUnlocked": "Pobieranie odblokowane"
+    },
+    "followUp": {
+      "title": "Uzupełnij brakujące dane"
+    },
+    "preview": {
+      "emptyForm": "Pusty formularz",
+      "filled": "Wypełniony podgląd",
+      "filledPdf": "Wypełniony PDF",
+      "pdf": "Podgląd PDF",
+      "show": "Pokaż podgląd formularza",
+      "hide": "Ukryj podgląd",
+      "redownload": "Pobierz ponownie",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Wypełniony wniosek",
+      "download": "Pobierz PDF",
+      "copy": "Kopiuj tekst",
+      "copied": "Skopiowano",
+      "newApplication": "Nowy wniosek",
+      "noFormFields": "Ten PDF nie miał wypełnialnych pól — dane dodano jako podsumowanie, podpis umieszczono.",
+      "missingPrefix": "Niewypełnione:",
+      "addMissing": "Uzupełnij brakujące dane"
+    },
+    "copyResult": {
+      "missingHeader": "Niewypełnione (brak danych):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Pola",
+      "groups": "Grupy",
+      "review": "Do sprawdzenia"
+    },
+    "addField": "Dodaj pole",
+    "empty": "Brak danych profilu. Prześlij wniosek lub dodaj pola ręcznie.",
+    "badge": {
+      "review": "sprawdź"
+    },
+    "updated": "Zaktualizowano",
+    "signature": {
+      "title": "Podpis",
+      "hint": "Narysuj lub prześlij obraz — będzie używany w wnioskach.",
+      "add": "Dodaj podpis",
+      "alt": "Zapisany podpis"
+    },
+    "toast": {
+      "saved": "Zapisano",
+      "saveFailed": "Zapisywanie nie powiodło się",
+      "deleted": "Pole usunięte",
+      "deleteFailed": "Usuwanie nie powiodło się"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    }
+  },
+  "starterForm": {
+    "title": "Dodaj pola",
+    "subtitle": "Imię, data urodzenia, kontakt i adres — możliwe wiele e-maili i adresów.",
+    "label": {
+      "name": "Imię",
+      "birthDate": "Data urodzenia",
+      "birthPlace": "Miejsce urodzenia",
+      "email": "E-mail",
+      "phone": "Telefon"
+    },
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Wygląd",
+      "subtitle": "Wybierz schemat kolorów interfejsu."
+    },
+    "theme": {
+      "light": "Jasny",
+      "dark": "Ciemny",
+      "system": "Systemowy"
+    },
+    "account": {
+      "title": "Konto",
+      "guestHint": "Używasz Formfill jako gość. Utwórz konto, aby zapisywać wnioski, korzystać z historii i zarządzać pobraniami.",
+      "create": "Utwórz konto"
+    },
+    "security": {
+      "title": "Bezpieczeństwo",
+      "encryption": "Twój profil i PDF są szyfrowane na tym urządzeniu przed zapisaniem. Nawet my nie możemy odczytać Twoich danych.",
+      "passkeys": "Passkeys chronią konto przed phishingiem. Zaszyfrowany profil pozostaje powiązany z tym urządzeniem — na nowym urządzeniu tworzysz go od nowa.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "Dane",
+      "deleteHint": "Trwale usuń wszystkie dane profilu, wnioski i przesłane PDF.",
+      "deleteButton": "Usuń wszystkie dane",
+      "deleteDialog": {
+        "title": "Usunąć wszystkie dane?",
+        "description": "Profil, historia i zapisane PDF zostaną usunięte. Tej operacji nie można cofnąć.",
+        "confirm": "Usuń"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "BŁĄD",
+      "incomplete": "NIEKOMPLETNY",
+      "complete": "KOMPLETNY"
+    },
+    "incompleteBannerOne": "1 wniosek jest jeszcze niekompletny — brakujące pola można uzupełnić przy następnym przesłaniu.",
+    "incompleteBannerOther": "{count} wniosków jest jeszcze niekompletnych — brakujące pola można uzupełnić przy następnym przesłaniu.",
+    "empty": "Brak przetworzonych wniosków.",
+    "fieldsFilled": "{count} pól wypełnionych",
+    "requiredMissing": "· {count} pól wymaganych brakuje"
+  },
+  "login": {
+    "backToApp": "Do aplikacji",
+    "error": {
+      "auth": "Logowanie nie powiodło się. Spróbuj ponownie."
+    },
+    "footer": {
+      "guestUpgrade": "Profil i dotychczasowe dane pozostaną na tym urządzeniu.",
+      "signUpHint": "Nie masz konta? Kod e-mail automatycznie je utworzy.",
+      "continueAsGuest": "Kontynuuj bez konta"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Zaloguj się do Formfill",
+      "createAccount": "Utwórz konto"
+    },
+    "subtitle": {
+      "signIn": "Bezpiecznie i bez hasła — dane profilu pozostają zaszyfrowane na tym urządzeniu.",
+      "guestUpgrade": "Profil i dotychczasowe dane pozostaną na tym urządzeniu."
+    },
+    "passkey": {
+      "signIn": "Zaloguj się Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello lub klucz bezpieczeństwa",
+      "unsupported": "Twoja przeglądarka nie obsługuje Passkeys — zaloguj się e-mailem."
+    },
+    "email": {
+      "signIn": "Zaloguj się kodem e-mail",
+      "label": "E-mail",
+      "placeholder": "ty@przyklad.pl",
+      "sendCode": "Wyślij kod",
+      "back": "Wstecz"
+    },
+    "otp": {
+      "message": "Wysłaliśmy Ci kod e-mailem.",
+      "label": "Kod potwierdzający",
+      "submitSignIn": "Zaloguj się",
+      "submitCreateAccount": "Utwórz konto",
+      "changeEmail": "Użyj innego e-maila"
+    },
+    "setupPasskey": {
+      "title": "Skonfigurować Passkey?",
+      "description": "Następnym razem zalogujesz się Face ID, Touch ID lub Windows Hello — bez kodu e-mail.",
+      "add": "Dodaj Passkey",
+      "later": "Skonfiguruj później"
+    }
+  },
+  "billing": {
+    "loading": "Ładowanie informacji o koncie…",
+    "account": {
+      "title": "Konto",
+      "signInHint": "Passkey lub kod e-mail do logowania",
+      "noEmail": "Brak e-maila"
+    },
+    "signOut": "Wyloguj się",
+    "downloads": {
+      "title": "Pobrania i subskrypcja"
+    },
+    "pro": {
+      "active": "Formfill Pro aktywny",
+      "unlimited": "Nieograniczone pobrania PDF",
+      "validUntil": "· ważny do {date}",
+      "manage": "Zarządzaj subskrypcją",
+      "upgrade": "Zostań Pro"
+    },
+    "credits": {
+      "balance": "Saldo pobrań",
+      "freePlan": "Darmowy plan: {count} pobrań miesięcznie. Podgląd zawsze bezpłatny.",
+      "buy": "Kup {count} pobrań"
+    },
+    "error": {
+      "checkout": "Płatność nie powiodła się",
+      "portal": "Portal niedostępny"
+    }
+  },
+  "upgrade": {
+    "title": "Pobierz PDF",
+    "description": "Podgląd i wypełnianie są bezpłatne. Pobranie wymaga salda.",
+    "balance": {
+      "pro": "Pro — nieograniczone",
+      "credits": "{count} pobranie(a)"
+    },
+    "credits": {
+      "title": "{count} pobrań",
+      "subtitle": "Jednorazowo — idealne dla okazjonalnych wniosków"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Nieograniczone pobrania, anulowanie miesięczne"
+    },
+    "refresh": "Odśwież status",
+    "error": {
+      "checkout": "Płatność nie powiodła się"
+    }
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Wymagane",
+      "optional": "Opcjonalne",
+      "stale": "Nieaktualne?"
+    },
+    "hint": {
+      "required": "Pole wymagane dla tego wniosku",
+      "optional": "Opcjonalne — zostaw puste, aby pominąć",
+      "shiftEnter": "Shift+Enter aby kontynuować · {suffix}",
+      "cityEnter": "Enter w polu miasta aby kontynuować · {suffix}",
+      "enter": "Enter aby kontynuować · {suffix}"
+    },
+    "picker": {
+      "address": "Użyj zapisanego adresu",
+      "email": "Użyj zapisanego e-maila",
+      "phone": "Użyj zapisanego numeru telefonu"
+    },
+    "signature": {
+      "title": "Dodaj podpis",
+      "subtitle": "Narysuj podpis lub prześlij obraz — zostanie wstawiony do PDF.",
+      "infoTitle": "Podpis",
+      "info": "Twój podpis jest wstawiany bezpośrednio do PDF i zapisywany w profilu. Możesz narysować lub przesłać jako obraz. Możesz go użyć ponownie przy następnym wniosku.",
+      "drawOrUpload": "Podpisz tutaj lub prześlij obraz",
+      "profileHint": "Zapisane w profilu i używane ponownie",
+      "uploadImage": "Prześlij obraz",
+      "clear": "Wyczyść",
+      "uploadFailed": "Przesyłanie nie powiodło się"
+    },
+    "selfFill": "To ja",
+    "skipAll": "Pomiń wszystkie",
+    "next": "Dalej",
+    "submit": {
+      "createPdf": "Utwórz PDF",
+      "createAndDownload": "Utwórz i pobierz PDF",
+      "updatePdf": "Zaktualizuj PDF"
+    },
+    "progress": {
+      "step": "Krok {current} z {total}",
+      "required": "{count} wymagane",
+      "optional": "opcjonalne",
+      "answered": "{count} udzielono odpowiedzi",
+      "formLabel": "Formularz:"
+    },
+    "repeatable": {
+      "empty": "Nie dodano jeszcze dodatkowych osób.",
+      "person": "Osoba {index}",
+      "remove": "Usuń",
+      "addPerson": "Dodaj osobę"
+    },
+    "steps": {
+      "birth": {
+        "question": "Dane urodzenia",
+        "subquestion": "Data i miejsce urodzenia jak w dowodzie."
+      },
+      "contact": {
+        "question": "Dane kontaktowe",
+        "subquestion": "Telefon i e-mail do pytań o ten wniosek."
+      },
+      "signature_meta": {
+        "question": "Miejsce i data podpisu",
+        "subquestion": "Gdzie i kiedy podpisujesz formularz?"
+      },
+      "address": {
+        "own": {
+          "question": "Jaki jest Twój adres?",
+          "subquestion": "Ulica z numerem, kod pocztowy i miasto — jak w formularzu."
+        },
+        "landlord": {
+          "question": "Gdzie mieszka lub ma siedzibę wynajmujący?",
+          "subquestion": "Ulica, numer, kod pocztowy i miasto."
+        },
+        "representative": {
+          "question": "Adres upoważnionej osoby",
+          "subquestion": "Ulica, numer, kod pocztowy i miasto."
+        }
+      },
+      "name": "Jak masz na imię?",
+      "einzugsdatum": "Kiedy wprowadziłeś się do nowego mieszkania?",
+      "elterngeld_schedule": "Wybierz miesiące z podstawowym zasiłkiem rodzicielskim lub Elterngeld Plus dla każdego rodzica — lub opcję domyślną dla miesięcy 1–12."
+    },
+    "info": {
+      "moreInfo": "Więcej informacji",
+      "gotIt": "Rozumiem"
+    },
+    "elterngeld": {
+      "parent": "Rodzic {parent}",
+      "standardMonths": "Ubiegam się o (podstawowy) zasiłek rodzicielski za miesiące 1–12",
+      "customHint": "Lub wybierz podstawowy zasiłek lub Elterngeld Plus na każdy miesiąc (nie oba).",
+      "basisLabel": "(Podstawowy) zasiłek rodzicielski",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Rodzic {parent}, miesiąc {month}, {benefit}",
+      "basisBenefit": "podstawowy zasiłek rodzicielski",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Miesiące 15–18 tylko przy przedwczesnym porodzie. Od miesiąca 19 tylko Elterngeld Plus (bez luk). Jeden miesiąc podstawowy = dwa miesiące Plus.",
+      "reset": "Resetuj wybór",
+      "errors": {
+        "minMonths": "Rodzic {parent}: wymagane co najmniej dwa miesiące (lub jeden miesiąc podstawowy).",
+        "required": "Podaj co najmniej jeden okres świadczenia."
+      }
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Imię i nazwisko",
+      "strasse": "Ulica i numer domu",
+      "postleitzahl": "Kod pocztowy",
+      "ort": "Miasto",
+      "einzugsdatum": "Data wprowadzenia",
+      "geburtsdatum": "Data urodzenia",
+      "geburtsort": "Miejsce urodzenia",
+      "telefon": "Telefon",
+      "email": "E-mail",
+      "unterschrift_ort": "Miejsce (podpis)",
+      "unterschrift_datum": "Data (podpis)",
+      "wohnungsanschrift": "Adres zamieszkania",
+      "familienstand": "Stan cywilny",
+      "geschlecht": "Płeć",
+      "religion": "Religia / wyznanie",
+      "staatsangehoerigkeit": "Obywatelstwo",
+      "wohnanschrift": "Adres zamieszkania",
+      "elterngeld_bezugszeitraum": "Okres zasiłku rodzicielskiego"
+    },
+    "placeholders": {
+      "strasse": "Przykładowa 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "DD.MM.RRRR",
+      "phone": "+49 123 456789",
+      "email": "nazwa@przyklad.pl",
+      "address": "Ulica, kod miasto",
+      "name": "Imię i nazwisko",
+      "number": "Wpisz liczbę",
+      "combobox": "Wybierz lub wpisz…",
+      "textarea": "Wpisz odpowiedź…",
+      "default": "Wpisz odpowiedź…"
+    },
+    "hints": {
+      "date": "Format: DD.MM.RRRR",
+      "phone": "Z kodem kraju, np. +49 …",
+      "combobox": "Wybierz z listy lub wpisz własną wartość",
+      "elterngeld_schedule": "Siatka miesięcy dla podstawowego zasiłku i Elterngeld Plus",
+      "textarea": "Enter dla nowej linii · Shift+Enter aby kontynuować"
+    },
+    "validation": {
+      "incomplete": "Proszę poprawnie wypełnić to pole."
+    },
+    "combobox": {
+      "showSuggestions": "Pokaż sugestie"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  }
+}

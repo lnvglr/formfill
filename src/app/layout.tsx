@@ -1,12 +1,29 @@
-import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import type { Viewport } from "next";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  IBM_Plex_Sans_Arabic,
+  IBM_Plex_Sans_Hebrew,
+} from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
+  variable: "--font-sans-latin",
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-sans-arabic",
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const ibmPlexSansHebrew = IBM_Plex_Sans_Hebrew({
+  variable: "--font-sans-hebrew",
+  subsets: ["hebrew"],
   weight: ["300", "400", "500", "600"],
 });
 
@@ -15,12 +32,6 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
-
-export const metadata: Metadata = {
-  title: "Formfill — Anträge, die sich selbst ausfüllen",
-  description:
-    "Lade einen Antrag hoch. Die KI erkennt fehlende Daten und füllt Formulare automatisch aus.",
-};
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -35,8 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="de"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${ibmPlexSans.variable} ${ibmPlexSansArabic.variable} ${ibmPlexSansHebrew.variable} ${ibmPlexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans">

@@ -1,23 +1,23 @@
 export type AppView = "upload" | "profile" | "history" | "settings";
 
-export const APP_VIEWS: Record<
+export const APP_VIEW_KEYS: Record<
   AppView,
   { title: string; subtitle?: string }
 > = {
   upload: {
-    title: "Neuer Antrag",
-    subtitle: "PDF hochladen und ausfüllen lassen",
+    title: "views.upload.title",
+    subtitle: "views.upload.subtitle",
   },
   profile: {
-    title: "Mein Profil",
-    subtitle: "Gespeicherte Angaben für zukünftige Anträge",
+    title: "views.profile.title",
+    subtitle: "views.profile.subtitle",
   },
   history: {
-    title: "Verlauf",
-    subtitle: "Aktuelle und abgeschlossene Anträge",
+    title: "views.history.title",
+    subtitle: "views.history.subtitle",
   },
   settings: {
-    title: "Einstellungen",
-    subtitle: "Konto, Darstellung und Daten",
+    title: "views.settings.title",
+    subtitle: "views.settings.subtitle",
   },
 };

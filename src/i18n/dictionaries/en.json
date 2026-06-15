@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "title": "Formfill — Applications that fill themselves",
+    "description": "Upload an application. AI detects missing data and fills forms automatically.",
+    "loginTitle": "Sign in — Formfill",
+    "loginDescription": "Sign in to Formfill with Passkey or email code.",
+    "adminTitle": "Admin — Formfill"
+  },
+  "common": {
+    "beta": "BETA",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "back": "Back",
+    "or": "or",
+    "admin": "Admin",
+    "pro": "Pro",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Language"
+  },
+  "views": {
+    "upload": {
+      "title": "New application",
+      "subtitle": "Upload a PDF and have it filled in"
+    },
+    "profile": {
+      "title": "My profile",
+      "subtitle": "Saved details for future applications"
+    },
+    "history": {
+      "title": "History",
+      "subtitle": "Active and completed applications"
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Account, appearance, and data"
+    }
+  },
+  "landing": {
+    "nav": {
+      "howItWorks": "How it works",
+      "features": "Features",
+      "faq": "FAQ",
+      "signIn": "Sign in",
+      "getStarted": "Get started"
+    },
+    "hero": {
+      "title": "Applications that fill themselves",
+      "subtitle": "Upload a PDF form, answer only the missing questions — Formfill fills in the rest automatically.",
+      "ctaPrimary": "Fill application",
+      "ctaSecondary": "Learn more",
+      "footnote": "Start for free · No credit card required"
+    },
+    "demo": {
+      "hint": "1 field missing — Formfill asks only what's needed"
+    },
+    "steps": {
+      "upload": {
+        "title": "Upload PDF",
+        "description": "Upload any application — Formfill detects form fields automatically."
+      },
+      "questions": {
+        "title": "Answer questions",
+        "description": "Fill in only what's still missing. Your profile pre-fills known fields."
+      },
+      "download": {
+        "title": "Download filled PDF",
+        "description": "Download the completed form — ready to print or send."
+      }
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "From blank form to completed application in three steps."
+    },
+    "features": {
+      "aiMapping": {
+        "title": "AI-powered field mapping",
+        "description": "AI maps form fields to your profile data — even with unusual labels."
+      },
+      "profile": {
+        "title": "Personal profile",
+        "description": "Save your name, address, and other details once. They're reused for every application."
+      },
+      "vault": {
+        "title": "Encrypted vault",
+        "description": "Sensitive data is encrypted on your device. Only you have access to your profile."
+      },
+      "preview": {
+        "title": "Live preview",
+        "description": "See which fields are being filled in real time — before you download the PDF."
+      }
+    },
+    "featuresSection": {
+      "title": "Less typing, done faster",
+      "subtitle": "Formfill is built for recurring government forms — with a focus on privacy and accuracy."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Short and sweet — everything you need to know about Formfill.",
+      "pdfTypes": {
+        "question": "Which PDF forms work?",
+        "answer": "Formfill works with PDFs that contain fillable form fields (AcroForms). Scanned documents without interactive fields are not supported yet."
+      },
+      "dataStorage": {
+        "question": "Is my data stored?",
+        "answer": "Your profile is encrypted on your device and stored in your vault. Uploaded PDFs are only used for processing and are not permanently stored on our servers."
+      },
+      "pricing": {
+        "question": "Does Formfill cost anything?",
+        "answer": "You can try Formfill for free — preview is always free. With an account, you get 2 free downloads per month. Additional downloads or a Pro subscription with unlimited downloads are optional."
+      },
+      "account": {
+        "question": "Do I need an account?",
+        "answer": "No. You can start as a guest and fill out a form right away. With an account, you save your profile and keep track of your applications."
+      },
+      "protection": {
+        "question": "How is my data protected?",
+        "answer": "Sensitive profile data is encrypted on your device before it's stored. Only you have access to your vault."
+      },
+      "aiPrivacy": {
+        "question": "Does the AI see my personal details?",
+        "answer": "No. The AI only analyzes form text and field names to map fields — not your filled-in profile data."
+      }
+    },
+    "cta": {
+      "title": "Ready for your next application?",
+      "subtitle": "Start as a guest or create an account to save your profile and manage applications.",
+      "button": "Try it now"
+    },
+    "footer": {
+      "tagline": "Smart PDF form filling — made in Germany.",
+      "product": "Product",
+      "openApp": "Open app",
+      "privacy": "Privacy",
+      "privacyText": "Your profile is encrypted on your device. PDFs are only processed, not permanently stored.",
+      "beta": "Beta — features may change"
+    }
+  },
+  "app": {
+    "auth": {
+      "error": {
+        "guestSession": "Could not start guest session. Please enable anonymous sign-in in Supabase.",
+        "sessionLoad": "Could not load session."
+      }
+    }
+  },
+  "header": {
+    "badge": {
+      "guest": "Guest",
+      "downloads": "{count} downloads"
+    },
+    "newApplication": {
+      "desktop": "+ Fill new application",
+      "mobile": "+ New"
+    },
+    "createAccount": {
+      "desktop": "Create account",
+      "mobile": "Sign in"
+    }
+  },
+  "mobileNav": {
+    "ariaLabel": "Main navigation",
+    "upload": "Application",
+    "profile": "Profile",
+    "history": "History",
+    "settings": "More"
+  },
+  "upload": {
+    "title": "Analyze PDF application",
+    "subtitle": "Upload an application, answer a few quick questions, sign — and download the filled PDF.",
+    "dropzone": {
+      "title": "Drag PDF here or click",
+      "hint": "Lease agreement, health insurance application, address registration, visa form…"
+    },
+    "status": {
+      "reading": "Reading PDF…",
+      "analyzing": "AI analyzing application…",
+      "translating": "Translating form content…",
+      "filling": "Filling PDF…"
+    },
+    "error": {
+      "unknown": "Unknown error",
+      "analysis": "Analysis failed",
+      "translation": "Translation failed",
+      "save": "Save failed",
+      "fill": "Error filling form",
+      "retry": "Try again",
+      "downloadUnavailable": "Download unavailable",
+      "downloadFailed": "Download failed"
+    },
+    "toast": {
+      "invalidFile": "Please upload a PDF file.",
+      "formRecognized": "Form recognized: {title} ({jurisdiction})",
+      "missingFields": "{count} detail(s) still missing — please fill in.",
+      "createAccount": "Create an account to save applications and manage downloads.",
+      "saveFailed": "Could not save application.",
+      "downloadUnlocked": "Download unlocked"
+    },
+    "followUp": {
+      "title": "Fill in missing details"
+    },
+    "preview": {
+      "emptyForm": "Empty form",
+      "filled": "Filled preview",
+      "filledPdf": "Filled PDF",
+      "pdf": "PDF preview",
+      "show": "Show form preview",
+      "hide": "Hide preview",
+      "redownload": "Download again",
+      "highlightHint": "Blue highlight: current field in the form"
+    },
+    "result": {
+      "title": "Completed application",
+      "download": "Download PDF",
+      "copy": "Copy text",
+      "copied": "Copied",
+      "newApplication": "New application",
+      "noFormFields": "This PDF had no fillable form fields — details were added as a summary and the signature was placed.",
+      "missingPrefix": "Not filled in:",
+      "addMissing": "Fill in missing details"
+    },
+    "copyResult": {
+      "missingHeader": "Not filled in (data missing):"
+    }
+  },
+  "profile": {
+    "stats": {
+      "fields": "Fields",
+      "groups": "Groups",
+      "review": "To review"
+    },
+    "groups": {
+      "personal": "Personal details",
+      "address": "Address & housing",
+      "moving": "Move-in & registration",
+      "contact": "Contact",
+      "landlord": "Landlord",
+      "landlord_not_owner": "Landlord (not owner)",
+      "authorized_person": "Authorized person",
+      "employment": "Work & occupation",
+      "signature": "Signature",
+      "other": "Other"
+    },
+    "freshness": {
+      "fresh": "Up to date",
+      "aging": "Review soon",
+      "stale": "Possibly outdated"
+    },
+    "addField": "Add field",
+    "empty": "No profile data yet. Upload an application or add fields manually.",
+    "badge": {
+      "review": "review"
+    },
+    "updated": "Updated",
+    "signature": {
+      "title": "Signature",
+      "hint": "Draw or upload an image — reused for applications.",
+      "add": "Add signature",
+      "alt": "Saved signature"
+    },
+    "toast": {
+      "saved": "Saved",
+      "saveFailed": "Save failed",
+      "deleted": "Field deleted",
+      "deleteFailed": "Delete failed"
+    }
+  },
+  "starterForm": {
+    "title": "Add fields",
+    "subtitle": "Name, date of birth, contact, and address — multiple emails and addresses are supported.",
+    "multi": {
+      "addresses": "Addresses",
+      "addAnother": "Add another",
+      "primaryLabel": "Primary",
+      "secondaryAddressLabel": "e.g. second home",
+      "primaryContactLabel": "Primary",
+      "secondaryContactLabel": "e.g. work",
+      "setDefault": "Set as default"
+    },
+    "label": {
+      "name": "Name",
+      "birthDate": "Date of birth",
+      "birthPlace": "Place of birth",
+      "email": "Email",
+      "phone": "Phone"
+    }
+  },
+  "settings": {
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": "Choose a color scheme for the interface."
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "account": {
+      "title": "Account",
+      "guestHint": "You're using Formfill as a guest. Create an account to save applications, use history, and manage downloads.",
+      "create": "Create account"
+    },
+    "security": {
+      "title": "Security",
+      "encryption": "Your profile and PDFs are encrypted on this device before they're stored. Not even we can read your data.",
+      "passkeys": "Passkeys protect your account from phishing. Your encrypted profile stays tied to this device — on a new device, you'll set it up once.",
+      "passkeysTitle": "Passkeys"
+    },
+    "data": {
+      "title": "Data",
+      "deleteHint": "Permanently delete all profile data, applications, and uploaded PDFs.",
+      "deleteButton": "Delete all data",
+      "deleteDialog": {
+        "title": "Delete all data?",
+        "description": "Profile, history, and saved PDFs will be deleted. This action cannot be undone.",
+        "confirm": "Delete"
+      }
+    }
+  },
+  "history": {
+    "status": {
+      "error": "ERROR",
+      "incomplete": "INCOMPLETE",
+      "complete": "COMPLETE"
+    },
+    "incompleteBannerOne": "1 application is still incomplete — missing fields can be filled in on the next upload.",
+    "incompleteBannerOther": "{count} applications are still incomplete — missing fields can be filled in on the next upload.",
+    "empty": "No applications processed yet.",
+    "fieldsFilled": "{count} fields filled",
+    "requiredMissing": "· {count} required fields missing"
+  },
+  "login": {
+    "backToApp": "Back to app",
+    "error": {
+      "auth": "Sign-in failed. Please try again."
+    },
+    "footer": {
+      "guestUpgrade": "Your profile and previous details stay on this device.",
+      "signUpHint": "No account yet? The email code creates one automatically.",
+      "continueAsGuest": "Continue without account"
+    }
+  },
+  "auth": {
+    "title": {
+      "signIn": "Sign in to Formfill",
+      "createAccount": "Create account"
+    },
+    "subtitle": {
+      "signIn": "Secure and passwordless — your profile data stays encrypted on this device.",
+      "guestUpgrade": "Your profile and previous details stay on this device."
+    },
+    "passkey": {
+      "signIn": "Sign in with Passkey",
+      "hint": "Face ID, Touch ID, Windows Hello, or security key",
+      "unsupported": "Your browser doesn't support Passkeys — sign in with email instead."
+    },
+    "email": {
+      "signIn": "Sign in with email code",
+      "label": "Email",
+      "placeholder": "you@example.com",
+      "sendCode": "Send code",
+      "back": "Back"
+    },
+    "otp": {
+      "message": "We sent you a code by email.",
+      "label": "Verification code",
+      "submitSignIn": "Sign in",
+      "submitCreateAccount": "Create account",
+      "changeEmail": "Use a different email"
+    },
+    "setupPasskey": {
+      "title": "Set up Passkey?",
+      "description": "Next time, sign in with Face ID, Touch ID, or Windows Hello — no email code needed.",
+      "add": "Add Passkey",
+      "later": "Set up later"
+    }
+  },
+  "billing": {
+    "loading": "Loading account information…",
+    "account": {
+      "title": "Account",
+      "signInHint": "Passkey or email code to sign in",
+      "noEmail": "No email on file"
+    },
+    "signOut": "Sign out",
+    "downloads": {
+      "title": "Downloads & subscription"
+    },
+    "pro": {
+      "active": "Formfill Pro active",
+      "unlimited": "Unlimited PDF downloads",
+      "validUntil": "· valid until {date}",
+      "manage": "Manage subscription",
+      "upgrade": "Go Pro"
+    },
+    "credits": {
+      "balance": "Download credits",
+      "freePlan": "Free plan: {count} downloads per month. Preview is always free.",
+      "buy": "Buy {count} downloads"
+    },
+    "error": {
+      "checkout": "Checkout failed",
+      "portal": "Portal unavailable"
+    }
+  },
+  "upgrade": {
+    "title": "Download PDF",
+    "description": "Preview and filling are free. A credit is required to download.",
+    "balance": {
+      "pro": "Pro — unlimited",
+      "credits": "{count} download(s)"
+    },
+    "credits": {
+      "title": "{count} downloads",
+      "subtitle": "One-time — ideal for occasional applications"
+    },
+    "pro": {
+      "title": "Formfill Pro",
+      "subtitle": "Unlimited downloads, cancel monthly"
+    },
+    "refresh": "Refresh status",
+    "error": {
+      "checkout": "Checkout failed"
+    }
+  },
+  "sidebar": {
+    "guest": {
+      "title": "Try for free",
+      "description": "Upload a PDF, fill it in and preview — no sign-in required. Create an account for history and downloads."
+    },
+    "profile": {
+      "setup": "Set up profile",
+      "savedFields": "Saved fields",
+      "coverageEmpty": "No data yet — fields are added automatically with your first application.",
+      "coverage": "{percent}% coverage over previous applications · grows with each new form.",
+      "staleOne": "{count} field should be reviewed",
+      "staleOther": "{count} fields should be reviewed"
+    },
+    "applications": {
+      "title": "Applications",
+      "toHistory": "Go to history",
+      "empty": "No applications yet.",
+      "emptyHint": "Upload a PDF to get started.",
+      "incomplete": "{count} incomplete",
+      "moreInHistory": "+{count} more in history"
+    },
+    "settings": "Settings",
+    "status": {
+      "error": "Error",
+      "missing": "{count} missing",
+      "complete": "Complete"
+    }
+  },
+  "vault": {
+    "preparing": "Preparing profile…",
+    "prepareFailed": "Could not prepare profile.",
+    "notReady": "Vault is not ready"
+  },
+  "passkeys": {
+    "unsupported": "Passkeys are not supported in this browser.",
+    "loading": "Loading passkeys…",
+    "empty": "No passkey set up yet. Add one to sign in faster.",
+    "defaultName": "Passkey",
+    "created": "Created {date}",
+    "lastUsed": "· last used {date}",
+    "removeAria": "Remove passkey",
+    "add": "Add passkey",
+    "added": "Passkey added",
+    "removed": "Passkey removed"
+  },
+  "questionnaire": {
+    "badge": {
+      "required": "Required",
+      "optional": "Optional",
+      "stale": "Outdated?"
+    },
+    "hint": {
+      "required": "Required field for this application",
+      "optional": "Optional — leave blank to skip",
+      "shiftEnter": "Shift+Enter to continue · {suffix}",
+      "cityEnter": "Enter in city field to continue · {suffix}",
+      "enter": "Enter to continue · {suffix}"
+    },
+    "picker": {
+      "address": "Use saved address",
+      "email": "Use saved email",
+      "phone": "Use saved phone number"
+    },
+    "info": {
+      "moreInfo": "More information",
+      "gotIt": "Got it"
+    },
+    "signature": {
+      "title": "Add signature",
+      "subtitle": "Draw your signature or upload an image — it will be inserted into the PDF.",
+      "infoTitle": "Signature",
+      "info": "Your signature is inserted directly into the PDF and saved to your profile. You can draw it or upload an image. You can reuse it on your next application.",
+      "drawOrUpload": "Sign here or upload an image",
+      "profileHint": "Saved to your profile and reused",
+      "uploadImage": "Upload image",
+      "clear": "Clear",
+      "uploadFailed": "Upload failed"
+    },
+    "elterngeld": {
+      "parent": "Parent {parent}",
+      "standardMonths": "I apply for (basic) parental allowance for months 1–12",
+      "customHint": "Or alternatively: choose basic parental allowance or Elterngeld Plus per month (not both).",
+      "basisLabel": "(Basic) parental allowance",
+      "plusLabel": "Elterngeld Plus",
+      "monthAria": "Parent {parent}, month {month}, {benefit}",
+      "basisBenefit": "basic parental allowance",
+      "plusBenefit": "Elterngeld Plus",
+      "prematureHint": "Months 15–18 only for premature births. From month 19 only Elterngeld Plus (no gaps). One basic month equals two Plus months.",
+      "reset": "Reset selection",
+      "errors": {
+        "minMonths": "Parent {parent}: At least two months (or one month basic parental allowance) required.",
+        "required": "Please specify at least one benefit period."
+      }
+    },
+    "selfFill": "That's me",
+    "skipAll": "Skip all",
+    "next": "Next",
+    "submit": {
+      "createPdf": "Create PDF",
+      "createAndDownload": "Create & download PDF",
+      "updatePdf": "Update PDF"
+    },
+    "progress": {
+      "step": "Step {current} of {total}",
+      "required": "{count} required",
+      "optional": "optional",
+      "answered": "{count} answered",
+      "formLabel": "Form:"
+    },
+    "repeatable": {
+      "empty": "No additional people added yet.",
+      "person": "Person {index}",
+      "remove": "Remove",
+      "addPerson": "Add person"
+    },
+    "steps": {
+      "birth": {
+        "question": "Birth details",
+        "subquestion": "Date and place of birth as shown on your ID."
+      },
+      "contact": {
+        "question": "Contact details",
+        "subquestion": "Phone and email for questions about this application."
+      },
+      "signature_meta": {
+        "question": "Place and date of signature",
+        "subquestion": "Where and when are you signing the form?"
+      },
+      "address": {
+        "own": {
+          "question": "What is your address?",
+          "subquestion": "Street with house number, postal code, and city — as on the form."
+        },
+        "landlord": {
+          "question": "Where does your landlord live or operate?",
+          "subquestion": "Street and house number, postal code, and city."
+        },
+        "representative": {
+          "question": "Address of the authorized person",
+          "subquestion": "Street and house number, postal code, and city."
+        }
+      },
+      "name": "What is your name?",
+      "einzugsdatum": "When did you move into your new home?",
+      "elterngeld_schedule": "Choose the months with basic parental allowance or Elterngeld Plus for each parent — or the default option for months 1–12."
+    }
+  },
+  "fields": {
+    "labels": {
+      "name": "Name",
+      "strasse": "Street and house number",
+      "postleitzahl": "Postal code",
+      "ort": "City",
+      "einzugsdatum": "Move-in date",
+      "geburtsdatum": "Date of birth",
+      "geburtsort": "Place of birth",
+      "telefon": "Phone",
+      "email": "Email",
+      "unterschrift_ort": "Place (signature)",
+      "unterschrift_datum": "Date (signature)",
+      "wohnungsanschrift": "Residential address",
+      "familienstand": "Marital status",
+      "geschlecht": "Gender",
+      "religion": "Religion / denomination",
+      "staatsangehoerigkeit": "Nationality",
+      "wohnanschrift": "Residential address",
+      "elterngeld_bezugszeitraum": "Parental allowance period"
+    },
+    "placeholders": {
+      "strasse": "Example Street 12a",
+      "postleitzahl": "10115",
+      "ort": "Berlin",
+      "date": "DD.MM.YYYY",
+      "phone": "+49 123 456789",
+      "email": "name@example.com",
+      "address": "Street no., postal code city",
+      "name": "First and last name",
+      "number": "Enter number",
+      "combobox": "Select or type…",
+      "textarea": "Enter answer…",
+      "default": "Enter answer…"
+    },
+    "hints": {
+      "date": "Format: DD.MM.YYYY",
+      "phone": "Include country code, e.g. +49 …",
+      "combobox": "Pick from the list or enter your own value",
+      "elterngeld_schedule": "Month grid for basic parental allowance and Elterngeld Plus",
+      "textarea": "Enter for new line · Shift+Enter to continue"
+    },
+    "validation": {
+      "incomplete": "Please complete this field correctly."
+    },
+    "combobox": {
+      "showSuggestions": "Show suggestions"
+    }
+  }
+}
