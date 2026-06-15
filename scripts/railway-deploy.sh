@@ -76,7 +76,7 @@ else
 fi
 
 echo "==> Triggering deploy from GitHub..."
-railway redeploy --yes 2>/dev/null || railway up --detach 2>/dev/null || true
+railway redeploy -y 2>/dev/null || railway up --detach 2>/dev/null || true
 
 echo ""
 echo "Done. Open dashboard:"
