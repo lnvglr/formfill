@@ -18,9 +18,10 @@ fi
 
 echo "==> Railway account: $(railway whoami)"
 
-# Create/link project
-if ! railway status >/dev/null 2>&1; then
-  echo "==> Creating Railway project 'formfill'..."
+# Create/link project (avoid inheriting parent-directory link)
+LINKED_PROJECT="$(railway status 2>/dev/null | awk -F': ' '/^Project:/{print $2}' || true)"
+if [[ -z "$LINKED_PROJECT" || "$LINKED_PROJECT" != "formfill" ]]; then
+  echo "==> Creating/linking Railway project 'formfill' (was: ${LINKED_PROJECT:-none})..."
   railway init -n formfill
 fi
 
