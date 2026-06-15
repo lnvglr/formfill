@@ -12,6 +12,7 @@ import {
   passkeyErrorMessage,
 } from "@/lib/auth/passkey";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/client";
 import { Fingerprint, Loader2, Mail, ShieldCheck } from "lucide-react";
 
 type AuthPanelProps = {
@@ -29,6 +30,7 @@ export function AuthPanel({
   mode = "sign-in",
   redirectPath = "/app",
 }: AuthPanelProps) {
+  const t = useT();
   const isGuestUpgrade = mode === "guest-upgrade";
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -89,7 +91,7 @@ export function AuthPanel({
     }
 
     setStep("otp");
-    setMessage("Wir haben dir einen Code per E-Mail geschickt.");
+    setMessage(t("auth.otp.message"));
   };
 
   const verifyOtp = async (e: React.FormEvent) => {
@@ -136,10 +138,12 @@ export function AuthPanel({
     onAuthenticated();
   };
 
-  const title = isGuestUpgrade ? "Konto erstellen" : "Bei Formfill anmelden";
+  const title = isGuestUpgrade
+    ? t("auth.title.createAccount")
+    : t("auth.title.signIn");
   const subtitle = isGuestUpgrade
-    ? "Profil und bisherige Angaben bleiben auf diesem Gerät erhalten."
-    : "Sicher und ohne Passwort — deine Profildaten bleiben verschlüsselt auf diesem Gerät.";
+    ? t("auth.subtitle.guestUpgrade")
+    : t("auth.subtitle.signIn");
 
   const content = (
     <>
@@ -164,10 +168,10 @@ export function AuthPanel({
                   ) : (
                     <Fingerprint className="size-4" />
                   )}
-                  Mit Passkey anmelden
+                  {t("auth.passkey.signIn")}
                 </Button>
                 <p className="text-center text-[11px] text-muted-foreground">
-                  Face ID, Touch ID, Windows Hello oder Sicherheitsschlüssel
+                  {t("auth.passkey.hint")}
                 </p>
                 <div className="relative py-1">
                   <div className="absolute inset-0 flex items-center">
@@ -175,15 +179,14 @@ export function AuthPanel({
                   </div>
                   <div className="relative flex justify-center text-[10px] uppercase tracking-wide">
                     <span className="bg-card px-2 text-muted-foreground">
-                      oder
+                      {t("common.or")}
                     </span>
                   </div>
                 </div>
               </>
             ) : (
               <p className="text-xs text-muted-foreground">
-                Dein Browser unterstützt keine Passkeys — melde dich per E-Mail
-                an.
+                {t("auth.passkey.unsupported")}
               </p>
             )}
 
@@ -197,7 +200,7 @@ export function AuthPanel({
               }}
             >
               <Mail className="size-4" />
-              Mit E-Mail-Code anmelden
+              {t("auth.email.signIn")}
             </Button>
 
             {error && <p className="text-xs text-destructive">{error}</p>}
@@ -207,11 +210,11 @@ export function AuthPanel({
         {step === "email" && (
           <form onSubmit={sendOtp} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label htmlFor="email">E-Mail</Label>
+              <Label htmlFor="email">{t("auth.email.label")}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="du@beispiel.de"
+                placeholder={t("auth.email.placeholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -225,7 +228,7 @@ export function AuthPanel({
               ) : (
                 <Mail className="size-4" />
               )}
-              Code senden
+              {t("auth.email.sendCode")}
             </Button>
             {!isGuestUpgrade && (
               <Button
@@ -237,7 +240,7 @@ export function AuthPanel({
                   setError(null);
                 }}
               >
-                Zurück
+                {t("auth.email.back")}
               </Button>
             )}
           </form>
@@ -249,7 +252,7 @@ export function AuthPanel({
               <p className="text-xs text-muted-foreground">{message}</p>
             )}
             <div className="flex flex-col gap-2">
-              <Label htmlFor="otp">Bestätigungscode</Label>
+              <Label htmlFor="otp">{t("auth.otp.label")}</Label>
               <Input
                 id="otp"
                 type="text"
@@ -264,7 +267,9 @@ export function AuthPanel({
             {error && <p className="text-xs text-destructive">{error}</p>}
             <Button type="submit" disabled={loading || !otp.trim()}>
               {loading && <Loader2 className="size-4 animate-spin" />}
-              {isGuestUpgrade ? "Konto erstellen" : "Anmelden"}
+              {isGuestUpgrade
+                ? t("auth.otp.submitCreateAccount")
+                : t("auth.otp.submitSignIn")}
             </Button>
             <Button
               type="button"
@@ -276,7 +281,7 @@ export function AuthPanel({
                 setError(null);
               }}
             >
-              Andere E-Mail verwenden
+              {t("auth.otp.changeEmail")}
             </Button>
           </form>
         )}
@@ -287,10 +292,11 @@ export function AuthPanel({
               <div className="flex items-start gap-3">
                 <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
                 <div className="flex flex-col gap-1">
-                  <p className="text-sm font-medium">Passkey einrichten?</p>
+                  <p className="text-sm font-medium">
+                    {t("auth.setupPasskey.title")}
+                  </p>
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    Beim nächsten Mal meldest du dich mit Face ID, Touch ID
-                    oder Windows Hello an — ohne E-Mail-Code.
+                    {t("auth.setupPasskey.description")}
                   </p>
                 </div>
               </div>
@@ -304,7 +310,7 @@ export function AuthPanel({
               ) : (
                 <Fingerprint className="size-4" />
               )}
-              Passkey hinzufügen
+              {t("auth.setupPasskey.add")}
             </Button>
             <Button
               type="button"
@@ -313,7 +319,7 @@ export function AuthPanel({
               disabled={loading}
               onClick={onAuthenticated}
             >
-              Später einrichten
+              {t("auth.setupPasskey.later")}
             </Button>
           </div>
         )}

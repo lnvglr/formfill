@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { base64ToUint8Array } from "@/lib/pdf-fill-client";
 import type { PdfFieldRect, SignaturePlacement } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { iconDirectional } from "@/lib/utils";
+import { useT } from "@/i18n/client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -32,9 +34,11 @@ export function FormPdfPreview({
   pdfBase64,
   highlightRects = [],
   signaturePlacement,
-  title = "Formular",
+  title,
   className,
 }: FormPdfPreviewProps) {
+  const t = useT();
+  const resolvedTitle = title ?? t("upload.preview.emptyForm");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [pageIndex, setPageIndex] = useState(0);
   const [numPages, setNumPages] = useState(0);
@@ -146,7 +150,7 @@ export function FormPdfPreview({
   return (
     <div className={cn("flex flex-col gap-2", className)}>
       <div className="flex items-center justify-between gap-2">
-        <p className="text-xs font-medium text-muted-foreground">{title}</p>
+        <p className="text-xs font-medium text-muted-foreground">{resolvedTitle}</p>
         {numPages > 1 && (
           <div className="flex items-center gap-1">
             <Button
@@ -157,7 +161,7 @@ export function FormPdfPreview({
               disabled={pageIndex <= 0}
               onClick={() => setPageIndex((page) => Math.max(0, page - 1))}
             >
-              <ChevronLeft className="size-4" />
+              <ChevronLeft className={iconDirectional("size-4")} />
             </Button>
             <span className="min-w-16 text-center font-mono text-[10px] text-muted-foreground">
               {pageIndex + 1} / {numPages}
@@ -172,7 +176,7 @@ export function FormPdfPreview({
                 setPageIndex((page) => Math.min(numPages - 1, page + 1))
               }
             >
-              <ChevronRight className="size-4" />
+              <ChevronRight className={iconDirectional("size-4")} />
             </Button>
           </div>
         )}
@@ -189,7 +193,7 @@ export function FormPdfPreview({
 
       {highlightRects.length > 0 && (
         <p className="text-[10px] text-muted-foreground">
-          Blau markiert: aktuelles Feld im Formular
+          {t("upload.preview.highlightHint")}
         </p>
       )}
     </div>

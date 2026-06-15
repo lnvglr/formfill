@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
+import { useT } from "@/i18n/client";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 
@@ -26,6 +27,7 @@ export function FieldCombobox({
   name,
   autoComplete,
 }: FieldComboboxProps) {
+  const t = useT();
   const listId = useId();
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -115,7 +117,7 @@ export function FieldCombobox({
         <button
           type="button"
           tabIndex={-1}
-          aria-label="Vorschläge anzeigen"
+          aria-label={t("fields.combobox.showSuggestions")}
           className="absolute top-1/2 right-2.5 -translate-y-1/2 text-muted-foreground"
           onClick={() => setOpen((prev) => !prev)}
         >

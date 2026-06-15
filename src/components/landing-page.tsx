@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,7 +13,11 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { loginUrl } from "@/lib/auth/login-url";
+import { iconDirectional } from "@/lib/utils";
+import { useI18n } from "@/i18n/client";
+import { useLocalizedPath } from "@/i18n/navigation-client";
 import {
   Card,
   CardDescription,
@@ -19,95 +25,85 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const steps = [
-  {
-    icon: Upload,
-    title: "PDF hochladen",
-    description:
-      "Lade einen beliebigen Antrag hoch — Formfill erkennt die Formularfelder automatisch.",
-  },
-  {
-    icon: User,
-    title: "Fragen beantworten",
-    description:
-      "Ergänze nur die Angaben, die noch fehlen. Dein Profil füllt bekannte Felder vor.",
-  },
-  {
-    icon: Download,
-    title: "Ausgefülltes PDF laden",
-    description:
-      "Lade das fertig ausgefüllte Formular herunter — bereit zum Ausdrucken oder Versenden.",
-  },
-] as const;
-
-const features = [
-  {
-    icon: Sparkles,
-    title: "KI-gestützte Feldzuordnung",
-    description:
-      "Die KI ordnet Formularfelder deinen Profildaten zu — auch bei unüblichen Bezeichnungen.",
-  },
-  {
-    icon: User,
-    title: "Persönliches Profil",
-    description:
-      "Speichere Name, Adresse und weitere Angaben einmalig. Sie werden bei jedem Antrag wiederverwendet.",
-  },
-  {
-    icon: Lock,
-    title: "Verschlüsselter Tresor",
-    description:
-      "Sensible Daten werden clientseitig verschlüsselt. Nur du hast Zugriff auf dein Profil.",
-  },
-  {
-    icon: FileText,
-    title: "Live-Vorschau",
-    description:
-      "Sieh in Echtzeit, welche Felder ausgefüllt werden — bevor du das PDF herunterlädst.",
-  },
-] as const;
-
-const faqs = [
-  {
-    question: "Welche PDF-Formulare funktionieren?",
-    answer:
-      "Formfill funktioniert mit PDFs, die ausfüllbare Formularfelder enthalten (AcroForms). Gescannte Dokumente ohne interaktive Felder werden derzeit nicht unterstützt.",
-  },
-  {
-    question: "Werden meine Daten gespeichert?",
-    answer:
-      "Dein Profil wird clientseitig verschlüsselt in deinem Tresor gespeichert. Hochgeladene PDFs werden nur zur Verarbeitung genutzt und nicht dauerhaft auf unseren Servern abgelegt.",
-  },
-  {
-    question: "Kostet Formfill etwas?",
-    answer:
-      "Du kannst Formfill kostenlos testen — die Vorschau ist immer gratis. Mit einem Konto erhältst du 2 kostenlose Downloads pro Monat. Zusätzliche Downloads oder ein Pro-Abo mit unbegrenzten Downloads sind optional.",
-  },
-  {
-    question: "Brauche ich ein Konto?",
-    answer:
-      "Nein. Du kannst als Gast starten und sofort ein Formular ausfüllen. Mit einem Konto speicherst du dein Profil und behältst den Überblick über deine Anträge.",
-  },
-  {
-    question: "Wie werden meine Daten geschützt?",
-    answer:
-      "Sensible Profildaten werden bereits auf deinem Gerät verschlüsselt, bevor sie gespeichert werden. Nur du hast Zugriff auf deinen Tresor.",
-  },
-  {
-    question: "Sieht die KI meine persönlichen Angaben?",
-    answer:
-      "Nein. Die KI analysiert nur den Formulartext und die Feldnamen, um Felder zuzuordnen — nicht deine ausgefüllten Profildaten.",
-  },
-] as const;
-
 export function LandingPage() {
+  const { t, locale } = useI18n();
+  const localizedPath = useLocalizedPath();
+
+  const steps = [
+    {
+      icon: Upload,
+      title: t("landing.steps.upload.title"),
+      description: t("landing.steps.upload.description"),
+    },
+    {
+      icon: User,
+      title: t("landing.steps.questions.title"),
+      description: t("landing.steps.questions.description"),
+    },
+    {
+      icon: Download,
+      title: t("landing.steps.download.title"),
+      description: t("landing.steps.download.description"),
+    },
+  ] as const;
+
+  const features = [
+    {
+      icon: Sparkles,
+      title: t("landing.features.aiMapping.title"),
+      description: t("landing.features.aiMapping.description"),
+    },
+    {
+      icon: User,
+      title: t("landing.features.profile.title"),
+      description: t("landing.features.profile.description"),
+    },
+    {
+      icon: Lock,
+      title: t("landing.features.vault.title"),
+      description: t("landing.features.vault.description"),
+    },
+    {
+      icon: FileText,
+      title: t("landing.features.preview.title"),
+      description: t("landing.features.preview.description"),
+    },
+  ] as const;
+
+  const faqs = [
+    {
+      question: t("landing.faq.pdfTypes.question"),
+      answer: t("landing.faq.pdfTypes.answer"),
+    },
+    {
+      question: t("landing.faq.dataStorage.question"),
+      answer: t("landing.faq.dataStorage.answer"),
+    },
+    {
+      question: t("landing.faq.pricing.question"),
+      answer: t("landing.faq.pricing.answer"),
+    },
+    {
+      question: t("landing.faq.account.question"),
+      answer: t("landing.faq.account.answer"),
+    },
+    {
+      question: t("landing.faq.protection.question"),
+      answer: t("landing.faq.protection.answer"),
+    },
+    {
+      question: t("landing.faq.aiPrivacy.question"),
+      answer: t("landing.faq.aiPrivacy.answer"),
+    },
+  ] as const;
+
   return (
     <div className="flex min-h-full flex-col">
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4 sm:px-8">
           <div className="flex items-center gap-3">
             <Link
-              href="/"
+              href={localizedPath("/")}
               className="font-mono text-[15px] font-medium tracking-tight"
             >
               form<span className="text-primary">fill</span>
@@ -116,19 +112,19 @@ export function LandingPage() {
               variant="outline"
               className="rounded-sm border-primary bg-primary/10 font-mono text-[10px] tracking-widest text-primary"
             >
-              BETA
+              {t("common.beta")}
             </Badge>
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground sm:flex">
             <a href="#so-funktionierts" className="hover:text-foreground">
-              So funktioniert&apos;s
+              {t("landing.nav.howItWorks")}
             </a>
             <a href="#funktionen" className="hover:text-foreground">
-              Funktionen
+              {t("landing.nav.features")}
             </a>
             <a href="#faq" className="hover:text-foreground">
-              FAQ
+              {t("landing.nav.faq")}
             </a>
           </nav>
 
@@ -138,42 +134,40 @@ export function LandingPage() {
               size="sm"
               className="h-8 text-xs text-muted-foreground"
               nativeButton={false}
-              render={<Link href={loginUrl()} />}
+              render={<Link href={loginUrl({ locale })} />}
             >
-              Anmelden
+              {t("landing.nav.signIn")}
             </Button>
             <Button
               size="sm"
               nativeButton={false}
-              render={<Link href="/app" />}
+              render={<Link href={localizedPath("/app")} />}
             >
-              Loslegen
+              {t("landing.nav.getStarted")}
             </Button>
           </div>
         </div>
       </header>
 
       <main className="flex-1">
-        {/* Hero — above the fold */}
         <section className="border-b">
           <div className="mx-auto grid max-w-5xl gap-12 px-6 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
               <h1 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
-                Anträge, die sich selbst ausfüllen
+                {t("landing.hero.title")}
               </h1>
               <p className="mt-5 max-w-lg text-pretty text-base text-muted-foreground sm:text-lg">
-                Lade ein PDF-Formular hoch, beantworte nur die fehlenden Fragen
-                — Formfill füllt den Rest automatisch aus.
+                {t("landing.hero.subtitle")}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Button
                   size="lg"
                   className="h-10 gap-2 px-5"
                   nativeButton={false}
-                  render={<Link href="/app" />}
+                  render={<Link href={localizedPath("/app")} />}
                 >
-                  Antrag ausfüllen
-                  <ArrowRight className="size-4" />
+                  {t("landing.hero.ctaPrimary")}
+                  <ArrowRight className={iconDirectional("size-4")} />
                 </Button>
                 <Button
                   variant="outline"
@@ -182,11 +176,11 @@ export function LandingPage() {
                   nativeButton={false}
                   render={<Link href="#so-funktionierts" />}
                 >
-                  Mehr erfahren
+                  {t("landing.hero.ctaSecondary")}
                 </Button>
               </div>
               <p className="mt-6 text-xs text-muted-foreground">
-                Kostenlos starten · Keine Kreditkarte nötig
+                {t("landing.hero.footnote")}
               </p>
             </div>
 
@@ -224,22 +218,21 @@ export function LandingPage() {
                 </div>
                 <div className="mt-5 flex items-center gap-2 rounded-md bg-primary/10 px-3 py-2 text-xs text-primary">
                   <Sparkles className="size-3.5 shrink-0" />
-                  1 Feld fehlt — Formfill fragt nur das Nötigste
+                  {t("landing.demo.hint")}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* How it works */}
         <section id="so-funktionierts" className="border-b bg-muted/30">
           <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
             <div className="max-w-xl">
               <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
-                So funktioniert&apos;s
+                {t("landing.howItWorks.title")}
               </h2>
               <p className="mt-3 text-muted-foreground">
-                In drei Schritten vom leeren Formular zum ausgefüllten Antrag.
+                {t("landing.howItWorks.subtitle")}
               </p>
             </div>
 
@@ -264,16 +257,14 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* Features */}
         <section id="funktionen">
           <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
             <div className="max-w-xl">
               <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
-                Weniger tippen, schneller fertig
+                {t("landing.featuresSection.title")}
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Formfill ist für wiederkehrende Behördenformulare gebaut — mit
-                Fokus auf Datenschutz und Genauigkeit.
+                {t("landing.featuresSection.subtitle")}
               </p>
             </div>
 
@@ -291,15 +282,14 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* FAQ */}
         <section id="faq" className="border-t bg-muted/30">
           <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-20">
             <div className="max-w-xl">
               <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
-                Häufige Fragen
+                {t("landing.faq.title")}
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Kurz und knapp — alles Wichtige zu Formfill.
+                {t("landing.faq.subtitle")}
               </p>
             </div>
 
@@ -322,24 +312,22 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* Final CTA */}
         <section className="border-t bg-muted/30">
           <div className="mx-auto max-w-5xl px-6 py-16 text-center sm:px-8 sm:py-20">
             <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
-              Bereit für deinen nächsten Antrag?
+              {t("landing.cta.title")}
             </h2>
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              Starte als Gast oder erstelle ein Konto, um dein Profil zu
-              speichern und Anträge zu verwalten.
+              {t("landing.cta.subtitle")}
             </p>
             <Button
               size="lg"
               className="mt-8 h-10 gap-2 px-5"
               nativeButton={false}
-              render={<Link href="/app" />}
+              render={<Link href={localizedPath("/app")} />}
             >
-              Jetzt ausprobieren
-              <ArrowRight className="size-4" />
+              {t("landing.cta.button")}
+              <ArrowRight className={iconDirectional("size-4")} />
             </Button>
           </div>
         </section>
@@ -353,48 +341,50 @@ export function LandingPage() {
                 form<span className="text-primary">fill</span>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
-                Intelligentes Ausfüllen von PDF-Formularen — made in Germany.
+                {t("landing.footer.tagline")}
               </p>
             </div>
 
             <div>
-              <h3 className="text-sm font-medium">Produkt</h3>
+              <h3 className="text-sm font-medium">{t("landing.footer.product")}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <Link href="/app" className="hover:text-foreground">
-                    App öffnen
+                  <Link href={localizedPath("/app")} className="hover:text-foreground">
+                    {t("landing.footer.openApp")}
                   </Link>
                 </li>
                 <li>
                   <a href="#so-funktionierts" className="hover:text-foreground">
-                    So funktioniert&apos;s
+                    {t("landing.nav.howItWorks")}
                   </a>
                 </li>
                 <li>
                   <a href="#funktionen" className="hover:text-foreground">
-                    Funktionen
+                    {t("landing.nav.features")}
                   </a>
                 </li>
                 <li>
                   <a href="#faq" className="hover:text-foreground">
-                    FAQ
+                    {t("landing.nav.faq")}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-sm font-medium">Datenschutz</h3>
+              <h3 className="text-sm font-medium">{t("landing.footer.privacy")}</h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                Dein Profil wird clientseitig verschlüsselt. PDFs werden nur
-                verarbeitet, nicht dauerhaft gespeichert.
+                {t("landing.footer.privacyText")}
               </p>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-xs text-muted-foreground sm:flex-row">
             <span>© {new Date().getFullYear()} Formfill</span>
-            <span>Beta — Funktionen können sich ändern</span>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-end">
+              <LocaleSwitcher />
+              <span>{t("landing.footer.beta")}</span>
+            </div>
           </div>
         </div>
       </footer>

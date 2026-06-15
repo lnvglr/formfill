@@ -3,6 +3,7 @@
 import { FieldInput } from "@/components/field-input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { useT } from "@/i18n/client";
 import {
   buildRepeatableFieldKey,
   getRepeatableFieldLabel,
@@ -34,6 +35,7 @@ export function RepeatableFieldGroupInput({
   onInstanceCountChange,
   onLastFieldKeyDown,
 }: RepeatableFieldGroupInputProps) {
+  const t = useT();
   const canAdd = instanceCount < group.maxInstances;
   const indices = Array.from({ length: instanceCount }, (_, i) => group.startIndex + i);
 
@@ -55,7 +57,7 @@ export function RepeatableFieldGroupInput({
     <div className="flex flex-col gap-6">
       {indices.length === 0 ? (
         <p className="text-sm text-muted-foreground">
-          Noch keine weiteren Personen hinzugefügt.
+          {t("questionnaire.repeatable.empty")}
         </p>
       ) : (
         indices.map((index, rowIndex) => (
@@ -65,7 +67,7 @@ export function RepeatableFieldGroupInput({
           >
             <div className="mb-4 flex items-center justify-between gap-2">
               <p className="text-xs font-medium text-muted-foreground">
-                Person {index}
+                {t("questionnaire.repeatable.person", { index })}
               </p>
               <div className="flex items-center gap-1">
                 <SelfFillButton
@@ -95,7 +97,7 @@ export function RepeatableFieldGroupInput({
                     onClick={() => removeInstance(index)}
                   >
                     <Trash2 className="size-3.5" />
-                    Entfernen
+                    {t("questionnaire.repeatable.remove")}
                   </Button>
                 )}
               </div>
@@ -143,7 +145,7 @@ export function RepeatableFieldGroupInput({
           onClick={addInstance}
         >
           <Plus className="size-3.5" />
-          Person hinzufügen
+          {t("questionnaire.repeatable.addPerson")}
         </Button>
       )}
     </div>

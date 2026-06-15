@@ -16,7 +16,6 @@ import { fileToBase64, base64ToBlobUrl, hashFileSha256 } from "@/lib/pdf-utils";
 import { useVault } from "@/components/vault-provider";
 import { Questionnaire } from "@/components/questionnaire";
 import { FormPdfPreview } from "@/components/form-pdf-preview";
-import { StarterProfileForm } from "@/components/starter-profile-form";
 import { UpgradeDialog } from "@/components/upgrade-dialog";
 import { missingLabelsToFields, formatProfileValue, inferFieldType } from "@/lib/field-types";
 import { getAddressKeyPrefix } from "@/lib/field-autocomplete";
@@ -31,6 +30,7 @@ import {
   pickSessionFields,
   readSessionFields,
 } from "@/lib/session-fields";
+import { readProfileSelections, clearProfileSelections } from "@/lib/profile-selections";
 import { PROFILE_SIGNATURE_KEY } from "@/lib/signature";
 import type {
   FillResponse,
@@ -41,8 +41,10 @@ import type {
   ProfileField,
   RepeatableGroup,
 } from "@/lib/types";
+import type { ProfileMultiStore } from "@/lib/profile-multi";
 import type { BillingStatus } from "@/lib/db/billing";
 import { cn } from "@/lib/utils";
+import { useT, useLocale } from "@/i18n/client";
 import { Download, Eye, EyeOff, FileText, Loader2, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 
@@ -51,7 +53,10 @@ type UploadPanelProps = {
   profileFields: ProfileField[];
   billing: BillingStatus | null;
   isGuest?: boolean;
-  onProfileUpdate: (data: ProfileData) => Promise<void>;
+  onProfileUpdate: (
+    data: ProfileData,
+    multi?: ProfileMultiStore
+  ) => Promise<void>;
   onFormFilled: () => Promise<void>;
   onBillingRefresh?: () => Promise<void>;
   onSignIn?: () => void;
@@ -69,7 +74,9 @@ export function UploadPanel({
   onBillingRefresh,
   onSignIn,
 }: UploadPanelProps) {
-  const { encryptPdfToStorage } = useVault();
+  const t = useT();
+  const locale = useLocale();
+  const { encryptPdfToStorage, profileMulti } = useVault();
   const inputRef = useRef<HTMLInputElement>(null);
   const [step, setStep] = useState<Step>("idle");
   const [statusText, setStatusText] = useState("");
@@ -168,16 +175,17 @@ export function UploadPanel({
 
   const processFile = async (file: File) => {
     if (file.type !== "application/pdf") {
-      toast.error("Bitte eine PDF-Datei hochladen.");
+      toast.error(t("upload.toast.invalidFile"));
       return;
     }
 
     setFileName(file.name);
     clearSessionFields();
+    clearProfileSelections();
     setSessionFields({});
     setStep("loading");
     setIsError(false);
-    setStatusText("Lese PDF…");
+    setStatusText(t("upload.status.reading"));
     setResult(null);
     setQuestions([]);
     if (pdfPreviewUrl) URL.revokeObjectURL(pdfPreviewUrl);
@@ -192,7 +200,7 @@ export function UploadPanel({
       setPdfText(text);
       setPdfBase64(base64);
       setFileHash(fileHash);
-      setStatusText("KI analysiert Antrag…");
+      setStatusText(t("upload.status.analyzing"));
 
       const analyzeRes = await fetch("/api/analyze", {
         method: "POST",
@@ -202,11 +210,10 @@ export function UploadPanel({
 
       if (!analyzeRes.ok) {
         const err = await analyzeRes.json();
-        throw new Error(err.error ?? "Analyse fehlgeschlagen");
+        throw new Error(err.error ?? t("upload.error.analysis"));
       }
 
       const analyzed = await analyzeRes.json();
-      setFormTitle(analyzed.form_title ?? file.name);
 
       const pdfBytes = base64ToUint8Array(base64);
       const fieldContexts = await extractPdfFieldContexts(pdfBytes);
@@ -214,7 +221,8 @@ export function UploadPanel({
       const baseQuestions = buildQuestionList(
         requiredFields,
         sessionProfile,
-        profileFields
+        profileFields,
+        profileMulti
       );
 
       const mapping = await fetchFieldMappings({
@@ -227,24 +235,56 @@ export function UploadPanel({
 
       setFieldMapping(mapping);
       setFieldRects(contextsToFieldRects(fieldContexts));
-      setQuestions(
-        attachPdfFieldsToQuestions(
-          baseQuestions,
-          mapping.mappings,
-          fieldContexts.map((context) => context.pdf_field)
-        )
+      let nextQuestions = attachPdfFieldsToQuestions(
+        baseQuestions,
+        mapping.mappings,
+        fieldContexts.map((context) => context.pdf_field)
       );
-      setRepeatableGroups(analyzed.repeatable_groups ?? []);
+      let nextFormTitle = analyzed.form_title ?? file.name;
+      let nextRepeatableGroups: RepeatableGroup[] =
+        analyzed.repeatable_groups ?? [];
+
+      if (locale !== "de") {
+        setStatusText(t("upload.status.translating"));
+        const translateRes = await fetch("/api/translate-form-content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            locale,
+            form_title: nextFormTitle,
+            questions: nextQuestions,
+            repeatable_groups: nextRepeatableGroups,
+          }),
+        });
+
+        if (!translateRes.ok) {
+          const err = await translateRes.json();
+          throw new Error(err.error ?? t("upload.error.translation"));
+        }
+
+        const translated = await translateRes.json();
+        nextFormTitle = translated.form_title ?? nextFormTitle;
+        nextQuestions = translated.questions ?? nextQuestions;
+        nextRepeatableGroups =
+          translated.repeatable_groups ?? nextRepeatableGroups;
+      }
+
+      setFormTitle(nextFormTitle);
+      setQuestions(nextQuestions);
+      setRepeatableGroups(nextRepeatableGroups);
       if (analyzed.matched_document) {
         toast.success(
-          `Formular erkannt: ${analyzed.matched_document.title} (${analyzed.matched_document.jurisdiction_code})`
+          t("upload.toast.formRecognized", {
+            title: analyzed.matched_document.title,
+            jurisdiction: analyzed.matched_document.jurisdiction_code,
+          })
         );
       }
       setStep("questions");
     } catch (error) {
       setIsError(true);
       setStatusText(
-        error instanceof Error ? error.message : "Unbekannter Fehler"
+        error instanceof Error ? error.message : t("upload.error.unknown")
       );
       setStep("loading");
     }
@@ -258,13 +298,15 @@ export function UploadPanel({
   ) => {
     setStep("loading");
     setIsError(false);
-    setStatusText("PDF wird ausgefüllt…");
+    setStatusText(t("upload.status.filling"));
 
     try {
       const filled = await fillFormLocally({
         pdfBase64,
         pdfText,
         profile: currentProfile,
+        profileMulti,
+        profileSelections: readProfileSelections(),
         signature,
         fileName: title ?? fileName,
         cachedMapping: fieldMapping ?? undefined,
@@ -315,7 +357,7 @@ export function UploadPanel({
 
         if (!saveRes.ok) {
           const err = await saveRes.json();
-          throw new Error(err.error ?? "Speichern fehlgeschlagen");
+          throw new Error(err.error ?? t("upload.error.save"));
         }
 
         const saved: FillResponse = await saveRes.json();
@@ -342,7 +384,12 @@ export function UploadPanel({
           }
           setQuestions(
             attachPdfFieldsToQuestions(
-              buildQuestionList(followUpQuestions, currentProfile, profileFields),
+              buildQuestionList(
+                followUpQuestions,
+                currentProfile,
+                profileFields,
+                profileMulti
+              ),
               fieldMapping?.mappings ?? [],
               fieldRects.map((rect) => rect.name)
             )
@@ -350,7 +397,9 @@ export function UploadPanel({
           setIsFollowUp(true);
           setStep("questions");
           toast.info(
-            `Noch ${followUpQuestions.length} Angabe(n) fehlen — bitte ergänzen.`
+            t("upload.toast.missingFields", {
+              count: followUpQuestions.length,
+            })
           );
           return;
         }
@@ -370,7 +419,7 @@ export function UploadPanel({
     } catch (error) {
       setIsError(true);
       setStatusText(
-        error instanceof Error ? error.message : "Fehler beim Ausfüllen"
+        error instanceof Error ? error.message : t("upload.error.fill")
       );
       setStep("loading");
     }
@@ -435,7 +484,7 @@ export function UploadPanel({
 
     if (isGuest) {
       triggerDownload();
-      toast.info("Konto erstellen, um Anträge zu speichern und Downloads zu verwalten.");
+      toast.info(t("upload.toast.createAccount"));
       return;
     }
 
@@ -445,7 +494,7 @@ export function UploadPanel({
     }
 
     if (!result.application_id) {
-      toast.error("Antrag konnte nicht gespeichert werden.");
+      toast.error(t("upload.toast.saveFailed"));
       return;
     }
 
@@ -464,15 +513,15 @@ export function UploadPanel({
 
       if (!res.ok) {
         const err = await res.json();
-        throw new Error(err.error ?? "Download nicht möglich");
+        throw new Error(err.error ?? t("upload.error.downloadUnavailable"));
       }
 
       triggerDownload();
       await onBillingRefresh?.();
-      toast.success("Download freigeschaltet");
+      toast.success(t("upload.toast.downloadUnlocked"));
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Download fehlgeschlagen"
+        error instanceof Error ? error.message : t("upload.error.downloadFailed")
       );
     } finally {
       setDownloading(false);
@@ -489,7 +538,7 @@ export function UploadPanel({
 
   const copyResult = async () => {
     if (!result) return;
-    const text = formatResultText(result);
+    const text = formatResultText(result, t);
     await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -563,18 +612,15 @@ export function UploadPanel({
     <div className="flex flex-col gap-6">
       <div>
         <h2 className="text-[13px] font-semibold tracking-wide">
-          PDF-Antrag analysieren
+          {t("upload.title")}
         </h2>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-          Lade einen Antrag hoch, beantworte kurz ein paar Fragen, unterschreibe
-          — und lade das ausgefüllte PDF herunter.
+          {t("upload.subtitle")}
         </p>
       </div>
 
       {step === "idle" && (
-        <>
-          <StarterProfileForm profile={profile} onSave={onProfileUpdate} />
-          <label
+        <label
           className={cn(
             "flex cursor-pointer flex-col items-center rounded-md border border-dashed bg-card px-4 py-8 text-center transition-colors sm:px-8 sm:py-12",
             isDragging && "border-primary bg-primary/10",
@@ -598,12 +644,11 @@ export function UploadPanel({
             }}
           />
           <FileText className="mb-3 size-8 text-muted-foreground" />
-          <p className="text-[15px] font-medium">PDF hierher ziehen oder klicken</p>
+          <p className="text-[15px] font-medium">{t("upload.dropzone.title")}</p>
           <p className="mt-1.5 text-xs text-muted-foreground">
-            Mietvertrag, Krankenkassenantrag, Ummeldung, Visa-Formular…
+            {t("upload.dropzone.hint")}
           </p>
         </label>
-        </>
       )}
 
       {step === "loading" && (
@@ -622,7 +667,7 @@ export function UploadPanel({
               className="ml-auto h-7 text-xs"
               onClick={reset}
             >
-              Erneut versuchen
+              {t("upload.error.retry")}
             </Button>
           )}
         </div>
@@ -635,8 +680,9 @@ export function UploadPanel({
               <Questionnaire
                 questions={questions}
                 repeatableGroups={repeatableGroups}
-                formTitle={isFollowUp ? "Fehlende Angaben ergänzen" : formTitle}
+                formTitle={isFollowUp ? t("upload.followUp.title") : formTitle}
                 profile={sessionProfile}
+                profileMulti={profileMulti}
                 initialAnswers={initialAnswers}
                 locationFallback={sessionProfile.ort}
                 savedSignature={sessionProfile[PROFILE_SIGNATURE_KEY]}
@@ -661,12 +707,12 @@ export function UploadPanel({
                 {showMobilePreview ? (
                   <>
                     <EyeOff className="size-3.5" />
-                    Vorschau ausblenden
+                    {t("upload.preview.hide")}
                   </>
                 ) : (
                   <>
                     <Eye className="size-3.5" />
-                    Formular-Vorschau anzeigen
+                    {t("upload.preview.show")}
                   </>
                 )}
               </Button>
@@ -687,7 +733,7 @@ export function UploadPanel({
                         ? fieldMapping?.signature_placement
                         : null
                     }
-                    title="Leeres Formular"
+                    title={t("upload.preview.emptyForm")}
                   />
                 </CardContent>
               </Card>
@@ -695,7 +741,7 @@ export function UploadPanel({
               {isFollowUp && result?.pdf_base64 && pdfPreviewUrl && (
                 <Card>
                   <CardHeader className="flex-row items-center gap-2 space-y-0 pb-3">
-                    <CardTitle className="text-xs">Ausgefüllte Vorschau</CardTitle>
+                    <CardTitle className="text-xs">{t("upload.preview.filled")}</CardTitle>
                     <Button
                       size="sm"
                       variant="outline"
@@ -708,13 +754,13 @@ export function UploadPanel({
                       ) : (
                         <Download className="size-3" />
                       )}
-                      Erneut herunterladen
+                      {t("upload.preview.redownload")}
                     </Button>
                   </CardHeader>
                   <CardContent className="p-4 pt-0">
                     <iframe
                       src={pdfPreviewUrl}
-                      title="Ausgefülltes PDF"
+                      title={t("upload.preview.filledPdf")}
                       className="h-[min(50vh,400px)] w-full rounded-md border bg-white"
                     />
                   </CardContent>
@@ -731,7 +777,7 @@ export function UploadPanel({
           <CardHeader className="flex-col items-start gap-3 pb-4 sm:flex-row sm:flex-wrap sm:items-center">
             <div className="flex items-center gap-2">
               <div className="size-2 rounded-full bg-emerald-500" />
-              <CardTitle className="text-sm">Ausgefüllter Antrag</CardTitle>
+              <CardTitle className="text-sm">{t("upload.result.title")}</CardTitle>
             </div>
             <div className="flex w-full flex-col gap-2 sm:ml-auto sm:w-auto sm:flex-row sm:flex-wrap">
               {pdfPreviewUrl && (
@@ -746,7 +792,7 @@ export function UploadPanel({
                   ) : (
                     <Download className="size-3" />
                   )}
-                  PDF herunterladen
+                  {t("upload.result.download")}
                 </Button>
               )}
               <Button
@@ -757,11 +803,11 @@ export function UploadPanel({
               >
                 {copied ? (
                   <>
-                    <Check className="size-3" /> Kopiert
+                    <Check className="size-3" /> {t("upload.result.copied")}
                   </>
                 ) : (
                   <>
-                    <Copy className="size-3" /> Text kopieren
+                    <Copy className="size-3" /> {t("upload.result.copy")}
                   </>
                 )}
               </Button>
@@ -771,7 +817,7 @@ export function UploadPanel({
                 className="h-9 w-full text-xs sm:h-7 sm:w-auto"
                 onClick={reset}
               >
-                Neuer Antrag
+                {t("upload.result.newApplication")}
               </Button>
             </div>
           </CardHeader>
@@ -779,21 +825,19 @@ export function UploadPanel({
             {pdfPreviewUrl && (
               <iframe
                 src={pdfPreviewUrl}
-                title="PDF Vorschau"
+                title={t("upload.preview.pdf")}
                 className="h-[min(70vh,600px)] w-full rounded-md border bg-white"
               />
             )}
             {!result.has_form_fields && (
               <p className="text-xs text-amber-500">
-                Dieses PDF hatte keine ausfüllbaren Formularfelder — die Angaben
-                wurden als Zusammenfassung angehängt und die Unterschrift
-                platziert.
+                {t("upload.result.noFormFields")}
               </p>
             )}
             {result.missing.length > 0 && (
               <div className="flex flex-col gap-2">
                 <p className="text-xs text-muted-foreground">
-                  Nicht ausgefüllt: {result.missing.join(", ")}
+                  {t("upload.result.missingPrefix")} {result.missing.join(", ")}
                 </p>
                 <Button
                   variant="outline"
@@ -816,7 +860,7 @@ export function UploadPanel({
                     setStep("questions");
                   }}
                 >
-                  Fehlende Angaben ergänzen
+                  {t("upload.result.addMissing")}
                 </Button>
               </div>
             )}
@@ -834,7 +878,10 @@ export function UploadPanel({
   );
 }
 
-function formatResultText(data: FillResponse): string {
+function formatResultText(
+  data: FillResponse,
+  t: (key: string) => string
+): string {
   let output = `${data.title}\n${"─".repeat(50)}\n\n`;
 
   data.filled_fields.forEach((f) => {
@@ -842,7 +889,7 @@ function formatResultText(data: FillResponse): string {
   });
 
   if (data.missing.length > 0) {
-    output += `\n${"─".repeat(50)}\nNicht ausgefüllt (Daten fehlen):\n`;
+    output += `\n${"─".repeat(50)}\n${t("upload.copyResult.missingHeader")}\n`;
     data.missing.forEach((m) => {
       output += `  • ${m}\n`;
     });

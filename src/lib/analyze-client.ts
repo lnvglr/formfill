@@ -3,10 +3,10 @@ import {
 } from "@/lib/questionnaire-steps";
 import {
   dedupeMissingFieldsByCanonical,
-  filterFieldsNotInProfile,
   filterExcludedFormFields,
   normalizeProfileKey,
 } from "@/lib/field-keys";
+import { shouldSkipProfileQuestion, type ProfileMultiStore } from "@/lib/profile-multi";
 import { isRepeatableFieldKey } from "@/lib/repeatable-fields";
 import {
   enrichStaleField,
@@ -20,6 +20,7 @@ export function buildQuestionList(
   aiFields: MissingField[],
   profile: ProfileData,
   profileFields: ProfileField[],
+  profileMulti?: ProfileMultiStore,
   max = 30
 ): MissingField[] {
   const staleQuestions: MissingField[] = profileFields
@@ -31,7 +32,10 @@ export function buildQuestionList(
   const aiMissing = consolidateMissingFields(
     dedupeMissingFieldsByCanonical(
       filterExcludedFormFields(
-        filterFieldsNotInProfile(normalizeMissingFields(aiFields), profile)
+        normalizeMissingFields(aiFields).filter(
+          (field) =>
+            !shouldSkipProfileQuestion(profile, profileMulti, field.key)
+        )
       )
     )
   );

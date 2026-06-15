@@ -1,18 +1,19 @@
 "use client";
 
 import type { AppView } from "@/lib/app-views";
+import { useT } from "@/i18n/client";
 import { cn } from "@/lib/utils";
 import { Clock, FileUp, Settings, User } from "lucide-react";
 
 const NAV_ITEMS: {
   view: AppView;
-  label: string;
+  labelKey: string;
   icon: typeof FileUp;
 }[] = [
-  { view: "upload", label: "Antrag", icon: FileUp },
-  { view: "profile", label: "Profil", icon: User },
-  { view: "history", label: "Verlauf", icon: Clock },
-  { view: "settings", label: "Mehr", icon: Settings },
+  { view: "upload", labelKey: "mobileNav.upload", icon: FileUp },
+  { view: "profile", labelKey: "mobileNav.profile", icon: User },
+  { view: "history", labelKey: "mobileNav.history", icon: Clock },
+  { view: "settings", labelKey: "mobileNav.settings", icon: Settings },
 ];
 
 type MobileNavProps = {
@@ -21,14 +22,16 @@ type MobileNavProps = {
 };
 
 export function MobileNav({ currentView, onNavigate }: MobileNavProps) {
+  const t = useT();
+
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
-      aria-label="Hauptnavigation"
+      aria-label={t("mobileNav.ariaLabel")}
     >
       <div className="flex items-stretch">
-        {NAV_ITEMS.map(({ view, label, icon: Icon }) => {
+        {NAV_ITEMS.map(({ view, labelKey, icon: Icon }) => {
           const isActive = currentView === view;
 
           return (
@@ -45,7 +48,7 @@ export function MobileNav({ currentView, onNavigate }: MobileNavProps) {
               aria-current={isActive ? "page" : undefined}
             >
               <Icon className={cn("size-5", isActive && "stroke-[2.5]")} />
-              <span className="font-medium">{label}</span>
+              <span className="font-medium">{t(labelKey)}</span>
             </button>
           );
         })}

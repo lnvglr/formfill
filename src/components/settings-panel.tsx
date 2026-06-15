@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { BillingSection } from "@/components/billing-section";
 import { PasskeySettings } from "@/components/passkey-settings";
+import { useT } from "@/i18n/client";
 import { cn } from "@/lib/utils";
 import { Monitor, Moon, Sun } from "lucide-react";
 
@@ -25,12 +26,6 @@ type SettingsPanelProps = {
   onClearProfile: () => void;
 };
 
-const themeOptions = [
-  { value: "light", label: "Hell", icon: Sun },
-  { value: "dark", label: "Dunkel", icon: Moon },
-  { value: "system", label: "System", icon: Monitor },
-] as const;
-
 export function SettingsPanel({
   isGuest = false,
   onSignIn,
@@ -38,6 +33,13 @@ export function SettingsPanel({
 }: SettingsPanelProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useT();
+
+  const themeOptions = [
+    { value: "light", label: t("settings.theme.light"), icon: Sun },
+    { value: "dark", label: t("settings.theme.dark"), icon: Moon },
+    { value: "system", label: t("settings.theme.system"), icon: Monitor },
+  ] as const;
 
   useEffect(() => {
     setMounted(true);
@@ -46,9 +48,9 @@ export function SettingsPanel({
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-8">
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm font-medium">Darstellung</h2>
+        <h2 className="text-sm font-medium">{t("settings.appearance.title")}</h2>
         <p className="text-xs text-muted-foreground">
-          Wähle ein Farbschema für die Oberfläche.
+          {t("settings.appearance.subtitle")}
         </p>
         <div className="grid grid-cols-3 gap-2">
           {themeOptions.map(({ value, label, icon: Icon }) => {
@@ -76,15 +78,14 @@ export function SettingsPanel({
 
       {isGuest ? (
         <section className="flex flex-col gap-3">
-          <h2 className="text-sm font-medium">Konto</h2>
+          <h2 className="text-sm font-medium">{t("settings.account.title")}</h2>
           <div className="rounded-md border border-primary/30 bg-primary/5 p-4">
             <p className="text-xs leading-relaxed text-muted-foreground">
-              Du nutzt Formfill als Gast. Erstelle ein Konto, um Anträge zu
-              speichern, den Verlauf zu nutzen und Downloads zu verwalten.
+              {t("settings.account.guestHint")}
             </p>
             {onSignIn && (
               <Button size="sm" className="mt-4" onClick={onSignIn}>
-                Konto erstellen
+                {t("settings.account.create")}
               </Button>
             )}
           </div>
@@ -94,22 +95,20 @@ export function SettingsPanel({
       )}
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm font-medium">Sicherheit</h2>
+        <h2 className="text-sm font-medium">{t("settings.security.title")}</h2>
         <div className="rounded-md border bg-card/40 p-4">
           <p className="text-xs leading-relaxed text-muted-foreground">
-            Dein Profil und deine PDFs werden auf diesem Gerät verschlüsselt,
-            bevor sie gespeichert werden. Nicht einmal wir können deine Daten
-            lesen.
+            {t("settings.security.encryption")}
           </p>
           {!isGuest && (
             <>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                Passkeys schützen dein Konto vor Phishing. Dein verschlüsseltes
-                Profil bleibt an dieses Gerät gebunden — auf einem neuen Gerät
-                legst du es einmalig neu an.
+                {t("settings.security.passkeys")}
               </p>
               <div className="mt-4 border-t pt-4">
-                <p className="mb-3 text-xs font-medium">Passkeys</p>
+                <p className="mb-3 text-xs font-medium">
+                  {t("settings.security.passkeysTitle")}
+                </p>
                 <PasskeySettings />
               </div>
             </>
@@ -118,11 +117,10 @@ export function SettingsPanel({
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm font-medium">Daten</h2>
+        <h2 className="text-sm font-medium">{t("settings.data.title")}</h2>
         <div className="rounded-md border border-destructive/20 bg-destructive/5 p-4">
           <p className="text-xs leading-relaxed text-muted-foreground">
-            Alle Profildaten, Anträge und hochgeladenen PDFs unwiderruflich
-            löschen.
+            {t("settings.data.deleteHint")}
           </p>
           <AlertDialog>
             <AlertDialogTrigger
@@ -132,22 +130,23 @@ export function SettingsPanel({
                   size="sm"
                   className="mt-4 border-destructive/40 text-destructive hover:bg-destructive/10"
                 >
-                  Alle Daten löschen
+                  {t("settings.data.deleteButton")}
                 </Button>
               }
             />
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Alle Daten löschen?</AlertDialogTitle>
+                <AlertDialogTitle>
+                  {t("settings.data.deleteDialog.title")}
+                </AlertDialogTitle>
                 <AlertDialogDescription>
-                  Profil, Verlauf und gespeicherte PDFs werden gelöscht. Diese
-                  Aktion kann nicht rückgängig gemacht werden.
+                  {t("settings.data.deleteDialog.description")}
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Abbrechen</AlertDialogCancel>
+                <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
                 <AlertDialogAction onClick={onClearProfile}>
-                  Löschen
+                  {t("settings.data.deleteDialog.confirm")}
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

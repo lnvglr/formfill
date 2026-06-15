@@ -7,6 +7,11 @@ import {
   type VaultRecord,
 } from "@/lib/crypto/vault-types";
 import { normalizeProfileData } from "@/lib/field-keys";
+import {
+  hydrateMultiFromProfile,
+  syncProfileFromMulti,
+  type ProfileMultiStore,
+} from "@/lib/profile-multi";
 import type { ProfileData } from "@/lib/types";
 
 const PBKDF2_ITERATIONS = 310_000;
@@ -120,7 +125,7 @@ export async function unlockVaultRecord(
   const json = await decryptWithKey(key, record.ciphertext);
   const parsed = JSON.parse(json) as VaultPayload;
 
-  if (parsed.v !== 1 || !parsed.fields || !parsed.updatedAt) {
+  if ((parsed.v !== 1 && parsed.v !== 2) || !parsed.fields || !parsed.updatedAt) {
     throw new Error("Vault-Daten beschädigt");
   }
 
@@ -140,14 +145,28 @@ export async function reencryptVaultRecord(
 }
 
 export function vaultPayloadToProfile(payload: VaultPayload): ProfileData {
-  return { ...payload.fields };
+  const multi = hydrateMultiFromProfile(payload.fields, payload.multi);
+  return syncProfileFromMulti(payload.fields, multi);
+}
+
+export function vaultPayloadToMulti(
+  payload: VaultPayload
+): ProfileMultiStore {
+  return hydrateMultiFromProfile(payload.fields, payload.multi);
 }
 
 export function profileToVaultPayload(
   profile: ProfileData,
-  previous?: VaultPayload
+  previous?: VaultPayload,
+  multi?: ProfileMultiStore
 ): VaultPayload {
-  const normalized = normalizeProfileData(profile);
+  const hydratedMulti = hydrateMultiFromProfile(
+    profile,
+    multi ?? previous?.multi
+  );
+  const normalized = normalizeProfileData(
+    syncProfileFromMulti(profile, hydratedMulti)
+  );
   const now = new Date().toISOString();
   const updatedAt = { ...(previous?.updatedAt ?? {}) };
 
@@ -165,10 +184,16 @@ export function profileToVaultPayload(
     }
   }
 
+  const hasMultiData =
+    hydratedMulti.emails.length > 0 ||
+    hydratedMulti.phones.length > 0 ||
+    hydratedMulti.addresses.length > 0;
+
   return {
-    v: 1,
+    v: hasMultiData ? 2 : previous?.v ?? 1,
     fields: normalized,
     updatedAt,
+    multi: hasMultiData ? hydratedMulti : undefined,
   };
 }
 

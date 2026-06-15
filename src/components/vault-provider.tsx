@@ -16,6 +16,7 @@ import {
   profileToVaultPayload,
   reencryptVaultRecord,
   unlockVaultRecord,
+  vaultPayloadToMulti,
   vaultPayloadToProfile,
 } from "@/lib/crypto/vault-client";
 import {
@@ -23,16 +24,25 @@ import {
   getOrCreateDeviceVaultKey,
 } from "@/lib/crypto/vault-device";
 import type { VaultPayload, VaultRecord } from "@/lib/crypto/vault-types";
+import {
+  EMPTY_PROFILE_MULTI,
+  type ProfileMultiStore,
+} from "@/lib/profile-multi";
 import { vaultPayloadToProfileFields } from "@/lib/vault-profile";
 import type { ProfileData, ProfileField } from "@/lib/types";
+import { useT } from "@/i18n/client";
 
 type VaultContextValue = {
   isUnlocked: boolean;
   profile: ProfileData;
+  profileMulti: ProfileMultiStore;
   profileFields: ProfileField[];
   payload: VaultPayload | null;
   record: VaultRecord | null;
-  saveProfile: (data: ProfileData) => Promise<void>;
+  saveProfile: (
+    data: ProfileData,
+    multi?: ProfileMultiStore
+  ) => Promise<void>;
   clearVault: () => Promise<void>;
   encryptPdfToStorage: (bytes: Uint8Array) => Promise<string>;
 };
@@ -57,6 +67,7 @@ async function createEmptyVault(deviceKey: string): Promise<{
 }
 
 export function VaultProvider({ children }: { children: React.ReactNode }) {
+  const t = useT();
   const [record, setRecord] = useState<VaultRecord | null>(null);
   const [payload, setPayload] = useState<VaultPayload | null>(null);
   const [isReady, setIsReady] = useState(false);
@@ -120,13 +131,18 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
     bootstrapVault()
       .catch((err) => {
         console.error(err);
-        setError("Profil konnte nicht vorbereitet werden.");
+        setError(t("vault.prepareFailed"));
       })
       .finally(() => setIsReady(true));
-  }, [bootstrapVault]);
+  }, [bootstrapVault, t]);
 
   const profile = useMemo(
     () => (payload ? vaultPayloadToProfile(payload) : {}),
+    [payload]
+  );
+
+  const profileMulti = useMemo(
+    () => (payload ? vaultPayloadToMulti(payload) : EMPTY_PROFILE_MULTI),
     [payload]
   );
 
@@ -135,12 +151,19 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
     [payload]
   );
 
-  const saveProfile = async (data: ProfileData) => {
+  const saveProfile = async (
+    data: ProfileData,
+    multi?: ProfileMultiStore
+  ) => {
     if (!record || !vaultKeyRef.current) {
-      throw new Error("Vault ist nicht bereit");
+      throw new Error(t("vault.notReady"));
     }
 
-    const nextPayload = profileToVaultPayload(data, payload ?? undefined);
+    const nextPayload = profileToVaultPayload(
+      data,
+      payload ?? undefined,
+      multi ?? profileMulti
+    );
     const nextRecord = await reencryptVaultRecord(
       vaultKeyRef.current,
       record,
@@ -163,7 +186,7 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
 
   const encryptPdfToStorage = async (bytes: Uint8Array) => {
     if (!record || !vaultKeyRef.current) {
-      throw new Error("Vault ist nicht bereit");
+      throw new Error(t("vault.notReady"));
     }
     return encryptBytesWithVaultKey(vaultKeyRef.current, record.salt, bytes);
   };
@@ -171,6 +194,7 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
   const value: VaultContextValue = {
     isUnlocked: isReady && !error,
     profile,
+    profileMulti,
     profileFields,
     payload,
     record,
@@ -182,7 +206,7 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
   if (!isReady) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
-        <p className="text-sm text-muted-foreground">Profil wird vorbereitet…</p>
+        <p className="text-sm text-muted-foreground">{t("vault.preparing")}</p>
       </div>
     );
   }

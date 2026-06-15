@@ -6,12 +6,16 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { AuthPanel } from "@/components/auth-panel";
 import { Card } from "@/components/ui/card";
 import { createClient } from "@/lib/supabase/client";
+import { useT } from "@/i18n/client";
+import { useLocalizedPath } from "@/i18n/navigation-client";
 import { Loader2 } from "lucide-react";
 
 export function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get("next") ?? "/app";
+  const t = useT();
+  const localizedPath = useLocalizedPath();
+  const next = searchParams.get("next") ?? localizedPath("/app");
   const mode =
     searchParams.get("mode") === "guest-upgrade" ? "guest-upgrade" : "sign-in";
   const authError = searchParams.get("error") === "auth";
@@ -40,17 +44,19 @@ export function LoginPage() {
     <div className="flex min-h-screen flex-col bg-background">
       <header className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <Link
-          href="/"
+          href={localizedPath("/")}
           className="font-mono text-[15px] font-medium tracking-tight"
         >
           form<span className="text-primary">fill</span>
         </Link>
-        <Link
-          href="/app"
-          className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Zur App
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href={localizedPath("/app")}
+            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {t("login.backToApp")}
+          </Link>
+        </div>
       </header>
 
       <main className="flex flex-1 flex-col items-center justify-center px-4 py-8 sm:px-6">
@@ -65,20 +71,20 @@ export function LoginPage() {
 
         {authError && (
           <p className="mt-4 max-w-md text-center text-xs text-destructive">
-            Anmeldung fehlgeschlagen. Bitte versuche es erneut.
+            {t("login.error.auth")}
           </p>
         )}
 
         <p className="mt-6 max-w-md text-center text-xs leading-relaxed text-muted-foreground">
           {mode === "guest-upgrade"
-            ? "Profil und bisherige Angaben bleiben auf diesem Gerät erhalten."
-            : "Noch kein Konto? Der E-Mail-Code legt automatisch eines an."}
+            ? t("login.footer.guestUpgrade")
+            : t("login.footer.signUpHint")}
         </p>
         <Link
-          href="/app"
+          href={localizedPath("/app")}
           className="mt-2 text-xs text-primary transition-colors hover:underline"
         >
-          Ohne Konto fortfahren
+          {t("login.footer.continueAsGuest")}
         </Link>
       </main>
     </div>

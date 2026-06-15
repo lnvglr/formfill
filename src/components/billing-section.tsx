@@ -5,16 +5,22 @@ import { Button } from "@/components/ui/button";
 import type { BillingStatus } from "@/lib/db/billing";
 import { CREDIT_PACK_AMOUNT, FREE_MONTHLY_CREDITS } from "@/lib/stripe";
 import { createClient } from "@/lib/supabase/client";
+import { localeToBcp47 } from "@/i18n/config";
+import { iconDirectional } from "@/lib/utils";
+import { useI18n } from "@/i18n/client";
 import { Loader2, LogOut, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 export function BillingSection() {
+  const { t, locale } = useI18n();
   const [billing, setBilling] = useState<BillingStatus | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [checkoutLoading, setCheckoutLoading] = useState<
     "credits" | "pro" | "portal" | null
   >(null);
+
+  const dateLocale = localeToBcp47[locale];
 
   const loadBilling = useCallback(async () => {
     const meRes = await fetch("/api/me");
@@ -41,7 +47,7 @@ export function BillingSection() {
       if (data.url) window.location.href = data.url;
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Checkout fehlgeschlagen"
+        error instanceof Error ? error.message : t("billing.error.checkout")
       );
     } finally {
       setCheckoutLoading(null);
@@ -57,7 +63,7 @@ export function BillingSection() {
       if (data.url) window.location.href = data.url;
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Portal nicht verfügbar"
+        error instanceof Error ? error.message : t("billing.error.portal")
       );
     } finally {
       setCheckoutLoading(null);
@@ -74,7 +80,7 @@ export function BillingSection() {
     return (
       <div className="flex items-center gap-2 text-xs text-muted-foreground">
         <Loader2 className="size-3.5 animate-spin" />
-        Lade Kontoinformationen…
+        {t("billing.loading")}
       </div>
     );
   }
@@ -82,17 +88,19 @@ export function BillingSection() {
   return (
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm font-medium">Konto</h2>
+        <h2 className="text-sm font-medium">{t("billing.account.title")}</h2>
         <div className="rounded-md border bg-card/40 p-4">
           {email ? (
             <>
               <p className="text-sm">{email}</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Passkey oder E-Mail-Code zum Anmelden
+                {t("billing.account.signInHint")}
               </p>
             </>
           ) : (
-            <p className="text-xs text-muted-foreground">Keine E-Mail hinterlegt</p>
+            <p className="text-xs text-muted-foreground">
+              {t("billing.account.noEmail")}
+            </p>
           )}
           <Button
             variant="outline"
@@ -100,30 +108,31 @@ export function BillingSection() {
             className="mt-4 h-7 text-xs"
             onClick={signOut}
           >
-            <LogOut className="size-3" />
-            Abmelden
+            <LogOut className={iconDirectional("size-3")} />
+            {t("billing.signOut")}
           </Button>
         </div>
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-sm font-medium">Downloads & Abo</h2>
+        <h2 className="text-sm font-medium">{t("billing.downloads.title")}</h2>
         <div className="rounded-md border bg-card/40 p-4">
           {billing?.is_pro ? (
             <div className="flex flex-col gap-2">
               <p className="flex items-center gap-1.5 text-sm font-medium text-primary">
                 <Sparkles className="size-3.5" />
-                Formfill Pro aktiv
+                {t("billing.pro.active")}
               </p>
               <p className="text-xs text-muted-foreground">
-                Unbegrenzte PDF-Downloads
+                {t("billing.pro.unlimited")}
                 {billing.subscription_period_end && (
                   <>
                     {" "}
-                    · gültig bis{" "}
-                    {new Date(billing.subscription_period_end).toLocaleDateString(
-                      "de-DE"
-                    )}
+                    {t("billing.pro.validUntil", {
+                      date: new Date(
+                        billing.subscription_period_end
+                      ).toLocaleDateString(dateLocale),
+                    })}
                   </>
                 )}
               </p>
@@ -137,18 +146,19 @@ export function BillingSection() {
                 {checkoutLoading === "portal" && (
                   <Loader2 className="size-3 animate-spin" />
                 )}
-                Abo verwalten
+                {t("billing.pro.manage")}
               </Button>
             </div>
           ) : (
             <div className="flex flex-col gap-2">
               <p className="text-sm">
                 <span className="font-medium">{billing?.form_credits ?? 0}</span>{" "}
-                Download-Guthaben
+                {t("billing.credits.balance")}
               </p>
               <p className="text-xs text-muted-foreground">
-                Kostenloser Plan: {FREE_MONTHLY_CREDITS} Downloads pro Monat.
-                Vorschau ist immer gratis.
+                {t("billing.credits.freePlan", {
+                  count: FREE_MONTHLY_CREDITS,
+                })}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button
@@ -160,7 +170,7 @@ export function BillingSection() {
                   {checkoutLoading === "credits" && (
                     <Loader2 className="size-3 animate-spin" />
                   )}
-                  {CREDIT_PACK_AMOUNT} Downloads kaufen
+                  {t("billing.credits.buy", { count: CREDIT_PACK_AMOUNT })}
                 </Button>
                 <Button
                   variant="outline"
@@ -172,7 +182,7 @@ export function BillingSection() {
                   {checkoutLoading === "pro" && (
                     <Loader2 className="size-3 animate-spin" />
                   )}
-                  Pro werden
+                  {t("billing.pro.upgrade")}
                 </Button>
               </div>
             </div>

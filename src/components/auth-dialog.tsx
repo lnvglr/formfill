@@ -6,6 +6,7 @@ import {
   AlertDialogContent,
 } from "@/components/ui/alert-dialog";
 import { AuthPanel } from "@/components/auth-panel";
+import { useT } from "@/i18n/client";
 import { X } from "lucide-react";
 
 type AuthDialogProps = {
@@ -23,6 +24,8 @@ export function AuthDialog({
   mode = "sign-in",
   redirectPath = "/app",
 }: AuthDialogProps) {
+  const t = useT();
+
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent className="flex max-w-md flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
@@ -30,7 +33,7 @@ export function AuthDialog({
           variant="ghost"
           size="icon"
           className="absolute top-3 right-3 z-10 size-8 text-muted-foreground"
-          aria-label="Schließen"
+          aria-label={t("common.close")}
         >
           <X className="size-4" />
         </AlertDialogCancel>
@@ -48,7 +51,9 @@ export function AuthDialog({
         </div>
 
         <div className="shrink-0 border-t bg-muted/30 px-6 py-4">
-          <AlertDialogCancel className="w-full">Abbrechen</AlertDialogCancel>
+          <AlertDialogCancel className="w-full">
+            {t("common.cancel")}
+          </AlertDialogCancel>
         </div>
       </AlertDialogContent>
     </AlertDialog>

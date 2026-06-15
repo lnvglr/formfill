@@ -6,8 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { SignaturePad } from "@/components/signature-pad";
 import { StarterProfileForm } from "@/components/starter-profile-form";
-import { getFieldDisplayLabel } from "@/lib/field-keys";
-import { getFreshnessLabel } from "@/lib/profile-freshness";
+import { getFieldDisplayLabel, normalizeProfileKey } from "@/lib/field-keys";
+import { getLocalizedFieldDisplayLabel } from "@/lib/field-i18n";
+import {
+  getLocalizedFreshnessLabel,
+  getLocalizedProfileGroupLabel,
+} from "@/lib/profile-i18n";
 import {
   groupProfileFields,
   type ProfileGroupId,
@@ -18,16 +22,23 @@ import {
   PROFILE_SIGNATURE_KEY,
 } from "@/lib/signature";
 import type { ProfileData, ProfileField } from "@/lib/types";
+import type { ProfileMultiStore } from "@/lib/profile-multi";
+import { useI18n } from "@/i18n/client";
+import { localeToBcp47 } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 import { Check, ChevronDown, Pencil, Plus, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 
 type ProfilePanelProps = {
   profile: ProfileData;
+  profileMulti: ProfileMultiStore;
   fields: ProfileField[];
   onUpdateField: (key: string, value: string) => Promise<void>;
   onDeleteField: (key: string) => Promise<void>;
-  onSaveProfile: (data: ProfileData) => Promise<void>;
+  onSaveProfile: (
+    data: ProfileData,
+    multi?: ProfileMultiStore
+  ) => Promise<void>;
 };
 
 const freshnessDot = {
@@ -49,6 +60,8 @@ function SignatureEditor({
   onCancel: () => void;
   saving: boolean;
 }) {
+  const { t } = useI18n();
+
   return (
     <div className="space-y-3">
       <SignaturePad
@@ -63,11 +76,11 @@ function SignatureEditor({
           disabled={saving || !value.startsWith("data:image/")}
         >
           <Check className="size-3.5" />
-          Speichern
+          {t("common.save")}
         </Button>
         <Button size="sm" variant="ghost" onClick={onCancel}>
           <X className="size-3.5" />
-          Abbrechen
+          {t("common.cancel")}
         </Button>
       </div>
     </div>
@@ -76,17 +89,21 @@ function SignatureEditor({
 
 export function ProfilePanel({
   profile,
+  profileMulti,
   fields,
   onUpdateField,
   onDeleteField,
   onSaveProfile,
 }: ProfilePanelProps) {
+  const { t, locale } = useI18n();
+  const dateLocale = localeToBcp47[locale];
   const [editingKey, setEditingKey] = useState<string | null>(null);
   const [editValue, setEditValue] = useState("");
   const [saving, setSaving] = useState(false);
   const [collapsedGroups, setCollapsedGroups] = useState<Set<ProfileGroupId>>(
     new Set()
   );
+  const [showAddFields, setShowAddFields] = useState(false);
 
   const signatureField = fields.find((field) =>
     isSignatureFieldKey(field.key)
@@ -97,7 +114,17 @@ export function ProfilePanel({
 
   const staleCount = fields.filter((f) => f.freshness === "stale").length;
   const agingCount = fields.filter((f) => f.freshness === "aging").length;
-  const groups = useMemo(() => groupProfileFields(fields), [fields]);
+  const groups = useMemo(() => {
+    const multiKeys = new Set(["email", "telefon", "strasse", "postleitzahl", "ort"]);
+    return groupProfileFields(fields)
+      .map((group) => ({
+        ...group,
+        fields: group.fields.filter(
+          (field) => !multiKeys.has(normalizeProfileKey(field.key))
+        ),
+      }))
+      .filter((group) => group.fields.length > 0);
+  }, [fields]);
 
   const toggleGroup = (id: ProfileGroupId) => {
     setCollapsedGroups((prev) => {
@@ -136,9 +163,9 @@ export function ProfilePanel({
       await onUpdateField(key, isSignature ? editValue : editValue.trim());
       setEditingKey(null);
       setEditValue("");
-      toast.success("Gespeichert");
+      toast.success(t("profile.toast.saved"));
     } catch {
-      toast.error("Speichern fehlgeschlagen");
+      toast.error(t("profile.toast.saveFailed"));
     } finally {
       setSaving(false);
     }
@@ -147,9 +174,9 @@ export function ProfilePanel({
   const handleDelete = async (key: string) => {
     try {
       await onDeleteField(key);
-      toast.success("Feld gelöscht");
+      toast.success(t("profile.toast.deleted"));
     } catch {
-      toast.error("Löschen fehlgeschlagen");
+      toast.error(t("profile.toast.deleteFailed"));
     }
   };
 
@@ -157,15 +184,15 @@ export function ProfilePanel({
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-md border bg-card/40 px-4 py-2.5 text-xs">
         <div>
-          <span className="text-muted-foreground">Felder </span>
+          <span className="text-muted-foreground">{t("profile.stats.fields")} </span>
           <span className="font-mono font-medium">{fields.length}</span>
         </div>
         <div>
-          <span className="text-muted-foreground">Gruppen </span>
+          <span className="text-muted-foreground">{t("profile.stats.groups")} </span>
           <span className="font-mono font-medium">{groups.length}</span>
         </div>
         <div>
-          <span className="text-muted-foreground">Zu prüfen </span>
+          <span className="text-muted-foreground">{t("profile.stats.review")} </span>
           <span
             className={cn(
               "font-mono font-medium",
@@ -179,15 +206,31 @@ export function ProfilePanel({
         </div>
       </div>
 
-      {fields.length === 0 && !isEditingSignature ? (
-        <div className="flex flex-col gap-4">
-          <StarterProfileForm profile={profile} onSave={onSaveProfile} />
-          <p className="text-center text-xs text-muted-foreground">
-            Oder lade einen Antrag hoch — weitere Felder werden automatisch
-            ergänzt.
-          </p>
-        </div>
+      {showAddFields ? (
+        <StarterProfileForm
+          profile={profile}
+          profileMulti={profileMulti}
+          onSave={onSaveProfile}
+          onCancel={() => setShowAddFields(false)}
+        />
       ) : (
+        <div className="flex justify-end">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowAddFields(true)}
+          >
+            <Plus className="size-3.5" />
+            {t("profile.addField")}
+          </Button>
+        </div>
+      )}
+
+      {fields.length === 0 && !showAddFields ? (
+        <div className="rounded-md border border-dashed py-12 text-center text-sm text-muted-foreground">
+          {t("profile.empty")}
+        </div>
+      ) : groups.length > 0 ? (
         <div className="flex flex-col gap-2">
           {groups.map((group) => {
             const isCollapsed = collapsedGroups.has(group.id);
@@ -211,7 +254,9 @@ export function ProfilePanel({
                       isCollapsed && "-rotate-90"
                     )}
                   />
-                  <span className="text-xs font-medium">{group.label}</span>
+                  <span className="text-xs font-medium">
+                    {getLocalizedProfileGroupLabel(group.id, t)}
+                  </span>
                   <span className="font-mono text-[10px] text-muted-foreground">
                     {group.fields.length}
                   </span>
@@ -220,7 +265,7 @@ export function ProfilePanel({
                       variant="outline"
                       className="ml-1 h-4 rounded-sm px-1 text-[9px] border-amber-500/40 text-amber-500"
                     >
-                      prüfen
+                      {t("profile.badge.review")}
                     </Badge>
                   )}
                 </button>
@@ -230,7 +275,7 @@ export function ProfilePanel({
                     {group.fields.map((field, index) => {
                       const isEditing = editingKey === field.key;
                       const isSignature = isSignatureFieldKey(field.key);
-                      const label = getFieldDisplayLabel(field.key);
+                      const label = getLocalizedFieldDisplayLabel(field.key, t);
 
                       if (isEditing && isSignature) {
                         return (
@@ -269,7 +314,7 @@ export function ProfilePanel({
                                 "size-1.5 shrink-0 rounded-full",
                                 freshnessDot[field.freshness]
                               )}
-                              title={getFreshnessLabel(field.freshness)}
+                              title={getLocalizedFreshnessLabel(field.freshness, t)}
                             />
                             <span className="truncate text-[11px] text-muted-foreground">
                               {label}
@@ -312,7 +357,7 @@ export function ProfilePanel({
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                   src={field.value}
-                                  alt="Gespeicherte Unterschrift"
+                                  alt={t("profile.signature.alt")}
                                   className="h-10 max-w-[180px] object-contain"
                                 />
                               </div>
@@ -324,9 +369,9 @@ export function ProfilePanel({
 
                             {!isEditing && (
                               <p className="mt-0.5 font-mono text-[9px] text-muted-foreground/80">
-                                Aktualisiert{" "}
+                                {t("profile.updated")}{" "}
                                 {new Date(field.updated_at).toLocaleDateString(
-                                  "de-DE"
+                                  dateLocale
                                 )}
                               </p>
                             )}
@@ -361,16 +406,15 @@ export function ProfilePanel({
             );
           })}
         </div>
-      )}
+      ) : null}
 
       {!signatureField && !isEditingSignature && (
         <section className="rounded-md border border-dashed bg-card/30 px-4 py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-medium">Unterschrift</p>
+              <p className="text-sm font-medium">{t("profile.signature.title")}</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Zeichne oder lade ein Bild hoch — wird bei Anträgen
-                wiederverwendet.
+                {t("profile.signature.hint")}
               </p>
             </div>
             <Button
@@ -380,7 +424,7 @@ export function ProfilePanel({
               onClick={startAddSignature}
             >
               <Plus className="size-3.5" />
-              Unterschrift hinzufügen
+              {t("profile.signature.add")}
             </Button>
           </div>
         </section>
@@ -388,7 +432,7 @@ export function ProfilePanel({
 
       {!signatureField && isEditingSignature && (
         <section className="rounded-md border bg-card/30 px-4 py-4">
-          <p className="mb-3 text-sm font-medium">Unterschrift hinzufügen</p>
+          <p className="mb-3 text-sm font-medium">{t("profile.signature.add")}</p>
           <SignatureEditor
             value={editValue}
             onChange={setEditValue}

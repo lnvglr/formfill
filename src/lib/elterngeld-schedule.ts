@@ -162,18 +162,20 @@ export function countBenefitMonths(parentSchedule: ParentSchedule): number {
   return total;
 }
 
-export function validateElterngeldSchedule(
+export type ElterngeldScheduleError =
+  | { code: "minMonths"; parent: 1 | 2 }
+  | { code: "required" };
+
+export function getElterngeldScheduleErrors(
   schedule: ElterngeldSchedule
-): string[] {
-  const errors: string[] = [];
+): ElterngeldScheduleError[] {
+  const errors: ElterngeldScheduleError[] = [];
 
   for (const parent of [1, 2] as const) {
     const parentSchedule = getParentSchedule(schedule, parent);
     const count = countBenefitMonths(parentSchedule);
     if (count > 0 && count < 2) {
-      errors.push(
-        `Elternteil ${parent}: Mindestens zwei Monate (oder ein Monat Basis-Elterngeld) erforderlich.`
-      );
+      errors.push({ code: "minMonths", parent });
     }
   }
 
@@ -183,10 +185,21 @@ export function validateElterngeldSchedule(
     countBenefitMonths(schedule.parent1) === 0 &&
     countBenefitMonths(schedule.parent2) === 0
   ) {
-    errors.push("Bitte mindestens einen Bezugszeitraum angeben.");
+    errors.push({ code: "required" });
   }
 
   return errors;
+}
+
+export function validateElterngeldSchedule(
+  schedule: ElterngeldSchedule
+): string[] {
+  return getElterngeldScheduleErrors(schedule).map((error) => {
+    if (error.code === "minMonths") {
+      return `Elternteil ${error.parent}: Mindestens zwei Monate (oder ein Monat Basis-Elterngeld) erforderlich.`;
+    }
+    return "Bitte mindestens einen Bezugszeitraum angeben.";
+  });
 }
 
 export function isElterngeldScheduleAnswered(value: string): boolean {

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import type { BillingStatus } from "@/lib/db/billing";
 import { CREDIT_PACK_AMOUNT } from "@/lib/stripe";
+import { useT } from "@/i18n/client";
 import { Loader2, Sparkles } from "lucide-react";
 
 type UpgradeDialogProps = {
@@ -28,6 +29,7 @@ export function UpgradeDialog({
   billing,
   onBillingRefresh,
 }: UpgradeDialogProps) {
+  const t = useT();
   const [loadingPlan, setLoadingPlan] = useState<"credits" | "pro" | null>(
     null
   );
@@ -42,7 +44,7 @@ export function UpgradeDialog({
       });
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error ?? "Checkout fehlgeschlagen");
+        throw new Error(data.error ?? t("upgrade.error.checkout"));
       }
       if (data.url) {
         window.location.href = data.url;
@@ -50,31 +52,25 @@ export function UpgradeDialog({
     } catch (error) {
       console.error(error);
       alert(
-        error instanceof Error ? error.message : "Checkout fehlgeschlagen"
+        error instanceof Error ? error.message : t("upgrade.error.checkout")
       );
     } finally {
       setLoadingPlan(null);
     }
   };
 
+  const balanceLabel = billing?.can_download_unlimited
+    ? t("upgrade.balance.pro")
+    : t("upgrade.balance.credits", { count: billing?.form_credits ?? 0 });
+
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>PDF herunterladen</AlertDialogTitle>
+          <AlertDialogTitle>{t("upgrade.title")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Vorschau und Ausfüllen sind kostenlos. Für den Download wird ein
-            Guthaben benötigt.
-            {billing && (
-              <>
-                {" "}
-                Aktuelles Guthaben:{" "}
-                {billing.can_download_unlimited
-                  ? "Pro — unbegrenzt"
-                  : `${billing.form_credits} Download(s)`}
-                .
-              </>
-            )}
+            {t("upgrade.description")}
+            {billing && <> {balanceLabel}.</>}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -88,10 +84,10 @@ export function UpgradeDialog({
             <div className="flex items-center justify-between gap-2">
               <div>
                 <p className="text-sm font-medium">
-                  {CREDIT_PACK_AMOUNT} Downloads
+                  {t("upgrade.credits.title", { count: CREDIT_PACK_AMOUNT })}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Einmalig — ideal für gelegentliche Anträge
+                  {t("upgrade.credits.subtitle")}
                 </p>
               </div>
               {loadingPlan === "credits" && (
@@ -110,10 +106,10 @@ export function UpgradeDialog({
               <div>
                 <p className="flex items-center gap-1.5 text-sm font-medium">
                   <Sparkles className="size-3.5 text-primary" />
-                  Formfill Pro
+                  {t("upgrade.pro.title")}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Unbegrenzte Downloads, monatlich kündbar
+                  {t("upgrade.pro.subtitle")}
                 </p>
               </div>
               {loadingPlan === "pro" && (
@@ -124,14 +120,14 @@ export function UpgradeDialog({
         </div>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Abbrechen</AlertDialogCancel>
+          <AlertDialogCancel>{t("common.cancel")}</AlertDialogCancel>
           {onBillingRefresh && (
             <Button
               variant="outline"
               size="sm"
               onClick={() => void onBillingRefresh()}
             >
-              Status aktualisieren
+              {t("upgrade.refresh")}
             </Button>
           )}
         </AlertDialogFooter>

@@ -1,7 +1,10 @@
+import type { ProfileMultiStore } from "@/lib/profile-multi";
+
 export type VaultPayload = {
-  v: 1;
+  v: 1 | 2;
   fields: Record<string, string>;
   updatedAt: Record<string, string>;
+  multi?: ProfileMultiStore;
 };
 
 export type VaultRecord = {

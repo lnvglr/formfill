@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { useT } from "@/i18n/client";
 import { cn } from "@/lib/utils";
 import {
   BASIS_MONTHS_MAX,
@@ -16,8 +17,9 @@ import {
   serializeElterngeldSchedule,
   setParentMonth,
   setStandardMonths,
-  validateElterngeldSchedule,
+  getElterngeldScheduleErrors,
 } from "@/lib/elterngeld-schedule";
+import type { Translator } from "@/i18n/translate";
 
 type ElterngeldScheduleInputProps = {
   value: string;
@@ -62,6 +64,7 @@ function ParentSection({
   schedule: ElterngeldSchedule;
   onChange: (next: ElterngeldSchedule) => void;
 }) {
+  const t = useT();
   const parentSchedule = getParentSchedule(schedule, parent);
   const customMode = !parentSchedule.standardMonths1to12;
 
@@ -77,10 +80,17 @@ function ParentSection({
     []
   );
 
+  const benefitLabel = (benefit: BenefitSelection) =>
+    benefit === "basis"
+      ? t("questionnaire.elterngeld.basisBenefit")
+      : t("questionnaire.elterngeld.plusBenefit");
+
   return (
     <div className="flex flex-col gap-4 rounded-xl border bg-card/50 p-4">
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold">Elternteil {parent}</h3>
+        <h3 className="text-sm font-semibold">
+          {t("questionnaire.elterngeld.parent", { parent })}
+        </h3>
         <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-dashed p-3 hover:bg-muted/40">
           <input
             type="checkbox"
@@ -91,7 +101,7 @@ function ParentSection({
             }
           />
           <span className="text-sm leading-snug">
-            Ich beantrage (Basis-)Elterngeld für den 1.–12. Lebensmonat
+            {t("questionnaire.elterngeld.standardMonths")}
           </span>
         </label>
       </div>
@@ -99,8 +109,7 @@ function ParentSection({
       {customMode && (
         <div className="flex flex-col gap-3">
           <p className="text-xs text-muted-foreground">
-            Oder abweichend: pro Monat entweder Basis-Elterngeld oder
-            Elterngeld Plus wählen (nicht beides).
+            {t("questionnaire.elterngeld.customHint")}
           </p>
 
           <div className="overflow-x-auto pb-1">
@@ -124,7 +133,7 @@ function ParentSection({
 
               <div className="grid grid-cols-[5.5rem_repeat(32,minmax(1.75rem,2rem))] items-center gap-0.5">
                 <Label className="pr-2 text-[10px] leading-tight sm:text-xs">
-                  (Basis-) Elterngeld
+                  {t("questionnaire.elterngeld.basisLabel")}
                 </Label>
                 {months.map((month) => {
                   const disabled = month > BASIS_MONTHS_MAX;
@@ -133,7 +142,11 @@ function ParentSection({
                       key={`basis-${month}`}
                       disabled={disabled}
                       active={isMonthActive(parentSchedule, month, "basis")}
-                      label={`Elternteil ${parent}, Monat ${month}, Basis-Elterngeld`}
+                      label={t("questionnaire.elterngeld.monthAria", {
+                        parent,
+                        month,
+                        benefit: benefitLabel("basis"),
+                      })}
                       onClick={() => toggleMonth(month, "basis")}
                     />
                   );
@@ -142,13 +155,17 @@ function ParentSection({
 
               <div className="mt-1 grid grid-cols-[5.5rem_repeat(32,minmax(1.75rem,2rem))] items-center gap-0.5">
                 <Label className="pr-2 text-[10px] leading-tight sm:text-xs">
-                  Elterngeld Plus
+                  {t("questionnaire.elterngeld.plusLabel")}
                 </Label>
                 {months.map((month) => (
                   <MonthCell
                     key={`plus-${month}`}
                     active={isMonthActive(parentSchedule, month, "plus")}
-                    label={`Elternteil ${parent}, Monat ${month}, Elterngeld Plus`}
+                    label={t("questionnaire.elterngeld.monthAria", {
+                      parent,
+                      month,
+                      benefit: benefitLabel("plus"),
+                    })}
                     onClick={() => toggleMonth(month, "plus")}
                   />
                 ))}
@@ -157,8 +174,7 @@ function ParentSection({
           </div>
 
           <p className="text-[11px] leading-relaxed text-muted-foreground">
-            Monate 15–18 nur bei Frühgeburten. Ab Monat 19 nur Elterngeld Plus
-            (ohne Lücken). Ein Monat Basis entspricht zwei Monaten Plus.
+            {t("questionnaire.elterngeld.prematureHint")}
           </p>
         </div>
       )}
@@ -166,12 +182,30 @@ function ParentSection({
   );
 }
 
+function localizedElterngeldErrors(
+  schedule: ElterngeldSchedule,
+  t: Translator
+): string[] {
+  return getElterngeldScheduleErrors(schedule).map((error) => {
+    if (error.code === "minMonths") {
+      return t("questionnaire.elterngeld.errors.minMonths", {
+        parent: error.parent,
+      });
+    }
+    return t("questionnaire.elterngeld.errors.required");
+  });
+}
+
 export function ElterngeldScheduleInput({
   value,
   onChange,
 }: ElterngeldScheduleInputProps) {
+  const t = useT();
   const schedule = useMemo(() => parseElterngeldSchedule(value), [value]);
-  const errors = useMemo(() => validateElterngeldSchedule(schedule), [schedule]);
+  const errors = useMemo(
+    () => localizedElterngeldErrors(schedule, t),
+    [schedule, t]
+  );
 
   const update = (next: ElterngeldSchedule) => {
     onChange(serializeElterngeldSchedule(next));
@@ -196,7 +230,7 @@ export function ElterngeldScheduleInput({
 
       <div className="flex justify-end">
         <Button type="button" variant="ghost" size="sm" onClick={clearAll}>
-          Auswahl zurücksetzen
+          {t("questionnaire.elterngeld.reset")}
         </Button>
       </div>
     </div>

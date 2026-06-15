@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useT } from "@/i18n/client";
 import { UserRound } from "lucide-react";
 
 type SelfFillButtonProps = {
@@ -9,6 +10,8 @@ type SelfFillButtonProps = {
 };
 
 export function SelfFillButton({ disabled, onClick }: SelfFillButtonProps) {
+  const t = useT();
+
   return (
     <Button
       type="button"
@@ -19,7 +22,7 @@ export function SelfFillButton({ disabled, onClick }: SelfFillButtonProps) {
       onClick={onClick}
     >
       <UserRound className="size-3.5" />
-      Das bin ich
+      {t("questionnaire.selfFill")}
     </Button>
   );
 }

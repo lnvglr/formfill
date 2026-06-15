@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/client";
 import { cn } from "@/lib/utils";
 
 type QuestionnaireStepIndicatorProps = {
@@ -19,15 +20,21 @@ export function QuestionnaireStepIndicator({
   answeredCount,
   formTitle,
 }: QuestionnaireStepIndicatorProps) {
+  const t = useT();
+
   return (
     <div className="space-y-3">
       <div className="flex flex-col gap-1 text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:gap-3">
         <span className="font-mono tracking-wide">
-          Schritt {currentIndex + 1} von {totalSteps}
+          {t("questionnaire.progress.step", {
+            current: currentIndex + 1,
+            total: totalSteps,
+          })}
         </span>
         <span>
-          {requiredCount} Pflicht
-          {optionalCount > 0 && ` · ${optionalCount} optional`}
+          {t("questionnaire.progress.required", { count: requiredCount })}
+          {optionalCount > 0 &&
+            ` · ${optionalCount} ${t("questionnaire.progress.optional")}`}
         </span>
       </div>
 
@@ -48,12 +55,12 @@ export function QuestionnaireStepIndicator({
       <div className="flex flex-wrap items-center justify-between gap-2 text-[11px]">
         {formTitle && (
           <p className="min-w-0 truncate text-muted-foreground">
-            <span className="font-mono">Formular:</span>{" "}
+            <span className="font-mono">{t("questionnaire.progress.formLabel")}</span>{" "}
             <span className="text-foreground">{formTitle}</span>
           </p>
         )}
         <p className="font-mono text-muted-foreground">
-          {answeredCount} beantwortet
+          {t("questionnaire.progress.answered", { count: answeredCount })}
         </p>
       </div>
     </div>

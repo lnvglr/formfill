@@ -3,6 +3,7 @@
 import { MaskedInput } from "@/components/masked-input";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useT } from "@/i18n/client";
 import {
   getAddressKeyPrefix,
   getAddressPartKeys,
@@ -25,6 +26,7 @@ export function AddressFieldInput({
   onChange,
   onLastFieldKeyDown,
 }: AddressFieldInputProps) {
+  const t = useT();
   const prefix = getAddressKeyPrefix(fieldKey);
   const keys = getAddressPartKeys(prefix);
   const plzMaskConfig = getFieldMaskConfig(keys.postleitzahl, "number");
@@ -40,14 +42,14 @@ export function AddressFieldInput({
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1.5">
         <Label htmlFor={keys.strasse} className="text-xs text-muted-foreground">
-          Straße und Hausnummer
+          {t("fields.labels.strasse")}
         </Label>
         <Input
           id={keys.strasse}
           autoFocus
           value={values[keys.strasse] ?? ""}
           onChange={(e) => onChange(keys.strasse, e.target.value)}
-          placeholder="Musterstraße 12a"
+          placeholder={t("fields.placeholders.strasse")}
           className={inputClass}
           {...getAutocompleteProps(keys.strasse, "text")}
         />
@@ -59,14 +61,14 @@ export function AddressFieldInput({
             htmlFor={keys.postleitzahl}
             className="text-xs text-muted-foreground"
           >
-            PLZ
+            {t("fields.labels.postleitzahl")}
           </Label>
           {plzMaskOptions ? (
             <MaskedInput
               id={keys.postleitzahl}
               value={plzValue}
               onMaskedChange={(value) => onChange(keys.postleitzahl, value)}
-              placeholder="10115"
+              placeholder={t("fields.placeholders.postleitzahl")}
               className={inputClass}
               inputMode="numeric"
               aria-invalid={plzInvalid || undefined}
@@ -78,7 +80,7 @@ export function AddressFieldInput({
               id={keys.postleitzahl}
               value={plzValue}
               onChange={(e) => onChange(keys.postleitzahl, e.target.value)}
-              placeholder="10115"
+              placeholder={t("fields.placeholders.postleitzahl")}
               className={inputClass}
               inputMode="numeric"
               {...getAutocompleteProps(keys.postleitzahl, "number")}
@@ -87,14 +89,14 @@ export function AddressFieldInput({
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor={keys.ort} className="text-xs text-muted-foreground">
-            Ort
+            {t("fields.labels.ort")}
           </Label>
           <Input
             id={keys.ort}
             value={values[keys.ort] ?? ""}
             onChange={(e) => onChange(keys.ort, e.target.value)}
             onKeyDown={onLastFieldKeyDown}
-            placeholder="Berlin"
+            placeholder={t("fields.placeholders.ort")}
             className={inputClass}
             {...getAutocompleteProps(keys.ort, "text")}
           />

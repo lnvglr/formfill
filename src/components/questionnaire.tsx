@@ -10,28 +10,46 @@ import { Label } from "@/components/ui/label";
 import { RepeatableFieldGroupInput } from "@/components/repeatable-field-group-input";
 import {
   buildQuestionnaireSteps,
-  formatFieldLabel,
   getStepAnswerKeys,
   getStepPdfFields,
   isStepAnswered,
   type QuestionnaireStep,
 } from "@/lib/questionnaire-steps";
+import { getLocalizedFieldDisplayLabel } from "@/lib/field-i18n";
+import { localizeQuestionnaireStep } from "@/lib/questionnaire-i18n";
 import { countRepeatInstancesFromAnswers } from "@/lib/repeatable-fields";
 import type { MissingField, RepeatableGroup } from "@/lib/types";
 import { QuestionInfoButton } from "@/components/question-info-button";
 import { QuestionnaireStepIndicator } from "@/components/questionnaire-step-indicator";
 import { SignaturePad } from "@/components/signature-pad";
-import { normalizeProfileKey } from "@/lib/field-keys";
+import { ProfileValuePicker } from "@/components/profile-value-picker";
+import { SelfFillButton } from "@/components/self-fill-button";
+import { useT } from "@/i18n/client";
 import { getAddressKeyPrefix } from "@/lib/field-autocomplete";
-import { resolveSignatureLocation } from "@/lib/signature-defaults";
+import { normalizeProfileKey } from "@/lib/field-keys";
 import {
   buildSelfFillForStep,
   hasSelfFillData,
   isSelfFillableQuestionnaireStep,
 } from "@/lib/profile-self-fill";
-import { SelfFillButton } from "@/components/self-fill-button";
+import {
+  getAddressValuesForSelection,
+  getMultiValueFamily,
+  listAddressOptions,
+  listEmailOptions,
+  listPhoneOptions,
+  resolveEmailValue,
+  resolvePhoneValue,
+  type ProfileMultiStore,
+} from "@/lib/profile-multi";
+import {
+  mergeProfileSelections,
+  readProfileSelections,
+  type ProfileSelections,
+} from "@/lib/profile-selections";
+import { resolveSignatureLocation } from "@/lib/signature-defaults";
 import type { ProfileData } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, iconDirectional } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type QuestionnaireProps = {
@@ -39,6 +57,7 @@ type QuestionnaireProps = {
   repeatableGroups?: RepeatableGroup[];
   formTitle?: string;
   profile?: ProfileData;
+  profileMulti?: ProfileMultiStore;
   initialAnswers?: Record<string, string>;
   locationFallback?: string;
   savedSignature?: string;
@@ -59,6 +78,7 @@ export function Questionnaire({
   repeatableGroups = [],
   formTitle,
   profile = {},
+  profileMulti,
   initialAnswers = {},
   locationFallback,
   savedSignature,
@@ -68,6 +88,7 @@ export function Questionnaire({
   onAnswersChange,
   onStepChange,
 }: QuestionnaireProps) {
+  const t = useT();
   const steps = useMemo(
     () => buildQuestionnaireSteps(questions, repeatableGroups),
     [questions, repeatableGroups]
@@ -86,6 +107,9 @@ export function Questionnaire({
   const [answers, setAnswers] = useState<Record<string, string>>(initialAnswers);
   const [signature, setSignature] = useState<string | null>(
     savedSignature ?? null
+  );
+  const [profileSelections, setProfileSelections] = useState<ProfileSelections>(
+    () => readProfileSelections()
   );
   const [direction, setDirection] = useState<"forward" | "back">("forward");
   const skipAnswersChangeRef = useRef(false);
@@ -175,6 +199,152 @@ export function Questionnaire({
     });
   }, [needsSignatureOrt, locationFallback]);
 
+  const applyProfileSelection = (
+    updates: ProfileSelections,
+    answerUpdates: Record<string, string>
+  ) => {
+    mergeProfileSelections(updates);
+    setProfileSelections((prev) => ({ ...prev, ...updates }));
+    if (Object.keys(answerUpdates).length > 0) {
+      setAnswers((prev) => ({ ...prev, ...answerUpdates }));
+    }
+  };
+
+  useEffect(() => {
+    if (!current || isSignatureStep || !profileMulti) return;
+
+    if (current.layout === "address" && current.addressKey) {
+      const options = listAddressOptions(profileMulti);
+      if (options.length <= 1) return;
+
+      const prefix = getAddressKeyPrefix(current.addressKey);
+      const selectedId =
+        profileSelections.addressId ?? profileMulti.defaults?.addressId;
+      const hasAny = ["strasse", "postleitzahl", "ort"].some((part) =>
+        answers[`${prefix}${part}`]?.trim()
+      );
+      if (hasAny) return;
+
+      applyProfileSelection(
+        { addressId: selectedId },
+        getAddressValuesForSelection(profileMulti, selectedId, prefix)
+      );
+      return;
+    }
+
+    const updates: Record<string, string> = {};
+    const selectionUpdates: ProfileSelections = {};
+
+    for (const field of current.fields) {
+      const family = getMultiValueFamily(field.key);
+      if (!family || family === "address") continue;
+      if (answers[field.key]?.trim()) continue;
+
+      if (family === "email") {
+        const options = listEmailOptions(profileMulti);
+        if (options.length <= 1) continue;
+        const selectedId =
+          profileSelections.emailId ?? profileMulti.defaults?.emailId;
+        const value = resolveEmailValue(profileMulti, selectedId);
+        if (value) updates[field.key] = value;
+        if (selectedId) selectionUpdates.emailId = selectedId;
+      }
+
+      if (family === "phone") {
+        const options = listPhoneOptions(profileMulti);
+        if (options.length <= 1) continue;
+        const selectedId =
+          profileSelections.phoneId ?? profileMulti.defaults?.phoneId;
+        const value = resolvePhoneValue(profileMulti, selectedId);
+        if (value) updates[field.key] = value;
+        if (selectedId) selectionUpdates.phoneId = selectedId;
+      }
+    }
+
+    if (Object.keys(updates).length > 0) {
+      applyProfileSelection(selectionUpdates, updates);
+    }
+  }, [index, current?.id, isSignatureStep, profileMulti]);
+
+  const renderProfilePickers = (step: QuestionnaireStep) => {
+    if (!profileMulti) return null;
+
+    if (step.layout === "address" && step.addressKey) {
+      const options = listAddressOptions(profileMulti);
+      if (options.length <= 1) return null;
+      const prefix = getAddressKeyPrefix(step.addressKey);
+      const selectedId =
+        profileSelections.addressId ?? profileMulti.defaults?.addressId;
+
+      return (
+        <ProfileValuePicker
+          label={t("questionnaire.picker.address")}
+          options={options}
+          selectedId={selectedId}
+          onSelect={(id) =>
+            applyProfileSelection(
+              { addressId: id },
+              getAddressValuesForSelection(profileMulti, id, prefix)
+            )
+          }
+        />
+      );
+    }
+
+    if (step.layout !== "fields" && step.layout !== "single") return null;
+
+    return (
+      <div className="flex flex-col gap-3">
+        {step.fields.map((field) => {
+          const family = getMultiValueFamily(field.key);
+          if (family === "email") {
+            const options = listEmailOptions(profileMulti);
+            if (options.length <= 1) return null;
+            const selectedId =
+              profileSelections.emailId ?? profileMulti.defaults?.emailId;
+            return (
+              <ProfileValuePicker
+                key={field.key}
+                label={t("questionnaire.picker.email")}
+                options={options}
+                selectedId={selectedId}
+                onSelect={(id) =>
+                  applyProfileSelection(
+                    { emailId: id },
+                    { [field.key]: resolveEmailValue(profileMulti, id) ?? "" }
+                  )
+                }
+              />
+            );
+          }
+
+          if (family === "phone") {
+            const options = listPhoneOptions(profileMulti);
+            if (options.length <= 1) return null;
+            const selectedId =
+              profileSelections.phoneId ?? profileMulti.defaults?.phoneId;
+            return (
+              <ProfileValuePicker
+                key={field.key}
+                label={t("questionnaire.picker.phone")}
+                options={options}
+                selectedId={selectedId}
+                onSelect={(id) =>
+                  applyProfileSelection(
+                    { phoneId: id },
+                    { [field.key]: resolvePhoneValue(profileMulti, id) ?? "" }
+                  )
+                }
+              />
+            );
+          }
+
+          return null;
+        })}
+      </div>
+    );
+  };
+
   const currentFieldKeys = useMemo(() => {
     if (isSignatureStep) return [];
     if (!current) return [];
@@ -243,20 +413,22 @@ export function Questionnaire({
     ? true
     : current?.required !== false;
 
+  const localizedStep = current ? localizeQuestionnaireStep(current, t) : null;
+
   const stepHint = (() => {
     if (isSignatureStep) return null;
     if (!current) return null;
     const suffix = isCurrentRequired
-      ? "Pflichtfeld für diesen Antrag"
-      : "Optional — leer lassen zum Überspringen";
+      ? t("questionnaire.hint.required")
+      : t("questionnaire.hint.optional");
     const hasTextarea = current.fields.some((f) => f.type === "textarea");
     if (hasTextarea) {
-      return `Umschalt+Enter zum Weiter · ${suffix}`;
+      return t("questionnaire.hint.shiftEnter", { suffix });
     }
     if (current.layout === "address") {
-      return `Enter im Ort-Feld zum Weiter · ${suffix}`;
+      return t("questionnaire.hint.cityEnter", { suffix });
     }
-    return `Enter zum Weiter · ${suffix}`;
+    return t("questionnaire.hint.enter", { suffix });
   })();
 
   const renderFields = (step: QuestionnaireStep) => {
@@ -311,7 +483,7 @@ export function Questionnaire({
           {step.fields.map((field, fieldIndex) => (
             <div key={field.key} className="flex flex-col gap-1.5">
               <Label className="text-xs text-muted-foreground">
-                {formatFieldLabel(field)}
+                {getLocalizedFieldDisplayLabel(field.key, t)}
               </Label>
               <FieldInput
                 fieldKey={field.key}
@@ -354,7 +526,12 @@ export function Questionnaire({
 
   const applySelfFill = () => {
     if (!current || isSignatureStep) return;
-    const fills = buildSelfFillForStep(current, profile);
+    const fills = buildSelfFillForStep(
+      current,
+      profile,
+      profileMulti,
+      profileSelections.addressId ?? profileMulti?.defaults?.addressId
+    );
     if (Object.keys(fills).length === 0) return;
     setAnswers((prev) => ({ ...prev, ...fills }));
   };
@@ -400,22 +577,21 @@ export function Questionnaire({
                 variant="outline"
                 className="rounded-sm border-primary/40 bg-primary/5 text-[10px] text-primary"
               >
-                Pflichtfeld
+                {t("questionnaire.badge.required")}
               </Badge>
             </div>
             <div className="flex items-start justify-between gap-3">
               <div className="space-y-2">
                 <h3 className="text-xl leading-snug font-medium tracking-tight md:text-2xl">
-                  Unterschrift hinzufügen
+                  {t("questionnaire.signature.title")}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Zeichne deine Unterschrift oder lade ein Bild hoch — sie wird
-                  ins PDF eingefügt.
+                  {t("questionnaire.signature.subtitle")}
                 </p>
               </div>
               <QuestionInfoButton
-                title="Unterschrift"
-                info="Deine Unterschrift wird direkt in das PDF eingefügt und in deinem Profil gespeichert. Du kannst sie zeichnen oder als Bild hochladen. Beim nächsten Antrag kannst du sie wiederverwenden."
+                title={t("questionnaire.signature.infoTitle")}
+                info={t("questionnaire.signature.info")}
               />
             </div>
             <SignaturePad
@@ -433,14 +609,14 @@ export function Questionnaire({
                   variant="outline"
                   className="rounded-sm border-primary/40 bg-primary/5 text-[10px] text-primary"
                 >
-                  Pflichtfeld
+                  {t("questionnaire.badge.required")}
                 </Badge>
               ) : (
                 <Badge
                   variant="outline"
                   className="rounded-sm text-[10px] text-muted-foreground"
                 >
-                  Optional
+                  {t("questionnaire.badge.optional")}
                 </Badge>
               )}
               {current.reason === "stale" && (
@@ -448,7 +624,7 @@ export function Questionnaire({
                   variant="outline"
                   className="rounded-sm border-amber-500/50 bg-amber-500/10 text-[10px] text-amber-600 dark:text-amber-500"
                 >
-                  Veraltet?
+                  {t("questionnaire.badge.stale")}
                 </Badge>
               )}
             </div>
@@ -456,17 +632,17 @@ export function Questionnaire({
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 space-y-2">
                 <h3 className="text-xl leading-snug font-medium tracking-tight md:text-2xl">
-                  {current.question}
+                  {localizedStep?.question}
                 </h3>
-                {current.subquestion && (
+                {localizedStep?.subquestion && (
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    {current.subquestion}
+                    {localizedStep.subquestion}
                   </p>
                 )}
               </div>
               {current.info && (
                 <QuestionInfoButton
-                  title={current.question}
+                  title={localizedStep?.question ?? current.question}
                   info={current.info}
                 />
               )}
@@ -475,6 +651,8 @@ export function Questionnaire({
             {showSelfFill && (
               <SelfFillButton disabled={!canSelfFill} onClick={applySelfFill} />
             )}
+
+            {current && renderProfilePickers(current)}
 
             {renderFields(current)}
 
@@ -493,8 +671,8 @@ export function Questionnaire({
           disabled={index === 0}
           className="w-full text-muted-foreground sm:w-auto"
         >
-          <ArrowLeft className="size-4" />
-          Zurück
+          <ArrowLeft className={iconDirectional("size-4")} />
+          {t("common.back")}
         </Button>
 
         <div className="flex flex-col gap-2 sm:flex-row">
@@ -505,25 +683,27 @@ export function Questionnaire({
               onClick={onSkipAll}
               className="w-full sm:w-auto"
             >
-              Alle überspringen
+              {t("questionnaire.skipAll")}
             </Button>
           )}
           <Button size="sm" onClick={goNext} className="w-full sm:w-auto">
             {isLast ? (
               showSignatureStep ? (
                 <>
-                  <span className="sm:hidden">PDF erstellen</span>
+                  <span className="sm:hidden">
+                    {t("questionnaire.submit.createPdf")}
+                  </span>
                   <span className="hidden sm:inline">
-                    PDF erstellen & herunterladen
+                    {t("questionnaire.submit.createAndDownload")}
                   </span>
                 </>
               ) : (
-                "PDF aktualisieren"
+                t("questionnaire.submit.updatePdf")
               )
             ) : (
-              "Weiter"
+              t("questionnaire.next")
             )}
-            {!isLast && <ArrowRight className="size-4" />}
+            {!isLast && <ArrowRight className={iconDirectional("size-4")} />}
           </Button>
         </div>
       </div>

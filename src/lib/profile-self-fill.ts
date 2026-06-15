@@ -1,6 +1,11 @@
 import { getAddressKeyPrefix } from "@/lib/field-autocomplete";
 import { getStreetLineFromProfile, normalizeProfileKey } from "@/lib/field-keys";
 import {
+  getAddressValuesForSelection,
+  resolveMultiProfileValue,
+  type ProfileMultiStore,
+} from "@/lib/profile-multi";
+import {
   buildRepeatableFieldKey,
   parseRepeatableFieldKey,
 } from "@/lib/repeatable-fields";
@@ -62,8 +67,15 @@ function applicantFieldKey(fieldKey: string): string {
 
 export function resolveApplicantProfileValue(
   profile: ProfileData,
-  fieldKey: string
+  fieldKey: string,
+  multi?: ProfileMultiStore,
+  selectedId?: string
 ): string | null {
+  const fromMulti = multi
+    ? resolveMultiProfileValue(profile, multi, fieldKey, selectedId)
+    : null;
+  if (fromMulti) return fromMulti;
+
   const canonical = applicantFieldKey(fieldKey);
 
   if (canonical === "strasse") {
@@ -109,12 +121,22 @@ export function buildSelfFillForRepeatableInstance(
 
 export function buildSelfFillForStep(
   step: QuestionnaireStep,
-  profile: ProfileData
+  profile: ProfileData,
+  multi?: ProfileMultiStore,
+  selectedAddressId?: string
 ): Record<string, string> {
   if (step.layout === "address" && step.addressKey) {
     if (!isSelfFillablePersonField(step.addressKey)) return {};
 
     const targetPrefix = getAddressKeyPrefix(step.addressKey);
+    if (multi) {
+      return getAddressValuesForSelection(
+        multi,
+        selectedAddressId ?? multi.defaults?.addressId,
+        targetPrefix
+      );
+    }
+
     const result: Record<string, string> = {};
     const street = getStreetLineFromProfile(profile, "");
     if (street) result[`${targetPrefix}strasse`] = street;

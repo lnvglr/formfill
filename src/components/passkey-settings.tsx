@@ -8,24 +8,30 @@ import {
   isPasskeyUserCancelled,
   passkeyErrorMessage,
 } from "@/lib/auth/passkey";
+import { useI18n } from "@/i18n/client";
+import { localeToBcp47 } from "@/i18n/config";
 import type { PasskeyListItem } from "@supabase/supabase-js";
 import { Fingerprint, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-function formatPasskeyDate(value?: string | null): string {
-  if (!value) return "—";
-  return new Date(value).toLocaleDateString("de-DE", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-}
-
 export function PasskeySettings() {
+  const { t, locale } = useI18n();
   const [passkeys, setPasskeys] = useState<PasskeyListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionId, setActionId] = useState<string | null>(null);
   const [supported, setSupported] = useState(false);
+
+  const formatPasskeyDate = useCallback(
+    (value?: string | null): string => {
+      if (!value) return "—";
+      return new Date(value).toLocaleDateString(localeToBcp47[locale], {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+    },
+    [locale]
+  );
 
   const loadPasskeys = useCallback(async () => {
     const supabase = createClient();
@@ -60,7 +66,7 @@ export function PasskeySettings() {
       return;
     }
 
-    toast.success("Passkey hinzugefügt");
+    toast.success(t("passkeys.added"));
     await loadPasskeys();
   };
 
@@ -75,15 +81,13 @@ export function PasskeySettings() {
       return;
     }
 
-    toast.success("Passkey entfernt");
+    toast.success(t("passkeys.removed"));
     await loadPasskeys();
   };
 
   if (!supported) {
     return (
-      <p className="text-xs text-muted-foreground">
-        Passkeys werden in diesem Browser nicht unterstützt.
-      </p>
+      <p className="text-xs text-muted-foreground">{t("passkeys.unsupported")}</p>
     );
   }
 
@@ -91,7 +95,7 @@ export function PasskeySettings() {
     return (
       <div className="flex items-center gap-2 text-xs text-muted-foreground">
         <Loader2 className="size-3.5 animate-spin" />
-        Passkeys werden geladen…
+        {t("passkeys.loading")}
       </div>
     );
   }
@@ -99,10 +103,7 @@ export function PasskeySettings() {
   return (
     <div className="flex flex-col gap-3">
       {passkeys.length === 0 ? (
-        <p className="text-xs text-muted-foreground">
-          Noch kein Passkey eingerichtet. Füge einen hinzu, um dich schneller
-          anzumelden.
-        </p>
+        <p className="text-xs text-muted-foreground">{t("passkeys.empty")}</p>
       ) : (
         <ul className="flex flex-col gap-2">
           {passkeys.map((passkey) => (
@@ -112,12 +113,19 @@ export function PasskeySettings() {
             >
               <div className="min-w-0">
                 <p className="truncate text-sm">
-                  {passkey.friendly_name ?? "Passkey"}
+                  {passkey.friendly_name ?? t("passkeys.defaultName")}
                 </p>
                 <p className="text-[11px] text-muted-foreground">
-                  Erstellt {formatPasskeyDate(passkey.created_at)}
+                  {t("passkeys.created", {
+                    date: formatPasskeyDate(passkey.created_at),
+                  })}
                   {passkey.last_used_at && (
-                    <> · zuletzt {formatPasskeyDate(passkey.last_used_at)}</>
+                    <>
+                      {" "}
+                      {t("passkeys.lastUsed", {
+                        date: formatPasskeyDate(passkey.last_used_at),
+                      })}
+                    </>
                   )}
                 </p>
               </div>
@@ -127,7 +135,7 @@ export function PasskeySettings() {
                 size="icon-sm"
                 disabled={actionId !== null}
                 onClick={() => removePasskey(passkey.id)}
-                aria-label="Passkey entfernen"
+                aria-label={t("passkeys.removeAria")}
               >
                 {actionId === passkey.id ? (
                   <Loader2 className="size-3.5 animate-spin" />
@@ -153,7 +161,7 @@ export function PasskeySettings() {
         ) : (
           <Fingerprint className="size-3.5" />
         )}
-        Passkey hinzufügen
+        {t("passkeys.add")}
       </Button>
     </div>
   );

@@ -5,18 +5,18 @@ import { FieldCombobox } from "@/components/field-combobox";
 import { MaskedInput } from "@/components/masked-input";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useT } from "@/i18n/client";
 import { getAutocompleteProps } from "@/lib/field-autocomplete";
-import { normalizeProfileKey } from "@/lib/field-keys";
+import {
+  getLocalizedFieldHint,
+  getLocalizedFieldPlaceholder,
+} from "@/lib/field-i18n";
 import {
   getFieldMaskConfig,
   isPartialMaskedValue,
   normalizeDateForDisplay,
 } from "@/lib/field-masks";
 import { getFieldOptions } from "@/lib/field-options";
-import {
-  getFieldHint,
-  getFieldPlaceholder,
-} from "@/lib/field-types";
 import type { FieldType } from "@/lib/types";
 
 type FieldInputProps = {
@@ -30,20 +30,6 @@ type FieldInputProps = {
   autoFocus?: boolean;
 };
 
-function placeholderFor(fieldKey: string, type: FieldType): string {
-  const canonical = normalizeProfileKey(fieldKey);
-  switch (canonical) {
-    case "strasse":
-      return "Musterstraße 12a";
-    case "postleitzahl":
-      return "10115";
-    case "ort":
-      return "Berlin";
-    default:
-      return getFieldPlaceholder(type);
-  }
-}
-
 export function FieldInput({
   fieldKey,
   type,
@@ -54,8 +40,9 @@ export function FieldInput({
   showHint = true,
   autoFocus = true,
 }: FieldInputProps) {
-  const placeholder = placeholderFor(fieldKey, type);
-  const hint = getFieldHint(type);
+  const t = useT();
+  const placeholder = getLocalizedFieldPlaceholder(fieldKey, type, t);
+  const hint = getLocalizedFieldHint(type, t);
   const autocomplete = getAutocompleteProps(fieldKey, type);
   const maskConfig = getFieldMaskConfig(fieldKey, type);
   const maskOptions = maskConfig
@@ -134,7 +121,7 @@ export function FieldInput({
       {input}
       {isInvalid && (
         <p className="text-[11px] text-destructive">
-          Bitte die Angabe vollständig und korrekt ausfüllen.
+          {t("fields.validation.incomplete")}
         </p>
       )}
       {hint && showHint && !isInvalid && (

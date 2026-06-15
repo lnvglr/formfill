@@ -11,6 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useT } from "@/i18n/client";
 import { Info } from "lucide-react";
 
 type QuestionInfoButtonProps = {
@@ -19,6 +20,8 @@ type QuestionInfoButtonProps = {
 };
 
 export function QuestionInfoButton({ title, info }: QuestionInfoButtonProps) {
+  const t = useT();
+
   return (
     <AlertDialog>
       <AlertDialogTrigger
@@ -28,7 +31,7 @@ export function QuestionInfoButton({ title, info }: QuestionInfoButtonProps) {
             variant="outline"
             size="icon"
             className="size-8 shrink-0 rounded-full"
-            aria-label="Mehr Informationen"
+            aria-label={t("questionnaire.info.moreInfo")}
           >
             <Info className="size-3.5" />
           </Button>
@@ -42,7 +45,7 @@ export function QuestionInfoButton({ title, info }: QuestionInfoButtonProps) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Verstanden</AlertDialogCancel>
+          <AlertDialogCancel>{t("questionnaire.info.gotIt")}</AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

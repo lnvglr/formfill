@@ -12,19 +12,24 @@ import { SettingsPanel } from "@/components/settings-panel";
 import { MobileNav } from "@/components/mobile-nav";
 import { ViewHeader } from "@/components/view-header";
 import { VaultProvider, useVault } from "@/components/vault-provider";
-import { APP_VIEWS, type AppView } from "@/lib/app-views";
+import { APP_VIEW_KEYS, type AppView } from "@/lib/app-views";
 import type { BillingStatus } from "@/lib/db/billing";
 import { guestBillingStatus } from "@/lib/session";
 import type { HistoryItem } from "@/lib/types";
+import { useT } from "@/i18n/client";
+import { useLocalizedPath } from "@/i18n/navigation-client";
 import { Loader2 } from "lucide-react";
 
 function FormfillAppContent() {
   const {
     profile,
+    profileMulti,
     profileFields,
     saveProfile,
     clearVault,
   } = useVault();
+  const t = useT();
+  const localizedPath = useLocalizedPath();
 
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [view, setView] = useState<AppView>("upload");
@@ -52,9 +57,7 @@ function FormfillAppContent() {
   const loadSession = useCallback(async () => {
     const session = await ensureClientAuthSession();
     if (!session) {
-      setAuthError(
-        "Gastsitzung konnte nicht gestartet werden. Bitte anonyme Anmeldung in Supabase aktivieren."
-      );
+      setAuthError(t("app.auth.error.guestSession"));
       setIsReady(true);
       return false;
     }
@@ -72,7 +75,7 @@ function FormfillAppContent() {
 
     const meRes = await fetch("/api/me");
     if (!meRes.ok) {
-      setAuthError("Sitzung konnte nicht geladen werden.");
+      setAuthError(t("app.auth.error.sessionLoad"));
       setIsReady(true);
       return false;
     }
@@ -89,7 +92,7 @@ function FormfillAppContent() {
 
     setIsReady(true);
     return true;
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     void loadSession();
@@ -162,11 +165,11 @@ function FormfillAppContent() {
     );
   }
 
-  const viewMeta = APP_VIEWS[view];
+  const viewMeta = APP_VIEW_KEYS[view];
 
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-background">
+      <div className="flex h-screen flex-col overflow-hidden bg-background">
         <AppHeader
           onNewApplication={startNewApplication}
           isSuperAdmin={isSuperAdmin}
@@ -174,7 +177,7 @@ function FormfillAppContent() {
           isGuest={isGuest}
           onSignIn={openAuth}
         />
-        <div className="grid flex-1 overflow-hidden lg:grid-cols-[280px_1fr]">
+        <div className="grid min-h-0 flex-1 overflow-hidden lg:grid-cols-[280px_1fr]">
           <ProfileSidebar
             profile={profile}
             fields={profileFields}
@@ -200,13 +203,16 @@ function FormfillAppContent() {
             ) : (
               <>
                 <ViewHeader
-                  title={viewMeta.title}
-                  subtitle={viewMeta.subtitle}
+                  title={t(viewMeta.title)}
+                  subtitle={
+                    viewMeta.subtitle ? t(viewMeta.subtitle) : undefined
+                  }
                   onBack={() => navigate("upload")}
                 />
                 {view === "profile" && (
                   <ProfilePanel
                     profile={profile}
+                    profileMulti={profileMulti}
                     fields={profileFields}
                     onUpdateField={updateField}
                     onDeleteField={deleteField}
@@ -233,7 +239,7 @@ function FormfillAppContent() {
         open={authDialogOpen}
         onOpenChange={setAuthDialogOpen}
         mode="guest-upgrade"
-        redirectPath="/app"
+        redirectPath={localizedPath("/app")}
         onAuthenticated={onAuthenticated}
       />
     </>

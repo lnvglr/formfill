@@ -1,10 +1,15 @@
+import { getAddressKeyPrefix } from "@/lib/field-autocomplete";
 import {
   isExcludedPdfMapping,
   normalizeProfileKey,
   profileHasCanonicalField,
   getStreetLineFromProfile,
 } from "@/lib/field-keys";
-import { getAddressKeyPrefix } from "@/lib/field-autocomplete";
+import {
+  resolveMultiProfileValue,
+  type ProfileMultiStore,
+} from "@/lib/profile-multi";
+import type { ProfileSelections } from "@/lib/profile-selections";
 import { formatProfileValue } from "@/lib/field-types";
 import {
   expandScheduleToPdfMappings,
@@ -66,8 +71,18 @@ function formatAddressFromProfile(
 
 function resolveProfileValue(
   profile: ProfileData,
-  profileKey: string
+  profileKey: string,
+  multi?: ProfileMultiStore,
+  selections?: ProfileSelections
 ): string | null {
+  const familySelection =
+    multi && getMultiValueFamilySelection(profileKey, selections);
+
+  const fromMulti = multi
+    ? resolveMultiProfileValue(profile, multi, profileKey, familySelection)
+    : null;
+  if (fromMulti) return fromMulti;
+
   const direct = profile[profileKey]?.trim();
   if (direct) return direct;
 
@@ -88,6 +103,24 @@ function resolveProfileValue(
   return match?.[1]?.trim() ?? null;
 }
 
+function getMultiValueFamilySelection(
+  profileKey: string,
+  selections?: ProfileSelections
+): string | undefined {
+  if (!selections) return undefined;
+  const canonical = normalizeProfileKey(profileKey);
+  if (canonical === "email") return selections.emailId;
+  if (canonical === "telefon") return selections.phoneId;
+  if (
+    canonical === "strasse" ||
+    canonical === "postleitzahl" ||
+    canonical === "ort"
+  ) {
+    return selections.addressId;
+  }
+  return undefined;
+}
+
 function formatValueForPdf(profileKey: string, value: string): string {
   const canonical = normalizeProfileKey(profileKey);
   if (/datum/.test(canonical)) {
@@ -100,11 +133,21 @@ export async function fillFormLocally(options: {
   pdfBase64: string;
   pdfText: string;
   profile: ProfileData;
+  profileMulti?: ProfileMultiStore;
+  profileSelections?: ProfileSelections;
   signature?: string | null;
   fileName?: string;
   cachedMapping?: PdfStructureMapping;
 }): Promise<FillResponse> {
-  const { pdfBase64, profile, signature, fileName, cachedMapping } = options;
+  const {
+    pdfBase64,
+    profile,
+    profileMulti,
+    profileSelections,
+    signature,
+    fileName,
+    cachedMapping,
+  } = options;
   const pdfBytes = base64ToUint8Array(pdfBase64);
   const pdfFieldNames = await extractPdfFormFieldNames(pdfBytes);
 
@@ -127,7 +170,12 @@ export async function fillFormLocally(options: {
       continue;
     }
 
-    const rawValue = resolveProfileValue(profile, item.profile_key);
+    const rawValue = resolveProfileValue(
+      profile,
+      item.profile_key,
+      profileMulti,
+      profileSelections
+    );
     if (!rawValue) {
       if (!profileHasCanonicalField(profile, item.profile_key)) {
         missing.push(item.label);

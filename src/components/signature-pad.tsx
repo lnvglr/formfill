@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useT } from "@/i18n/client";
 import {
   fitDimensionsInBox,
   normalizeSignatureDataUrl,
@@ -24,6 +25,7 @@ export function SignaturePad({
   className,
   showProfileHint = true,
 }: SignaturePadProps) {
+  const t = useT();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const drawing = useRef(false);
@@ -142,7 +144,9 @@ export function SignaturePad({
       setIsEmpty(false);
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Upload fehlgeschlagen"
+        error instanceof Error
+          ? error.message
+          : t("questionnaire.signature.uploadFailed")
       );
     } finally {
       setIsUploading(false);
@@ -162,14 +166,14 @@ export function SignaturePad({
         />
         {isEmpty && !value && (
           <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-muted-foreground">
-            Hier unterschreiben oder Bild hochladen
+            {t("questionnaire.signature.drawOrUpload")}
           </p>
         )}
       </div>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         {showProfileHint ? (
           <p className="text-[11px] text-muted-foreground">
-            Wird in deinem Profil gespeichert und wiederverwendet
+            {t("questionnaire.signature.profileHint")}
           </p>
         ) : (
           <span />
@@ -194,11 +198,11 @@ export function SignaturePad({
             ) : (
               <ImageUp className="size-3.5" />
             )}
-            Bild hochladen
+            {t("questionnaire.signature.uploadImage")}
           </Button>
           <Button type="button" variant="ghost" size="sm" onClick={clear}>
             <Eraser className="size-3.5" />
-            Löschen
+            {t("questionnaire.signature.clear")}
           </Button>
         </div>
       </div>
